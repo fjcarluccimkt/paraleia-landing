@@ -109,6 +109,37 @@
     }
     .nav-links a:hover { color: var(--text); }
 
+    /* Botón hamburguesa (solo móvil) */
+    .nav-toggle {
+      display: none; flex-direction: column; justify-content: center; gap: 5px;
+      width: 42px; height: 42px; padding: 9px; border: 0; background: none;
+      cursor: pointer; border-radius: 8px;
+    }
+    .nav-toggle span {
+      display: block; height: 2px; width: 100%; background: var(--text);
+      border-radius: 2px; transition: transform 0.25s, opacity 0.2s;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 720px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; gap: 0;
+        background: rgba(253, 252, 249, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+        max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+      }
+      .nav-links.open { max-height: 320px; }
+      .nav-links a {
+        padding: 16px 24px; font-size: 1rem;
+        border-top: 1px solid var(--line);
+      }
+    }
+
     /* ---------- Hero ---------- */
     header.hero {
       position: relative;
@@ -315,12 +346,14 @@
   <nav>
     <div class="nav-inner">
       <a class="wordmark" href="#">Paraleia</a>
-      <div class="nav-links">
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
         <a href="#musica">Música</a>
         <a href="#videos">Videos</a>
         <a href="#discografia">Discografía</a>
         <a href="#shows">Shows</a>
-        <a href="#instagram">Instagram</a>
         <a href="mailto:infoparaleia@gmail.com">Contacto</a>
       </div>
     </div>
@@ -588,6 +621,25 @@
           document.getElementById('igMore').hidden = false;
         })
         .catch(function () { /* si falla, queda la tarjeta de fallback */ });
+    })();
+
+    // Menú hamburguesa (móvil)
+    (function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var links = document.getElementById('navLinks');
+      if (!toggle || !links) return;
+      toggle.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      });
+      links.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          links.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Abrir menú');
+        });
+      });
     })();
 
     // Accesibilidad por teclado en las miniaturas de video
