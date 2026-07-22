@@ -245,14 +245,14 @@
     .video-card .vtitle {
       margin-top: 12px; font-size: 0.95rem; font-weight: 500;
     }
-    .carousel-btns { display: flex; gap: 10px; margin-top: 20px; }
-    .carousel-btns button {
-      width: 44px; height: 44px; border-radius: 999px;
-      border: 1.5px solid var(--line); background: #fff; cursor: pointer;
-      font-size: 1.1rem; color: var(--text);
-      transition: border-color 0.2s, transform 0.15s;
+    .carousel-dots { display: flex; justify-content: center; gap: 9px; margin-top: 22px; }
+    .carousel-dots button {
+      width: 9px; height: 9px; border-radius: 999px; padding: 0;
+      border: 0; background: var(--line); cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
     }
-    .carousel-btns button:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .carousel-dots button:hover { background: var(--muted); }
+    .carousel-dots button.active { background: var(--accent); transform: scale(1.35); }
 
     /* ---------- Discografía ---------- */
     .discography {
@@ -435,10 +435,7 @@
             <p class="vtitle">VIVO en Groove — Show completo</p>
           </div>
         </div>
-        <div class="carousel-btns">
-          <button type="button" aria-label="Anterior" onclick="scrollVideos(-1)">‹</button>
-          <button type="button" aria-label="Siguiente" onclick="scrollVideos(1)">›</button>
-        </div>
+        <div class="carousel-dots" id="videoDots" aria-label="Navegación de videos"></div>
       </div>
     </div>
   </section>
@@ -503,6 +500,9 @@
       </div>
       <div class="platform-icons">
         <span class="lead">Discografía completa en</span>
+        <a href="https://www.deezer.com/es/artist/9784156" target="_blank" rel="noopener" aria-label="Deezer" title="Deezer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.81 4.16h5.19v3.02h-5.19V4.16zM12.41 8.42h5.19v3.02h-5.19V8.42zm6.4 0H24v3.02h-5.19V8.42zM0 12.68h5.19v3.02H0v-3.02zm6.4 0h5.2v3.02H6.4v-3.02zm6.41 0H18v3.02h-5.19v-3.02zm6.4 0H24v3.02h-5.19v-3.02zM0 16.94h5.19v3.02H0v-3.02zm6.4 0h5.2v3.02H6.4v-3.02zm6.41 0H18v3.02h-5.19v-3.02zm6.4 0H24v3.02h-5.19v-3.02z"/></svg>
+        </a>
         <a href="https://open.spotify.com/artist/737T198kjU3hbvxpc2wnhC" target="_blank" rel="noopener" aria-label="Spotify" title="Spotify">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.1 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.32-1.32 11.4-1.02 15.9 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.18z"/></svg>
         </a>
@@ -655,13 +655,43 @@
       });
     })();
 
-    // Carrusel de videos
-    function scrollVideos(dir) {
+    // Carrusel de videos: puntos indicadores
+    (function () {
       var track = document.getElementById('videoTrack');
-      var card = track.querySelector('.video-card');
-      var step = card ? card.offsetWidth + 18 : track.offsetWidth * 0.9;
-      track.scrollBy({ left: dir * step, behavior: 'smooth' });
-    }
+      var dotsBox = document.getElementById('videoDots');
+      if (!track || !dotsBox) return;
+      var cards = Array.prototype.slice.call(track.querySelectorAll('.video-card'));
+
+      cards.forEach(function (card, i) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', 'Ir al video ' + (i + 1));
+        dot.addEventListener('click', function () {
+          var left = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
+          track.scrollTo({ left: left, behavior: 'smooth' });
+        });
+        dotsBox.appendChild(dot);
+      });
+
+      var dots = Array.prototype.slice.call(dotsBox.children);
+      function setActive() {
+        var center = track.scrollLeft + track.clientWidth / 2;
+        var best = 0, bestDist = Infinity;
+        cards.forEach(function (card, i) {
+          var cardCenter = card.offsetLeft + card.clientWidth / 2;
+          var d = Math.abs(cardCenter - center);
+          if (d < bestDist) { bestDist = d; best = i; }
+        });
+        dots.forEach(function (dot, i) { dot.classList.toggle('active', i === best); });
+      }
+      setActive();
+      var raf;
+      track.addEventListener('scroll', function () {
+        if (raf) return;
+        raf = requestAnimationFrame(function () { setActive(); raf = null; });
+      });
+      window.addEventListener('resize', setActive);
+    })();
   </script>
 
 </body>
