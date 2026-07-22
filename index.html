@@ -5,16 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paraleia — Indie rock de Buenos Aires</title>
   <meta name="description" content="Paraleia, banda indie rock de Buenos Aires. Escuchá Todas Aquellas Luces y enterate de los próximos shows.">
+  <meta name="theme-color" content="#fdfcf9">
+  <link rel="canonical" href="https://paraleia.vercel.app/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' font-weight='bold'%3EP%3C/text%3E%3C/svg%3E">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Paraleia">
   <meta property="og:description" content="Indie rock de Buenos Aires. Nuevos lanzamientos y próximos shows.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/hero.jpg">
+  <meta property="og:url" content="https://paraleia.vercel.app/">
+  <meta property="og:image" content="https://paraleia.vercel.app/assets/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Paraleia">
+  <meta name="twitter:description" content="Indie rock de Buenos Aires. Nuevos lanzamientos y próximos shows.">
+  <meta name="twitter:image" content="https://paraleia.vercel.app/assets/hero.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="assets/fonts/neutratext-bold.woff2" as="font" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xqf4xpmxwu");
+  </script>
 
   <style>
     :root {
@@ -39,7 +57,20 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scrollbar-color: var(--accent) var(--bg); }
+
+    h1, h2 { text-wrap: balance; }
+
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
 
     body {
       background: var(--bg);
@@ -67,7 +98,8 @@
       padding: 16px 24px; max-width: var(--max); margin: 0 auto;
     }
     .wordmark {
-      font-weight: 700; letter-spacing: 0.28em; font-size: 1.05rem;
+      font-family: 'Neutra Text', 'Space Grotesk', sans-serif;
+      font-weight: 700; letter-spacing: 0.22em; font-size: 1.05rem;
       text-decoration: none; text-transform: uppercase;
     }
     .nav-links { display: flex; gap: 28px; }
@@ -415,6 +447,26 @@
           <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b273194cea9df54688c96785e2f8" alt="La Fiebre">
           <span class="atitle">La Fiebre</span><span class="ayear">2021</span>
         </a>
+        <a class="album-card" href="https://open.spotify.com/album/2UgHcQTWCDecvbN92LfLSw" target="_blank" rel="noopener">
+          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b2739c7b97c41f93eb60c1b65c99" alt="Amantes Rotos">
+          <span class="atitle">Amantes Rotos</span><span class="ayear">2021</span>
+        </a>
+        <a class="album-card" href="https://open.spotify.com/album/5fE8LmOvegL7tIfGmq9dVh" target="_blank" rel="noopener">
+          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b2734e02ec7201e842523f247789" alt="Dos Extraños">
+          <span class="atitle">Dos Extraños</span><span class="ayear">2020</span>
+        </a>
+        <a class="album-card" href="https://open.spotify.com/album/7vV1KhQT2SHsHaiCpVEU39" target="_blank" rel="noopener">
+          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b273db9066d67ab9a81bd4468365" alt="Prime Time">
+          <span class="atitle">Prime Time</span><span class="ayear">2020</span>
+        </a>
+        <a class="album-card" href="https://open.spotify.com/album/1QmtHGjlznUZ4cHKPylj6g" target="_blank" rel="noopener">
+          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b2732bf701b25c1a8cd64f1a4900" alt="Cassette">
+          <span class="atitle">Cassette</span><span class="ayear">2020</span>
+        </a>
+        <a class="album-card" href="https://open.spotify.com/album/1GKH7lLNgaL97q6Xsa1PHN" target="_blank" rel="noopener">
+          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b273e6c6a5e8f09505510e26548e" alt="Soltar">
+          <span class="atitle">Soltar</span><span class="ayear">2019</span>
+        </a>
       </div>
       <div class="platform-icons">
         <span class="lead">Discografía completa en</span>
@@ -536,6 +588,19 @@
           document.getElementById('igMore').hidden = false;
         })
         .catch(function () { /* si falla, queda la tarjeta de fallback */ });
+    })();
+
+    // Accesibilidad por teclado en las miniaturas de video
+    (function () {
+      document.querySelectorAll('.frame[data-video]').forEach(function (frame) {
+        frame.setAttribute('role', 'button');
+        frame.setAttribute('tabindex', '0');
+        var t = frame.parentElement.querySelector('.vtitle');
+        frame.setAttribute('aria-label', 'Reproducir ' + (t ? t.textContent.trim() : 'video'));
+        frame.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playVideo(frame); }
+        });
+      });
     })();
 
     // Carrusel de videos
