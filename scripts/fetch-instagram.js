@@ -4,6 +4,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const TOKEN = process.env.IG_TOKEN;
 const HOW_MANY = 9;                 // cuántos posts mostrar en la web
@@ -30,23 +31,37 @@ async function main() {
 
   const posts = [];
   const keepFiles = new Set();
+  const seenImages = new Set();   // hash del contenido de la imagen
+  const seenCaptions = new Set(); // inicio del caption normalizado
 
   for (const p of raw) {
     if (posts.length >= HOW_MANY) break;
     const imgUrl = p.media_type === 'VIDEO' ? p.thumbnail_url : p.media_url;
     if (!imgUrl) continue;
 
-    const file = `${p.id}.jpg`;
+    // Evitar duplicados por texto (mismo contenido subido como reel y como posteo)
+    const capKey = (p.caption || '').toLowerCase().replace(/\s+/g, ' ').trim().slice(0, 25);
+    if (capKey && seenCaptions.has(capKey)) continue;
+
+    let buf;
     try {
       const r = await fetch(imgUrl);
       if (!r.ok) continue;
-      const buf = Buffer.from(await r.arrayBuffer());
-      fs.writeFileSync(path.join(IMG_DIR, file), buf);
+      buf = Buffer.from(await r.arrayBuffer());
     } catch (e) {
       console.error('No se pudo bajar la imagen', p.id, e.message);
       continue;
     }
 
+    // Evitar duplicados por imagen idéntica
+    const imgHash = crypto.createHash('md5').update(buf).digest('hex');
+    if (seenImages.has(imgHash)) continue;
+
+    const file = `${p.id}.jpg`;
+    fs.writeFileSync(path.join(IMG_DIR, file), buf);
+
+    seenImages.add(imgHash);
+    if (capKey) seenCaptions.add(capKey);
     keepFiles.add(file);
     posts.push({
       id: p.id,

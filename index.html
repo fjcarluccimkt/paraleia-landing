@@ -28,6 +28,15 @@
       --max: 960px;
     }
 
+    @font-face {
+      font-family: 'Neutra Text';
+      src: url('assets/fonts/neutratext-bold.woff2') format('woff2'),
+           url('assets/fonts/neutratext-bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html { scroll-behavior: smooth; }
@@ -80,7 +89,7 @@
     }
     header.hero.has-photo {
       background:
-        linear-gradient(to top, rgba(253,252,249,1) 0%, rgba(253,252,249,0) 40%),
+        linear-gradient(to top, rgba(18,20,25,0.78) 0%, rgba(18,20,25,0.15) 38%, rgba(18,20,25,0) 58%),
         url('assets/hero.jpg');
       background-size: cover; background-position: center 25%;
     }
@@ -89,13 +98,12 @@
       padding: 0 24px 64px;
     }
     .hero h1 {
+      font-family: 'Neutra Text', 'Space Grotesk', sans-serif;
       font-size: clamp(3rem, 10vw, 6.5rem);
-      letter-spacing: 0.18em; text-transform: uppercase;
+      letter-spacing: 0.14em; text-transform: uppercase;
       line-height: 1.05; font-weight: 700;
-    }
-    .hero p.tagline {
-      margin-top: 12px; font-size: 1.1rem; color: var(--muted);
-      max-width: 460px;
+      color: #fff;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.35);
     }
     .hero-ctas { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
     .btn {
@@ -105,8 +113,8 @@
       transition: transform 0.15s, box-shadow 0.15s;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--text); color: var(--bg); }
-    .btn-ghost { border: 1.5px solid var(--text); }
+    .btn-primary { background: #fff; color: var(--text); }
+    .btn-ghost { border: 1.5px solid #fff; color: #fff; }
 
     /* ---------- Secciones ---------- */
     section { padding: 88px 0; }
@@ -288,7 +296,6 @@
   <header class="hero" id="hero">
     <div class="hero-content">
       <h1>Paraleia</h1>
-      <p class="tagline">Indie rock de Buenos Aires. Canciones que nacen entre dos ciudades.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="https://open.spotify.com/artist/737T198kjU3hbvxpc2wnhC" target="_blank" rel="noopener">Escuchar en Spotify</a>
         <a class="btn btn-ghost" href="#shows">Próximos shows</a>
@@ -299,6 +306,7 @@
   <section id="musica">
     <div class="wrap">
       <p class="section-label">Música</p>
+      <h2>Nuestras canciones</h2>
       <div class="spotify-embed">
         <iframe src="https://open.spotify.com/embed/artist/737T198kjU3hbvxpc2wnhC?utm_source=generator&theme=0"
                 height="420" loading="lazy"
@@ -333,11 +341,11 @@
             <p class="vtitle">Mañana tal vez — Video oficial</p>
           </div>
           <div class="video-card">
-            <div class="frame" data-video="9mY_zIZ8QxA" onclick="playVideo(this)">
-              <img class="thumb" loading="lazy" src="https://i.ytimg.com/vi/9mY_zIZ8QxA/hqdefault.jpg" alt="El Mejor Momento">
+            <div class="frame" data-video="IQduopeTUX8" onclick="playVideo(this)">
+              <img class="thumb" loading="lazy" src="https://i.ytimg.com/vi/IQduopeTUX8/hqdefault.jpg" alt="Estrellados">
               <div class="play"><span></span></div>
             </div>
-            <p class="vtitle">El Mejor Momento — Video oficial</p>
+            <p class="vtitle">Estrellados — Video oficial</p>
           </div>
           <div class="video-card">
             <div class="frame" data-video="FyivXKKhs98" onclick="playVideo(this)">
@@ -470,7 +478,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 18.75l7.44-13.5H24l-7.44 13.5H0z"/></svg>
       </a>
     </div>
-    <p class="footer-meta"><span class="heart">🖤</span> Paraleia · Buenos Aires · Barcelona</p>
+    <p class="footer-meta">Paraleia · Copyright 2026</p>
   </footer>
 
   <script src="//widget.songkick.com/9144894/widget.js"></script>
