@@ -325,31 +325,48 @@
     .social-card .handle { font-size: 0.85rem; color: var(--muted); }
 
     /* ---------- Contacto (formulario) ---------- */
-    .contact-form { max-width: 560px; }
+    .contact-card {
+      background: linear-gradient(150deg, #0e2c47 0%, #123a5e 100%);
+      border-radius: 22px; padding: clamp(28px, 5vw, 56px);
+      display: grid; gap: 36px;
+      box-shadow: 0 24px 60px rgba(14, 44, 71, 0.28);
+    }
+    .contact-intro .section-label { color: #7ab8e0; }
+    .contact-intro h2 { color: #fff; margin-bottom: 14px; }
+    .contact-lead { color: rgba(255,255,255,0.74); font-size: 1.05rem; max-width: 32ch; }
+    .contact-direct { margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+    .contact-direct a { color: #7ab8e0; text-decoration: none; }
+    .contact-direct a:hover { text-decoration: underline; }
+
     .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
-    .field { margin-bottom: 18px; display: flex; flex-direction: column; gap: 6px; }
-    .field label { font-size: 0.85rem; color: var(--muted); }
+    .field { margin-bottom: 16px; display: flex; flex-direction: column; gap: 6px; }
+    .field label { font-size: 0.82rem; color: rgba(255,255,255,0.75); letter-spacing: 0.02em; }
     .field input, .field textarea {
-      font-family: inherit; font-size: 1rem; color: var(--text);
-      padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px;
-      background: #fff; transition: border-color 0.2s; width: 100%;
+      font-family: inherit; font-size: 1rem; color: #fff;
+      padding: 13px 15px; border: 1px solid rgba(255,255,255,0.16); border-radius: 12px;
+      background: rgba(255,255,255,0.06); transition: border-color 0.2s, background 0.2s, box-shadow 0.2s; width: 100%;
     }
-    .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
-    .field input:user-invalid, .field textarea:user-invalid { border-color: #d9534f; }
-    .field textarea { resize: vertical; min-height: 120px; }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.4); }
+    .field input:focus, .field textarea:focus {
+      outline: none; border-color: #7ab8e0; background: rgba(255,255,255,0.1);
+      box-shadow: 0 0 0 3px rgba(122,184,224,0.18);
+    }
+    .field input:user-invalid, .field textarea:user-invalid { border-color: #ff9b9b; }
+    .field textarea { resize: vertical; min-height: 110px; }
     .cf-submit {
-      display: inline-block; padding: 13px 30px; border: 0; border-radius: 999px;
-      background: var(--text); color: var(--bg); font-size: 0.95rem; font-weight: 500;
-      cursor: pointer; transition: transform 0.15s, opacity 0.2s;
+      display: inline-block; margin-top: 4px; padding: 14px 34px; border: 0; border-radius: 999px;
+      background: #fff; color: #0e2c47; font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
     }
-    .cf-submit:hover { transform: translateY(-2px); }
-    .cf-submit:disabled { opacity: 0.6; cursor: default; transform: none; }
+    .cf-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.22); }
+    .cf-submit:disabled { opacity: 0.6; cursor: default; transform: none; box-shadow: none; }
     .cf-status { margin-top: 14px; font-size: 0.9rem; min-height: 1.2em; }
-    .cf-status.ok { color: #2e7d32; }
-    .cf-status.err { color: #d9534f; }
-    .cf-alt { margin-top: 22px; font-size: 0.88rem; color: var(--muted); }
-    .cf-alt a { color: var(--accent); text-decoration: none; }
-    .cf-alt a:hover { text-decoration: underline; }
+    .cf-status.ok { color: #86e0a6; }
+    .cf-status.err { color: #ff9b9b; }
+
+    @media (min-width: 760px) {
+      .contact-card { grid-template-columns: 0.85fr 1.15fr; gap: 52px; align-items: center; }
+    }
 
     /* ---------- Footer ---------- */
     footer {
@@ -580,31 +597,37 @@
 
   <section id="contacto">
     <div class="wrap">
-      <p class="section-label">Contacto</p>
-      <h2>Escribinos</h2>
-      <form class="contact-form" id="contactForm">
-        <!-- Pegá acá tu Access Key gratuita de https://web3forms.com (te la mandan al mail infoparaleia@gmail.com) -->
-        <input type="hidden" name="access_key" value="127d739e-74e6-4476-b8c0-5b7bc81ee5d2">
-        <input type="hidden" name="subject" value="Nuevo mensaje desde paraleia.vercel.app">
-        <input type="hidden" name="from_name" value="Web Paraleia">
-        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="contact-card">
+        <div class="contact-intro">
+          <p class="section-label">Contacto</p>
+          <h2>Escribinos</h2>
+          <p class="contact-lead">¿Una fecha, prensa o una colaboración? Contanos en qué andás y te respondemos.</p>
+          <p class="contact-direct">O directo a <a href="mailto:infoparaleia@gmail.com">infoparaleia@gmail.com</a></p>
+        </div>
 
-        <div class="field">
-          <label for="cf-name">Nombre</label>
-          <input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Tu nombre">
-        </div>
-        <div class="field">
-          <label for="cf-email">Email</label>
-          <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="tucorreo@ejemplo.com">
-        </div>
-        <div class="field">
-          <label for="cf-msg">Mensaje</label>
-          <textarea id="cf-msg" name="message" rows="5" required placeholder="Contanos en qué andás: fecha, prensa, colaboración…"></textarea>
-        </div>
-        <button type="submit" class="cf-submit">Enviar mensaje</button>
-        <p class="cf-status" id="cfStatus" role="status" aria-live="polite"></p>
-      </form>
-      <p class="cf-alt">O escribinos directo a <a href="mailto:infoparaleia@gmail.com">infoparaleia@gmail.com</a></p>
+        <form class="contact-form" id="contactForm">
+          <!-- Access Key de https://web3forms.com (enruta los mensajes a infoparaleia@gmail.com) -->
+          <input type="hidden" name="access_key" value="127d739e-74e6-4476-b8c0-5b7bc81ee5d2">
+          <input type="hidden" name="subject" value="Nuevo mensaje desde paraleia.vercel.app">
+          <input type="hidden" name="from_name" value="Web Paraleia">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="field">
+            <label for="cf-name">Nombre</label>
+            <input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Tu nombre">
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="tucorreo@ejemplo.com">
+          </div>
+          <div class="field">
+            <label for="cf-msg">Mensaje</label>
+            <textarea id="cf-msg" name="message" rows="4" required placeholder="Contanos en qué andás…"></textarea>
+          </div>
+          <button type="submit" class="cf-submit">Enviar mensaje</button>
+          <p class="cf-status" id="cfStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </div>
   </section>
 
