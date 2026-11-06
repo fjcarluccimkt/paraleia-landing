@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://paraleia.vercel.app/sitemap.xml
