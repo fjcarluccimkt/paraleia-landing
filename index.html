@@ -3,30 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paraleia — Indie rock de Buenos Aires</title>
-  <meta name="description" content="Paraleia, banda indie rock de Buenos Aires. Escuchá Todas Aquellas Luces y enterate de los próximos shows.">
-  <meta name="theme-color" content="#fdfcf9">
+  <title>Paraleia — Indie rock entre Buenos Aires y Barcelona</title>
+  <meta name="description" content="Paraleia es una banda de indie rock y pop alternativo nacida en 2007 en el oeste del Gran Buenos Aires, hoy entre Buenos Aires y Barcelona. Discografía, videos, shows y contacto.">
+  <meta name="theme-color" content="#f4eee2">
   <link rel="canonical" href="https://paraleia.vercel.app/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' font-weight='bold'%3EP%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Paraleia">
-  <meta property="og:description" content="Indie rock de Buenos Aires. Nuevos lanzamientos y próximos shows.">
+  <meta property="og:description" content="Indie rock entre Buenos Aires y Barcelona. Nuevos lanzamientos y próximos shows.">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="Paraleia">
   <meta property="og:url" content="https://paraleia.vercel.app/">
   <meta property="og:image" content="https://paraleia.vercel.app/assets/hero.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Paraleia">
-  <meta name="twitter:description" content="Indie rock de Buenos Aires. Nuevos lanzamientos y próximos shows.">
+  <meta name="twitter:description" content="Indie rock entre Buenos Aires y Barcelona. Nuevos lanzamientos y próximos shows.">
   <meta name="twitter:image" content="https://paraleia.vercel.app/assets/hero.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="assets/fonts/neutratext-bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/hero.jpg" as="image">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Datos estructurados: ayudan a Google y a los buscadores con IA a entender quién es la banda -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "Paraleia",
+    "url": "https://paraleia.vercel.app/",
+    "image": "https://paraleia.vercel.app/assets/hero.jpg",
+    "genre": ["Indie rock", "Pop alternativo"],
+    "foundingDate": "2007",
+    "foundingLocation": { "@type": "Place", "name": "Castelar, Buenos Aires, Argentina" },
+    "email": "infoparaleia@gmail.com",
+    "member": [
+      { "@type": "OrganizationRole", "member": { "@type": "Person", "name": "Francisco Carlucci" }, "roleName": "Voz y guitarra" },
+      { "@type": "OrganizationRole", "member": { "@type": "Person", "name": "Rodrigo Ares" }, "roleName": "Guitarra y coros" },
+      { "@type": "OrganizationRole", "member": { "@type": "Person", "name": "Daniel Artola" }, "roleName": "Bajo" },
+      { "@type": "OrganizationRole", "member": { "@type": "Person", "name": "Joaquin Pecci" }, "roleName": "Batería" }
+    ],
+    "album": [
+      { "@type": "MusicAlbum", "name": "Espacios", "datePublished": "2014", "url": "https://open.spotify.com/album/7mGp8tgusUOxiajFRXtqKv" },
+      { "@type": "MusicAlbum", "name": "Zig-Zag", "datePublished": "2016", "url": "https://open.spotify.com/album/5litrW5VnzEs3W3nomvnd8" },
+      { "@type": "MusicAlbum", "name": "Nadie Piensa en Dormir", "datePublished": "2021", "url": "https://open.spotify.com/album/1516hTiOkKS2wHx1RYfovu" }
+    ],
+    "sameAs": [
+      "https://open.spotify.com/artist/737T198kjU3hbvxpc2wnhC",
+      "https://music.apple.com/es/artist/paraleia/1080736795",
+      "https://www.deezer.com/es/artist/9784156",
+      "https://paraleia.bandcamp.com",
+      "https://instagram.com/paraleia",
+      "https://www.tiktok.com/@paraleia",
+      "https://www.youtube.com/@paraleiaoficial",
+      "https://facebook.com/paraleiaok",
+      "https://x.com/paraleia",
+      "https://www.songkick.com/artists/9144894-paraleia"
+    ]
+  }
+  </script>
+
+  <!-- Aviso de cookies (CookieConsent v3, licencia MIT): Clarity solo carga si el visitante acepta -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
 
   <!-- Microsoft Clarity -->
-  <script type="text/javascript">
+  <script type="text/plain" data-category="analytics">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
@@ -36,26 +80,28 @@
 
   <style>
     :root {
-      --bg: #fdfcf9;
-      --text: #16181d;
-      --muted: #5f6672;
-      --accent: #4a90c2;      /* celeste del cielo de la foto */
-      --accent-soft: #dcecf7;
-      --warm: #f3e9dc;        /* luz cálida del atardecer */
-      --line: #e8e5df;
+      /* Paleta de marca: crema, rojo, negro y amarillo */
+      --bg: #f4eee2;          /* crema */
+      --paper: #fbf8f1;       /* crema claro para tarjetas */
+      --text: #141414;        /* negro */
+      --muted: #5c574e;
+      --accent: #c8322b;      /* rojo */
+      --accent-soft: #ecdcc8;
+      --yellow: #e9b72f;      /* amarillo, solo como acento */
+      --line: #e2d9c8;
       --max: 960px;
     }
 
     @font-face {
       font-family: 'Neutra Text';
-      src: url('assets/fonts/neutratext-bold.woff2') format('woff2'),
-           url('assets/fonts/neutratext-bold.otf') format('opentype');
+      src: url('assets/fonts/neutratext-bold.woff2') format('woff2');
       font-weight: 700;
       font-style: normal;
       font-display: swap;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    [hidden] { display: none !important; }
 
     html { scroll-behavior: smooth; scrollbar-color: var(--accent) var(--bg); }
 
@@ -80,7 +126,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    h1, h2, .wordmark { font-family: 'Space Grotesk', sans-serif; }
+    h1, h2, .wordmark { font-family: 'Neutra Text', 'Inter', sans-serif; font-weight: 700; }
 
     a { color: inherit; }
 
@@ -89,7 +135,7 @@
     /* ---------- Nav ---------- */
     nav {
       position: sticky; top: 0; z-index: 50;
-      background: rgba(253, 252, 249, 0.85);
+      background: rgba(244, 238, 226, 0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
@@ -98,7 +144,7 @@
       padding: 16px 24px; max-width: var(--max); margin: 0 auto;
     }
     .wordmark {
-      font-family: 'Neutra Text', 'Space Grotesk', sans-serif;
+      font-family: 'Neutra Text', 'Inter', sans-serif;
       font-weight: 700; letter-spacing: 0.22em; font-size: 1.05rem;
       text-decoration: none; text-transform: uppercase;
     }
@@ -128,12 +174,12 @@
       .nav-links {
         position: absolute; top: 100%; left: 0; right: 0;
         flex-direction: column; gap: 0;
-        background: rgba(253, 252, 249, 0.98);
+        background: rgba(244, 238, 226, 0.98);
         backdrop-filter: blur(12px);
         border-bottom: 1px solid var(--line);
         max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
       }
-      .nav-links.open { max-height: 320px; }
+      .nav-links.open { max-height: 380px; }
       .nav-links a {
         padding: 16px 24px; font-size: 1rem;
         border-top: 1px solid var(--line);
@@ -146,13 +192,13 @@
       min-height: 82vh;
       display: flex; align-items: flex-end;
       background:
-        linear-gradient(to top, rgba(253,252,249,1) 0%, rgba(253,252,249,0) 35%),
-        linear-gradient(160deg, #a8cbe4 0%, #cfe3f0 45%, #f3e2c8 100%);
+        linear-gradient(to top, rgba(20,20,20,0.7) 0%, rgba(20,20,20,0) 45%),
+        linear-gradient(160deg, #c8322b 0%, #8f2a24 55%, #141414 100%);
       background-size: cover; background-position: center 30%;
     }
     header.hero.has-photo {
       background:
-        linear-gradient(to top, rgba(18,20,25,0.78) 0%, rgba(18,20,25,0.15) 38%, rgba(18,20,25,0) 58%),
+        linear-gradient(to top, rgba(20,20,20,0.8) 0%, rgba(20,20,20,0.15) 38%, rgba(20,20,20,0) 58%),
         url('assets/hero.jpg');
       background-size: cover; background-position: center 25%;
     }
@@ -161,7 +207,7 @@
       padding: 0 24px 64px;
     }
     .hero h1 {
-      font-family: 'Neutra Text', 'Space Grotesk', sans-serif;
+      font-family: 'Neutra Text', 'Inter', sans-serif;
       font-size: clamp(3rem, 10vw, 6.5rem);
       letter-spacing: 0.14em; text-transform: uppercase;
       line-height: 1.05; font-weight: 700;
@@ -176,7 +222,8 @@
       transition: transform 0.15s, box-shadow 0.15s;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: #fff; color: var(--text); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { box-shadow: 0 8px 22px rgba(200,50,43,0.35); }
     .btn-ghost { border: 1.5px solid #fff; color: #fff; }
 
     /* ---------- Secciones ---------- */
@@ -188,6 +235,33 @@
     }
     h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 32px; font-weight: 700; }
 
+    /* ---------- La banda ---------- */
+    .bio { display: grid; gap: 40px; }
+    .bio-text p { font-size: 1.08rem; max-width: 60ch; }
+    .bio-text p + p { margin-top: 16px; }
+    .members { list-style: none; display: grid; gap: 12px; align-content: start; }
+    .members li {
+      display: flex; justify-content: space-between; gap: 16px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--line);
+    }
+    .members .who { font-family: 'Neutra Text', 'Inter', sans-serif; font-weight: 700; }
+    .members .role { color: var(--muted); font-size: 0.92rem; text-align: right; }
+    .milestones { margin-top: 28px; display: grid; gap: 10px; }
+    .milestones p { font-size: 0.95rem; color: var(--muted); }
+    .milestones strong { color: var(--accent); font-weight: 600; margin-right: 8px; }
+    @media (min-width: 760px) { .bio { grid-template-columns: 1.2fr 0.8fr; gap: 64px; } }
+
+    /* ---------- Aviso de cookies con la paleta de la banda ---------- */
+    #cc-main {
+      --cc-bg: var(--paper); --cc-primary-color: var(--text); --cc-secondary-color: var(--muted);
+      --cc-btn-primary-bg: var(--accent); --cc-btn-primary-border-color: var(--accent);
+      --cc-btn-primary-hover-bg: #a8271f; --cc-btn-primary-hover-border-color: #a8271f;
+      --cc-btn-secondary-bg: var(--accent-soft); --cc-btn-secondary-border-color: var(--accent-soft);
+      --cc-btn-secondary-hover-bg: var(--line); --cc-btn-secondary-hover-border-color: var(--line);
+      --cc-toggle-on-bg: var(--accent); --cc-font-family: 'Inter', sans-serif;
+    }
+    .footer-meta a { color: inherit; }
+
     /* ---------- Música ---------- */
     .music-grid { display: grid; gap: 40px; }
     .music-block h3 {
@@ -195,9 +269,9 @@
     }
     .spotify-embed {
       border-radius: 16px; overflow: hidden;
-      background: #0e2c47;
+      background: var(--text);
       padding: 10px;
-      box-shadow: 0 8px 30px rgba(14, 44, 71, 0.18);
+      box-shadow: 0 8px 30px rgba(20, 20, 20, 0.18);
     }
     .spotify-embed iframe { border-radius: 12px; }
     iframe { display: block; border: 0; width: 100%; }
@@ -265,7 +339,7 @@
     .album-card {
       display: flex; flex-direction: column; gap: 2px;
       padding: 12px 12px 16px; border: 1px solid var(--line); border-radius: 14px;
-      text-decoration: none; background: #fff;
+      text-decoration: none; background: var(--paper);
       transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
     }
     .album-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(22,24,29,0.08); }
@@ -274,13 +348,13 @@
       border-radius: 8px; margin-bottom: 12px; display: block;
       background: var(--accent-soft);
     }
-    .album-card .atitle { font-weight: 600; font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; }
+    .album-card .atitle { font-weight: 600; font-family: 'Neutra Text', 'Inter', sans-serif; font-size: 0.95rem; }
     .album-card .ayear { font-size: 0.85rem; color: var(--muted); }
     h2.disco-singles { margin-top: 52px; }
 
     /* ---------- Shows ---------- */
     #shows .bit-wrap {
-      background: #fff; border: 1px solid var(--line); border-radius: 14px;
+      background: var(--paper); border: 1px solid var(--line); border-radius: 14px;
       padding: 24px; box-shadow: 0 8px 30px rgba(22, 24, 29, 0.05);
     }
 
@@ -299,12 +373,12 @@
     .ig-fallback {
       display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center;
       padding: 56px 24px; border: 1px solid var(--line); border-radius: 14px;
-      background: #fff; text-decoration: none;
+      background: var(--paper); text-decoration: none;
       transition: border-color 0.2s, transform 0.15s;
     }
     .ig-fallback:hover { border-color: var(--accent); transform: translateY(-3px); }
     .ig-fallback svg { width: 40px; height: 40px; fill: var(--text); }
-    .ig-fallback .name { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.1rem; }
+    .ig-fallback .name { font-family: 'Neutra Text', 'Inter', sans-serif; font-weight: 600; font-size: 1.1rem; }
     .ig-fallback .handle { font-size: 0.9rem; color: var(--muted); }
 
     /* ---------- Redes ---------- */
@@ -315,7 +389,7 @@
     .social-card {
       display: flex; flex-direction: column; gap: 4px;
       padding: 20px; border: 1px solid var(--line); border-radius: 14px;
-      text-decoration: none; background: #fff;
+      text-decoration: none; background: var(--paper);
       transition: border-color 0.2s, transform 0.15s;
     }
     .social-card:hover { border-color: var(--accent); transform: translateY(-3px); }
@@ -326,16 +400,17 @@
 
     /* ---------- Contacto (formulario) ---------- */
     .contact-card {
-      background: linear-gradient(150deg, #0e2c47 0%, #123a5e 100%);
+      background: var(--text);
+      border-top: 6px solid var(--accent);
       border-radius: 22px; padding: clamp(28px, 5vw, 56px);
       display: grid; gap: 36px;
-      box-shadow: 0 24px 60px rgba(14, 44, 71, 0.28);
+      box-shadow: 0 24px 60px rgba(20, 20, 20, 0.25);
     }
-    .contact-intro .section-label { color: #7ab8e0; }
+    .contact-intro .section-label { color: var(--yellow); }
     .contact-intro h2 { color: #fff; margin-bottom: 14px; }
     .contact-lead { color: rgba(255,255,255,0.74); font-size: 1.05rem; max-width: 32ch; }
     .contact-direct { margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
-    .contact-direct a { color: #7ab8e0; text-decoration: none; }
+    .contact-direct a { color: var(--yellow); text-decoration: none; }
     .contact-direct a:hover { text-decoration: underline; }
 
     .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
@@ -348,14 +423,14 @@
     }
     .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.4); }
     .field input:focus, .field textarea:focus {
-      outline: none; border-color: #7ab8e0; background: rgba(255,255,255,0.1);
-      box-shadow: 0 0 0 3px rgba(122,184,224,0.18);
+      outline: none; border-color: var(--yellow); background: rgba(255,255,255,0.1);
+      box-shadow: 0 0 0 3px rgba(233,183,47,0.2);
     }
     .field input:user-invalid, .field textarea:user-invalid { border-color: #ff9b9b; }
     .field textarea { resize: vertical; min-height: 110px; }
     .cf-submit {
       display: inline-block; margin-top: 4px; padding: 14px 34px; border: 0; border-radius: 999px;
-      background: #fff; color: #0e2c47; font-size: 0.95rem; font-weight: 600;
+      background: var(--accent); color: #fff; font-size: 0.95rem; font-weight: 600;
       cursor: pointer; transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
     }
     .cf-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.22); }
@@ -392,11 +467,12 @@
 
   <nav>
     <div class="nav-inner">
-      <a class="wordmark" href="#">Paraleia</a>
+      <a class="wordmark" href="#hero">Paraleia</a>
       <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
       <div class="nav-links" id="navLinks">
+        <a href="#banda">La banda</a>
         <a href="#musica">Música</a>
         <a href="#videos">Videos</a>
         <a href="#discografia">Discografía</a>
@@ -416,6 +492,31 @@
     </div>
   </header>
 
+  <section id="banda">
+    <div class="wrap">
+      <p class="section-label">La banda</p>
+      <h2>Entre Buenos Aires y Barcelona</h2>
+      <div class="bio">
+        <div class="bio-text">
+          <p>Paraleia nació en el año 2007 en un garage, en el oeste del Gran Buenos Aires.</p>
+          <p>Cruzando las veredas del indie rock y el pop alternativo, con nostalgia analógica y producción actual, las canciones de la banda hablan de momentos bisagra, vínculos, desamor y lugares que ya no están.</p>
+          <div class="milestones">
+            <p><strong>2014</strong>Primer disco, <em>Espacios</em>.</p>
+            <p><strong>2021</strong><em>Nadie Piensa en Dormir</em>. Ganadores de la convocatoria nacional 20Sesiones21 y alianza con Warner Chappell Argentina.</p>
+            <p><strong>2022</strong>Seleccionados entre más de 1200 bandas para el Festival Ciudad Emergente y la primera edición argentina de Primavera Sound.</p>
+            <p><strong>2026</strong>Lanzamiento de <em>Todas Aquellas Luces</em> junto a la banda española Los Chicos del Sótano.</p>
+          </div>
+        </div>
+        <ul class="members" aria-label="Integrantes">
+          <li><span class="who">Francisco Carlucci</span><span class="role">Voz y guitarra</span></li>
+          <li><span class="who">Rodrigo Ares</span><span class="role">Guitarra y coros</span></li>
+          <li><span class="who">Daniel Artola</span><span class="role">Bajo</span></li>
+          <li><span class="who">Joaquin Pecci</span><span class="role">Batería</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section id="musica">
     <div class="wrap">
       <p class="section-label">Música</p>
@@ -427,10 +528,10 @@
       </div>
       <div class="platform-icons">
         <span class="lead">También en</span>
-        <a href="https://music.apple.com/us/artist/paraleia/1080736795" target="_blank" rel="noopener" aria-label="Apple Music" title="Apple Music">
+        <a href="https://music.apple.com/es/artist/paraleia/1080736795" target="_blank" rel="noopener" aria-label="Apple Music" title="Apple Music">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043A5.022 5.022 0 0 0 19.497.165c-.512-.096-1.032-.146-1.554-.16-.04-.003-.083-.01-.124-.013H5.858c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.193.4-1.336.53-2.3 1.452-2.865 2.78-.192.448-.292.925-.363 1.408-.056.392-.088.785-.1 1.18 0 .032-.007.062-.01.093v12.223c.01.14.017.283.027.424.05.815.154 1.624.497 2.373.65 1.42 1.738 2.353 3.234 2.802.42.127.856.187 1.293.228.555.053 1.11.06 1.667.06h11.03a12.5 12.5 0 0 0 1.57-.1c.822-.106 1.596-.35 2.295-.81a5.046 5.046 0 0 0 1.88-2.207c.186-.42.293-.87.37-1.324.113-.675.138-1.358.137-2.04-.002-3.8 0-7.595-.003-11.393zm-6.423 3.99v5.712c0 .417-.058.827-.244 1.206-.29.59-.76.962-1.388 1.14-.35.1-.706.157-1.07.173-.95.045-1.773-.6-1.943-1.536-.142-.773.227-1.624 1.038-2.022.323-.16.67-.25 1.018-.324.378-.082.758-.153 1.134-.24.274-.063.457-.23.51-.516a.918.918 0 0 0 .02-.193c0-1.815 0-3.63-.002-5.443a.725.725 0 0 0-.026-.185c-.04-.15-.15-.243-.304-.234-.16.01-.318.035-.475.066-.76.15-1.52.303-2.28.456l-2.326.47-1.374.278c-.016.003-.032.01-.048.013-.277.077-.377.203-.39.49-.002.042 0 .086 0 .13-.002 2.602 0 5.204-.003 7.805 0 .42-.047.836-.215 1.227-.278.64-.77 1.04-1.434 1.233-.35.1-.71.16-1.075.172-.96.036-1.767-.6-1.943-1.556-.14-.773.238-1.62 1.05-2.01.32-.153.66-.24 1.005-.313.386-.08.775-.16 1.16-.24.283-.06.462-.23.51-.522.01-.06.014-.12.014-.18 0-2.953 0-5.906.002-8.86 0-.417.056-.827.242-1.206.29-.59.76-.962 1.387-1.14.246-.07.5-.104.755-.14.28-.04.56-.076.842-.106.286-.03.573-.056.86-.084l.86-.084.717-.07c.29-.028.487.12.52.41.007.06.01.12.01.18.002 1.94.002 3.878.002 5.817z"/></svg>
         </a>
-        <a href="https://www.deezer.com/en/artist/9784156" target="_blank" rel="noopener" aria-label="Deezer" title="Deezer">
+        <a href="https://www.deezer.com/es/artist/9784156" target="_blank" rel="noopener" aria-label="Deezer" title="Deezer">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.81 4.16h5.19v3.02h-5.19V4.16zM12.41 8.42h5.19v3.02h-5.19V8.42zm6.4 0H24v3.02h-5.19V8.42zM0 12.68h5.19v3.02H0v-3.02zm6.4 0h5.2v3.02H6.4v-3.02zm6.41 0H18v3.02h-5.19v-3.02zm6.4 0H24v3.02h-5.19v-3.02zM0 16.94h5.19v3.02H0v-3.02zm6.4 0h5.2v3.02H6.4v-3.02zm6.41 0H18v3.02h-5.19v-3.02zm6.4 0H24v3.02h-5.19v-3.02z"/></svg>
         </a>
         <a href="https://paraleia.bandcamp.com" target="_blank" rel="noopener" aria-label="Bandcamp" title="Bandcamp">
@@ -544,6 +645,10 @@
           <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b273e6c6a5e8f09505510e26548e" alt="Soltar">
           <span class="atitle">Soltar</span><span class="ayear">2019</span>
         </a>
+        <a class="album-card" href="https://open.spotify.com/album/6rXvzVTtf6gvR4jSzp11lG" target="_blank" rel="noopener">
+          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b273ebc01bfb2deecddff0d59f8f" alt="Estrellados">
+          <span class="atitle">Estrellados</span><span class="ayear">2018</span>
+        </a>
       </div>
       <div class="platform-icons">
         <span class="lead">Discografía completa en</span>
@@ -553,7 +658,7 @@
         <a href="https://open.spotify.com/artist/737T198kjU3hbvxpc2wnhC" target="_blank" rel="noopener" aria-label="Spotify" title="Spotify">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.1 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.32-1.32 11.4-1.02 15.9 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.18z"/></svg>
         </a>
-        <a href="https://music.apple.com/us/artist/paraleia/1080736795" target="_blank" rel="noopener" aria-label="Apple Music" title="Apple Music">
+        <a href="https://music.apple.com/es/artist/paraleia/1080736795" target="_blank" rel="noopener" aria-label="Apple Music" title="Apple Music">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043A5.022 5.022 0 0 0 19.497.165c-.512-.096-1.032-.146-1.554-.16-.04-.003-.083-.01-.124-.013H5.858c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.193.4-1.336.53-2.3 1.452-2.865 2.78-.192.448-.292.925-.363 1.408-.056.392-.088.785-.1 1.18 0 .032-.007.062-.01.093v12.223c.01.14.017.283.027.424.05.815.154 1.624.497 2.373.65 1.42 1.738 2.353 3.234 2.802.42.127.856.187 1.293.228.555.053 1.11.06 1.667.06h11.03a12.5 12.5 0 0 0 1.57-.1c.822-.106 1.596-.35 2.295-.81a5.046 5.046 0 0 0 1.88-2.207c.186-.42.293-.87.37-1.324.113-.675.138-1.358.137-2.04-.002-3.8 0-7.595-.003-11.393zm-6.423 3.99v5.712c0 .417-.058.827-.244 1.206-.29.59-.76.962-1.388 1.14-.35.1-.706.157-1.07.173-.95.045-1.773-.6-1.943-1.536-.142-.773.227-1.624 1.038-2.022.323-.16.67-.25 1.018-.324.378-.082.758-.153 1.134-.24.274-.063.457-.23.51-.516a.918.918 0 0 0 .02-.193c0-1.815 0-3.63-.002-5.443a.725.725 0 0 0-.026-.185c-.04-.15-.15-.243-.304-.234-.16.01-.318.035-.475.066-.76.15-1.52.303-2.28.456l-2.326.47-1.374.278c-.016.003-.032.01-.048.013-.277.077-.377.203-.39.49-.002.042 0 .086 0 .13-.002 2.602 0 5.204-.003 7.805 0 .42-.047.836-.215 1.227-.278.64-.77 1.04-1.434 1.233-.35.1-.71.16-1.075.172-.96.036-1.767-.6-1.943-1.556-.14-.773.238-1.62 1.05-2.01.32-.153.66-.24 1.005-.313.386-.08.775-.16 1.16-.24.283-.06.462-.23.51-.522.01-.06.014-.12.014-.18 0-2.953 0-5.906.002-8.86 0-.417.056-.827.242-1.206.29-.59.76-.962 1.387-1.14.246-.07.5-.104.755-.14.28-.04.56-.076.842-.106.286-.03.573-.056.86-.084l.86-.084.717-.07c.29-.028.487.12.52.41.007.06.01.12.01.18.002 1.94.002 3.878.002 5.817z"/></svg>
         </a>
         <a href="https://paraleia.bandcamp.com" target="_blank" rel="noopener" aria-label="Bandcamp" title="Bandcamp">
@@ -639,7 +744,7 @@
       <a href="https://www.tiktok.com/@paraleia" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64c.3 0 .58.04.85.13V9.4a6.33 6.33 0 00-.85-.06 6.34 6.34 0 105.34 6.26v-6.9a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-.35-.13z"/></svg>
       </a>
-      <a href="https://www.youtube.com/user/paraleiaoficial" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+      <a href="https://www.youtube.com/@paraleiaoficial" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 00.5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 002.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 002.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
       </a>
       <a href="https://facebook.com/paraleiaok" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
@@ -649,10 +754,50 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26L22.85 21.75h-6.66l-5.22-6.82-5.97 6.82H1.68l7.73-8.84L1.15 2.25h6.83l4.71 6.23 5.55-6.23zm-1.16 17.52h1.83L7.01 4.13H5.05L17.08 19.77z"/></svg>
       </a>
     </div>
-    <p class="footer-meta">Paraleia · Copyright 2026</p>
+    <p class="footer-meta">Paraleia · © 2026 · <a href="#" data-cc="show-preferencesModal">Preferencias de cookies</a></p>
   </footer>
 
-  <script src="//widget.songkick.com/9144894/widget.js"></script>
+  <script src="https://widget.songkick.com/9144894/widget.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
+  <script>
+    // Aviso de cookies: los scripts marcados con data-category="analytics" (Clarity)
+    // solo se ejecutan si el visitante acepta.
+    if (window.CookieConsent) CookieConsent.run({
+      guiOptions: { consentModal: { layout: 'box', position: 'bottom left' } },
+      categories: {
+        necessary: { enabled: true, readOnly: true },
+        analytics: {
+          autoClear: { cookies: [{ name: /^_clck/ }, { name: /^_clsk/ }, { name: 'CLID' }, { name: 'MUID' }] }
+        }
+      },
+      language: {
+        default: 'es',
+        translations: {
+          es: {
+            consentModal: {
+              title: 'Cookies',
+              description: 'Usamos Microsoft Clarity para entender cómo se navega la web y mejorarla. Solo se activa si aceptás.',
+              acceptAllBtn: 'Aceptar',
+              acceptNecessaryBtn: 'Rechazar',
+              showPreferencesBtn: 'Elegir'
+            },
+            preferencesModal: {
+              title: 'Preferencias de cookies',
+              acceptAllBtn: 'Aceptar todas',
+              acceptNecessaryBtn: 'Rechazar todas',
+              savePreferencesBtn: 'Guardar',
+              closeIconLabel: 'Cerrar',
+              sections: [
+                { title: 'Necesarias', description: 'Guardan tu elección sobre cookies. Siempre activas.', linkedCategory: 'necessary' },
+                { title: 'Analítica', description: 'Microsoft Clarity registra de forma anónima clics y scroll para mejorar el sitio.', linkedCategory: 'analytics' },
+                { title: 'Contenido externo', description: 'Spotify, YouTube, Songkick e Instagram pueden usar sus propias cookies cuando reproducís o abrís su contenido. Consultas: infoparaleia@gmail.com.' }
+              ]
+            }
+          }
+        }
+      }
+    });
+  </script>
   <script>
     // Si existe assets/hero.jpg, la usa como fondo del hero.
     (function () {

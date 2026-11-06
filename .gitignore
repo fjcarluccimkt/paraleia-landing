@@ -1,0 +1,5 @@
+.DS_Store
+Tipografias/
+*.otf
+*.ttf
+node_modules/
