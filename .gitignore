@@ -3,3 +3,5 @@ Tipografias/
 *.otf
 *.ttf
 node_modules/
+comparator/
+variants/

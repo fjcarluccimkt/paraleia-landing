@@ -3,49 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paraleia — Indie rock entre Buenos Aires y Barcelona</title>
-  <meta name="description" content="Paraleia es una banda de indie rock y pop alternativo nacida en 2007 en el oeste del Gran Buenos Aires, hoy entre Buenos Aires y Barcelona. Discografía, videos, shows y contacto.">
-  <meta name="theme-color" content="#f4eee2">
+  <title>PARALEIA — Indie rock entre Buenos Aires y Barcelona</title>
+  <meta name="description" content="PARALEIA es una banda de indie rock y pop alternativo nacida en 2007 en Castelar, Buenos Aires, hoy entre Buenos Aires y Barcelona. Nuevo single Figuras Perfectas, música, videos, shows y contacto.">
+  <meta name="theme-color" content="#141414">
   <link rel="canonical" href="https://paraleia.vercel.app/">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Paraleia">
-  <meta property="og:description" content="Indie rock entre Buenos Aires y Barcelona. Nuevos lanzamientos y próximos shows.">
+  <meta property="og:title" content="PARALEIA">
+  <meta property="og:description" content="Indie rock entre Buenos Aires y Barcelona. Nuevo single Figuras Perfectas y próximos shows.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_AR">
-  <meta property="og:site_name" content="Paraleia">
+  <meta property="og:site_name" content="PARALEIA">
   <meta property="og:url" content="https://paraleia.vercel.app/">
   <meta property="og:image" content="https://paraleia.vercel.app/assets/hero.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Paraleia">
-  <meta name="twitter:description" content="Indie rock entre Buenos Aires y Barcelona. Nuevos lanzamientos y próximos shows.">
+  <meta name="twitter:title" content="PARALEIA">
+  <meta name="twitter:description" content="Indie rock entre Buenos Aires y Barcelona. Nuevo single Figuras Perfectas y próximos shows.">
   <meta name="twitter:image" content="https://paraleia.vercel.app/assets/hero.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="assets/fonts/neutratext-bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/hero.jpg" as="image">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" href="/assets/fonts/neutratext-bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/hero.jpg" as="image" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Datos estructurados: ayudan a Google y a los buscadores con IA a entender quién es la banda -->
+  <!-- Datos estructurados -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "MusicGroup",
-    "name": "Paraleia",
+    "name": "PARALEIA",
     "url": "https://paraleia.vercel.app/",
     "image": "https://paraleia.vercel.app/assets/hero.jpg",
     "genre": ["Indie rock", "Pop alternativo"],
     "foundingDate": "2007",
     "foundingLocation": { "@type": "Place", "name": "Castelar, Buenos Aires, Argentina" },
-    "email": "infoparaleia@gmail.com",
-    "member": [
-      { "@type": "OrganizationRole", "member": { "@type": "Person", "name": "Francisco Carlucci" }, "roleName": "Voz y guitarra" },
-      { "@type": "OrganizationRole", "member": { "@type": "Person", "name": "Rodrigo Ares" }, "roleName": "Guitarra y coros" },
-      { "@type": "OrganizationRole", "member": { "@type": "Person", "name": "Daniel Artola" }, "roleName": "Bajo" },
-      { "@type": "OrganizationRole", "member": { "@type": "Person", "name": "Joaquin Pecci" }, "roleName": "Batería" }
-    ],
     "album": [
       { "@type": "MusicAlbum", "name": "Espacios", "datePublished": "2014", "url": "https://open.spotify.com/album/7mGp8tgusUOxiajFRXtqKv" },
       { "@type": "MusicAlbum", "name": "Zig-Zag", "datePublished": "2016", "url": "https://open.spotify.com/album/5litrW5VnzEs3W3nomvnd8" },
@@ -66,10 +60,11 @@
   }
   </script>
 
-  <!-- Aviso de cookies (CookieConsent v3, licencia MIT): Clarity solo carga si el visitante acepta -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+  <!-- Aviso de cookies (CookieConsent v3, carga no bloqueante) -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css"></noscript>
 
-  <!-- Microsoft Clarity -->
+  <!-- Microsoft Clarity (solo carga si el visitante acepta analítica) -->
   <script type="text/plain" data-category="analytics">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -79,22 +74,29 @@
   </script>
 
   <style>
+    /* =========================================================================
+       PARALEIA — Dirección Expresiva / Escena en vivo
+       Paleta oficial: crema (#f4eee2), papel (#fbf8f1), negro (#141414),
+       rojo (#c8322b) y amarillo (#e9b72f).
+       ========================================================================= */
     :root {
-      /* Paleta de marca: crema, rojo, negro y amarillo */
-      --bg: #f4eee2;          /* crema */
-      --paper: #fbf8f1;       /* crema claro para tarjetas */
-      --text: #141414;        /* negro */
-      --muted: #5c574e;
-      --accent: #c8322b;      /* rojo */
-      --accent-soft: #ecdcc8;
-      --yellow: #e9b72f;      /* amarillo, solo como acento */
-      --line: #e2d9c8;
-      --max: 960px;
+      --bg: #f4eee2;
+      --paper: #fbf8f1;
+      --ink: #141414;
+      --ink-soft: #201e1b;
+      --muted: #585249;
+      --accent: #c8322b;
+      --accent-dark: #a6251f;
+      --yellow: #e9b72f;
+      --line: #d9cebc;
+      --max: 1120px;
+      --gutter: clamp(24px, 6.4vw, 44px);
+      --radius: 14px;
     }
 
     @font-face {
       font-family: 'Neutra Text';
-      src: url('assets/fonts/neutratext-bold.woff2') format('woff2');
+      src: url('/assets/fonts/neutratext-bold.woff2') format('woff2');
       font-weight: 700;
       font-style: normal;
       font-display: swap;
@@ -103,11 +105,11 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     [hidden] { display: none !important; }
 
-    html { scroll-behavior: smooth; scrollbar-color: var(--accent) var(--bg); }
-
-    h1, h2 { text-wrap: balance; }
-
-    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+    html {
+      scroll-behavior: smooth;
+      scrollbar-color: var(--yellow) var(--ink);
+    }
+    ::selection { background: var(--yellow); color: var(--ink); }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -119,905 +121,766 @@
     }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', -apple-system, sans-serif;
-      line-height: 1.6;
+      background: var(--ink);
+      color: var(--bg);
+      font-family: 'Space Grotesk', -apple-system, sans-serif;
+      font-size: 1rem;
+      line-height: 1.62;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    h1, h2, .wordmark { font-family: 'Neutra Text', 'Inter', sans-serif; font-weight: 700; }
+    h1, h2, h3, .wordmark {
+      font-family: 'Neutra Text', 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      text-wrap: balance;
+    }
 
-    a { color: inherit; }
+    a {
+      color: inherit;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1.5px;
+    }
 
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    :focus-visible {
+      outline: 2.5px solid var(--yellow);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
 
-    /* ---------- Nav ---------- */
-    nav {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(244, 238, 226, 0.88);
+    .skip-link {
+      position: absolute; left: 16px; top: -64px; z-index: 200;
+      padding: 12px 18px; border-radius: 999px;
+      background: var(--yellow); color: var(--ink);
+      font-weight: 700; text-decoration: none;
+    }
+    .skip-link:focus { top: 14px; }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-inline: var(--gutter);
+    }
+
+    /* ---------- Aviso de cookies (paleta oficial, bottom right sin pisar hero) ---------- */
+    #cc-main {
+      --cc-bg: var(--paper); --cc-primary-color: var(--ink); --cc-secondary-color: var(--muted);
+      --cc-btn-primary-bg: var(--accent); --cc-btn-primary-border-color: var(--accent);
+      --cc-btn-primary-hover-bg: var(--accent-dark); --cc-btn-primary-hover-border-color: var(--accent-dark);
+      --cc-btn-secondary-bg: #e9dfd0; --cc-btn-secondary-border-color: #e9dfd0;
+      --cc-btn-secondary-hover-bg: var(--line); --cc-btn-secondary-hover-border-color: var(--line);
+      --cc-toggle-on-bg: var(--accent); --cc-font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* ---------- Nav oscura contrastada ---------- */
+    .site-nav {
+      position: sticky; top: 0; z-index: 60;
+      background: rgba(20, 20, 20, 0.92);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid rgba(244, 238, 226, 0.14);
     }
     .nav-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 24px; max-width: var(--max); margin: 0 auto;
+      max-width: var(--max); margin: 0 auto;
+      padding: 14px var(--gutter);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
     }
     .wordmark {
-      font-family: 'Neutra Text', 'Inter', sans-serif;
-      font-weight: 700; letter-spacing: 0.22em; font-size: 1.05rem;
-      text-decoration: none; text-transform: uppercase;
+      font-size: 1.05rem; letter-spacing: 0.24em; text-transform: uppercase;
+      text-decoration: none; color: #fff; padding: 8px 0;
     }
-    .nav-links { display: flex; gap: 28px; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
     .nav-links a {
-      text-decoration: none; font-size: 0.9rem; color: var(--muted);
-      transition: color 0.2s;
+      text-decoration: none; font-size: 0.92rem; font-weight: 500;
+      color: rgba(244, 238, 226, 0.8); padding: 10px 4px; transition: color 0.18s;
     }
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover { color: var(--yellow); }
+    .nav-pill {
+      padding: 9px 18px !important; border-radius: 999px;
+      background: var(--yellow); color: var(--ink) !important; font-weight: 700 !important;
+    }
+    .nav-pill:hover { background: #f3c84d; color: var(--ink) !important; }
 
-    /* Botón hamburguesa (solo móvil) */
     .nav-toggle {
       display: none; flex-direction: column; justify-content: center; gap: 5px;
-      width: 42px; height: 42px; padding: 9px; border: 0; background: none;
-      cursor: pointer; border-radius: 8px;
+      width: 44px; height: 44px; padding: 10px; border: 0; background: none; cursor: pointer;
     }
     .nav-toggle span {
-      display: block; height: 2px; width: 100%; background: var(--text);
-      border-radius: 2px; transition: transform 0.25s, opacity 0.2s;
+      display: block; height: 2px; width: 100%; background: #fff;
+      border-radius: 2px; transition: transform 0.2s, opacity 0.2s;
     }
     .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
     .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    @media (max-width: 720px) {
+    @media (max-width: 780px) {
       .nav-toggle { display: flex; }
       .nav-links {
         position: absolute; top: 100%; left: 0; right: 0;
-        flex-direction: column; gap: 0;
-        background: rgba(244, 238, 226, 0.98);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--line);
-        max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+        flex-direction: column; align-items: stretch; gap: 0;
+        background: var(--ink-soft); border-bottom: 1px solid rgba(244, 238, 226, 0.16);
+        visibility: hidden; opacity: 0; pointer-events: none;
+        transition: opacity 0.18s ease, visibility 0.18s ease;
       }
-      .nav-links.open { max-height: 380px; }
+      .nav-links.open { visibility: visible; opacity: 1; pointer-events: auto; }
       .nav-links a {
-        padding: 16px 24px; font-size: 1rem;
-        border-top: 1px solid var(--line);
+        padding: 16px var(--gutter); font-size: 1rem;
+        border-top: 1px solid rgba(244, 238, 226, 0.1);
       }
+      .nav-pill { border-radius: 0 !important; text-align: center; }
     }
 
-    /* ---------- Hero ---------- */
+    /* ---------- Hero Expresivo ---------- */
     header.hero {
       position: relative;
-      min-height: 82vh;
+      min-height: clamp(540px, 86svh, 800px);
       display: flex; align-items: flex-end;
       background:
-        linear-gradient(to top, rgba(20,20,20,0.7) 0%, rgba(20,20,20,0) 45%),
-        linear-gradient(160deg, #c8322b 0%, #8f2a24 55%, #141414 100%);
-      background-size: cover; background-position: center 30%;
+        linear-gradient(180deg, rgba(20, 20, 20, 0.34) 0%, rgba(20, 20, 20, 0.22) 34%, rgba(20, 20, 20, 0.94) 84%, #141414 100%),
+        url('/assets/hero.jpg') center 22% / cover no-repeat,
+        #141414;
     }
-    header.hero.has-photo {
-      background:
-        linear-gradient(to top, rgba(20,20,20,0.8) 0%, rgba(20,20,20,0.15) 38%, rgba(20,20,20,0) 58%),
-        url('assets/hero.jpg');
-      background-size: cover; background-position: center 25%;
-    }
-    .hero-content {
-      width: 100%; max-width: var(--max); margin: 0 auto;
-      padding: 0 24px 64px;
-    }
-    .hero-kicker {
-      display: inline-flex; align-items: center; gap: 9px;
-      margin-bottom: 16px; padding: 7px 14px; border-radius: 999px;
-      background: rgba(20, 20, 20, 0.58);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      color: #fff; font-size: 0.78rem; font-weight: 500;
-      letter-spacing: 0.16em; text-transform: uppercase;
-    }
-    .hero-kicker .dot {
-      width: 8px; height: 8px; border-radius: 999px;
-      background: var(--yellow); flex-shrink: 0;
+    .hero-inner {
+      width: 100%;
+      padding-top: clamp(88px, 14vh, 136px);
+      padding-bottom: clamp(44px, 6vw, 68px);
     }
     .hero h1 {
-      font-family: 'Neutra Text', 'Inter', sans-serif;
-      font-size: clamp(3rem, 10vw, 6.5rem);
-      letter-spacing: 0.14em; text-transform: uppercase;
-      line-height: 1.05; font-weight: 700;
-      color: #fff;
-      text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+      font-size: clamp(2.55rem, 10.2vw, 6rem);
+      letter-spacing: 0.06em; text-transform: uppercase;
+      line-height: 0.94; color: var(--bg);
     }
-    .hero-ctas { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-bottom {
+      margin-top: 24px; display: grid; gap: 28px; align-items: end;
+    }
+    @media (min-width: 820px) {
+      .hero-bottom { grid-template-columns: 1.15fr 0.85fr; gap: 40px; }
+    }
+    .hero-lead {
+      font-size: clamp(1.06rem, 2.2vw, 1.4rem);
+      color: rgba(244, 238, 226, 0.9); max-width: 38ch; line-height: 1.45;
+    }
+    .hero-ctas { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; }
+
     .btn {
-      display: inline-block; text-decoration: none;
-      padding: 12px 26px; border-radius: 999px;
-      font-size: 0.95rem; font-weight: 500;
-      transition: transform 0.15s, box-shadow 0.15s;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 48px; padding: 12px 26px; border-radius: 999px;
+      font-size: 0.95rem; font-weight: 700; text-decoration: none;
+      transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { box-shadow: 0 8px 22px rgba(200,50,43,0.35); }
-    .btn-ghost { border: 1.5px solid #fff; color: #fff; }
+    .btn-red { background: var(--accent); color: #fff; }
+    .btn-red:hover { background: var(--accent-dark); }
+    .btn-yellow { background: var(--yellow); color: var(--ink); }
+    .btn-yellow:hover { background: #f3c84d; }
+    .btn-ghost-light { border: 1.5px solid rgba(244, 238, 226, 0.65); color: var(--bg); }
+    .btn-ghost-light:hover { border-color: var(--yellow); color: var(--yellow); }
 
-    /* ---------- Secciones ---------- */
-    section { padding: 88px 0; }
-    section + section { border-top: 1px solid var(--line); }
-    .section-label {
-      font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--accent); font-weight: 500; margin-bottom: 10px;
+    .hero-proof {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 20px;
+      border-top: 1px solid rgba(244, 238, 226, 0.22); padding-top: 20px;
     }
-    h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 32px; font-weight: 700; }
+    .hero-proof strong { display: block; font-size: 0.94rem; color: var(--yellow); line-height: 1.3; }
+    .hero-proof span { display: block; margin-top: 2px; font-size: 0.84rem; color: rgba(244, 238, 226, 0.76); line-height: 1.35; }
 
-    /* ---------- La banda ---------- */
-    .bio { display: grid; gap: 40px; }
-    .bio-text p { font-size: 1.08rem; max-width: 60ch; }
-    .bio-text p + p { margin-top: 16px; }
-    .members { list-style: none; display: grid; gap: 12px; align-content: start; }
-    .members li {
-      display: flex; justify-content: space-between; gap: 16px;
-      padding-bottom: 12px; border-bottom: 1px solid var(--line);
-    }
-    .members .who { font-family: 'Neutra Text', 'Inter', sans-serif; font-weight: 700; }
-    .members .role { color: var(--muted); font-size: 0.92rem; text-align: right; }
-    .milestones { margin-top: 28px; display: grid; gap: 10px; }
-    .milestones p { font-size: 0.95rem; color: var(--muted); }
-    .milestones strong { color: var(--accent); font-weight: 600; margin-right: 8px; }
-    @media (min-width: 760px) { .bio { grid-template-columns: 1.2fr 0.8fr; gap: 64px; } }
+    /* ---------- Capítulos alternados ---------- */
+    .band-cream { background: var(--bg); color: var(--ink); }
+    .band-cream :focus-visible { outline-color: var(--accent); }
+    .band-dark { background: var(--ink); color: var(--bg); }
 
-    /* ---------- Aviso de cookies con la paleta de la banda ---------- */
-    #cc-main {
-      --cc-bg: var(--paper); --cc-primary-color: var(--text); --cc-secondary-color: var(--muted);
-      --cc-btn-primary-bg: var(--accent); --cc-btn-primary-border-color: var(--accent);
-      --cc-btn-primary-hover-bg: #a8271f; --cc-btn-primary-hover-border-color: #a8271f;
-      --cc-btn-secondary-bg: var(--accent-soft); --cc-btn-secondary-border-color: var(--accent-soft);
-      --cc-btn-secondary-hover-bg: var(--line); --cc-btn-secondary-hover-border-color: var(--line);
-      --cc-toggle-on-bg: var(--accent); --cc-font-family: 'Inter', sans-serif;
-    }
-    .footer-meta a { color: inherit; }
+    section { padding: clamp(64px, 8.5vw, 108px) 0; scroll-margin-top: 72px; }
+    h2 { font-size: clamp(2rem, 5vw, 3.35rem); line-height: 1.06; letter-spacing: -0.02em; }
 
-    /* ---------- Música ---------- */
-    .release-feature {
-      display: grid; gap: 24px; align-items: center;
-      margin-bottom: 32px; padding: clamp(20px, 3.5vw, 32px);
-      background: var(--text); color: #fff;
-      border-top: 4px solid var(--accent);
-      border-radius: 18px;
-      box-shadow: 0 14px 40px rgba(20, 20, 20, 0.18);
+    /* ---------- Capítulo Crema: Spotlight de Figuras Perfectas ---------- */
+    .spotlight { display: grid; gap: 32px; align-items: center; }
+    @media (min-width: 840px) {
+      .spotlight { grid-template-columns: 0.92fr 1.08fr; gap: 56px; }
     }
-    .release-cover-link {
-      display: block; width: 100%; max-width: 188px;
-      border-radius: 12px; overflow: hidden;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
-      transition: transform 0.2s ease;
+    .vinyl-frame {
+      position: relative; display: block; max-width: 400px; width: 100%;
+      margin: 0 auto; border-radius: var(--radius); overflow: hidden;
+      box-shadow: 0 22px 48px rgba(20, 20, 20, 0.24);
+      transform: rotate(-1.2deg); transition: transform 0.28s ease;
     }
-    .release-cover-link:hover { transform: translateY(-2px); }
-    .release-cover {
-      display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
-    }
-    .release-tag {
-      font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--yellow); font-weight: 600; margin-bottom: 8px;
-    }
-    .release-body h3 {
-      font-family: 'Neutra Text', 'Inter', sans-serif; font-weight: 700;
-      font-size: clamp(1.45rem, 3.2vw, 2rem); line-height: 1.15;
-      color: #fff; margin-bottom: 10px;
-    }
-    .release-copy {
-      color: rgba(255, 255, 255, 0.78); font-size: 0.98rem; max-width: 46ch;
-    }
-    .release-actions { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; }
-    @media (min-width: 680px) {
-      .release-feature { grid-template-columns: 188px 1fr; gap: 32px; }
-    }
-    .music-grid { display: grid; gap: 40px; }
-    .music-block h3 {
-      font-size: 1rem; font-weight: 500; color: var(--muted); margin-bottom: 14px;
-    }
-    .spotify-embed {
-      border-radius: 16px; overflow: hidden;
-      background: var(--text);
-      padding: 10px;
-      box-shadow: 0 8px 30px rgba(20, 20, 20, 0.18);
-    }
-    .spotify-embed iframe { border-radius: 12px; }
-    iframe { display: block; border: 0; width: 100%; }
-    .platform-icons { margin-top: 26px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-    .platform-icons .lead { font-size: 0.9rem; color: var(--muted); }
-    .platform-icons a { display: inline-flex; }
-    .platform-icons svg { width: 26px; height: 26px; fill: var(--muted); transition: fill 0.2s, transform 0.15s; }
-    .platform-icons a:hover svg { fill: var(--accent); transform: translateY(-2px); }
+    .vinyl-frame:hover { transform: rotate(0deg) translateY(-4px); }
+    .vinyl-frame img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
 
-    /* ---------- Videos (carrusel) ---------- */
-    .carousel { position: relative; }
-    .carousel-track {
-      display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory;
-      scroll-behavior: smooth; padding-bottom: 12px;
-      -ms-overflow-style: none; scrollbar-width: none;
+    .spotlight-copy p {
+      margin-top: 16px; font-size: 1.06rem; color: var(--muted); max-width: 44ch;
     }
-    .carousel-track::-webkit-scrollbar { display: none; }
-    .video-card {
-      flex: 0 0 88%; scroll-snap-align: center;
-    }
-    .video-card .frame {
-      position: relative; width: 100%; aspect-ratio: 16 / 9;
-      border-radius: 14px; overflow: hidden;
-      box-shadow: 0 8px 30px rgba(22, 24, 29, 0.08);
-      background: #000; cursor: pointer;
-    }
-    .video-card iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
-    .video-card .thumb {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; display: block;
-    }
-    .video-card .play {
-      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-      background: rgba(0,0,0,0.12); transition: background 0.2s;
-    }
-    .video-card .frame:hover .play { background: rgba(0,0,0,0.28); }
-    .video-card .play::after {
-      content: ''; width: 0; height: 0;
-      border-style: solid; border-width: 14px 0 14px 24px;
-      border-color: transparent transparent transparent #fff;
-      margin-left: 6px;
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
-    }
-    .video-card .play span {
-      position: absolute; width: 64px; height: 64px; border-radius: 999px;
-      background: rgba(0,0,0,0.55);
-    }
-    .video-card .vtitle {
-      margin-top: 12px; font-size: 0.95rem; font-weight: 500;
-    }
-    .carousel-dots { display: flex; justify-content: center; gap: 9px; margin-top: 22px; }
-    .carousel-dots button {
-      width: 9px; height: 9px; border-radius: 999px; padding: 0;
-      border: 0; background: var(--line); cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .carousel-dots button:hover { background: var(--muted); }
-    .carousel-dots button.active { background: var(--accent); transform: scale(1.35); }
+    .spotlight-actions { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; }
 
-    /* ---------- Discografía ---------- */
-    .discography {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 16px;
+    .platform-logos {
+      margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line);
+      display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px;
     }
-    .album-card {
-      display: flex; flex-direction: column; gap: 2px;
-      padding: 12px 12px 16px; border: 1px solid var(--line); border-radius: 14px;
-      text-decoration: none; background: var(--paper);
-      transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+    .platform-logos-label {
+      font-size: 0.88rem; font-weight: 500; color: var(--muted); margin-right: 4px;
     }
-    .album-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(22,24,29,0.08); }
-    .album-card .cover {
-      width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
-      border-radius: 8px; margin-bottom: 12px; display: block;
-      background: var(--accent-soft);
+    .logo-links {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
     }
-    .album-card .atitle { font-weight: 600; font-family: 'Neutra Text', 'Inter', sans-serif; font-size: 0.95rem; }
-    .album-card .ayear { font-size: 0.85rem; color: var(--muted); }
-    .album-card-new { border-color: rgba(200, 50, 43, 0.45); }
-    .album-card-new .ayear { color: var(--accent); font-weight: 600; }
-    h2.disco-singles { margin-top: 52px; }
+    .logo-link {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--paper); border: 1px solid var(--line);
+      color: var(--ink); text-decoration: none;
+      transition: transform 0.16s ease, border-color 0.16s ease, color 0.16s ease, background-color 0.16s ease;
+    }
+    .logo-link:hover {
+      transform: translateY(-2px); border-color: var(--accent); color: var(--accent); background: #fff;
+    }
+    .logo-link svg { width: 22px; height: 22px; fill: currentColor; display: block; }
 
-    /* ---------- Shows ---------- */
-    #shows .bit-wrap {
-      background: var(--paper); border: 1px solid var(--line); border-radius: 14px;
-      padding: 24px; box-shadow: 0 8px 30px rgba(22, 24, 29, 0.05);
+    /* ---------- Capítulo Oscuro: Escenario Audiovisual (Spotify + Videos) ---------- */
+    .stage-grid {
+      margin-top: 28px; display: grid; gap: 28px; align-items: start;
+    }
+    @media (min-width: 900px) { .stage-grid { grid-template-columns: 0.95fr 1.05fr; gap: 40px; } }
+
+    .spotify-card {
+      border-radius: var(--radius); overflow: hidden;
+      background: var(--ink-soft); padding: 10px; border: 1px solid rgba(244, 238, 226, 0.14);
+    }
+    .spotify-card iframe { display: block; width: 100%; border: 0; border-radius: 10px; }
+
+    .video-stage {
+      position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius);
+      overflow: hidden; background: #000;
+    }
+    .video-trigger {
+      position: relative; display: block; width: 100%; height: 100%;
+      border: 0; padding: 0; background: #000; cursor: pointer;
+    }
+    .video-trigger img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .video-play {
+      position: absolute; inset: 0; padding: 16px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 10px; background: rgba(20, 20, 20, 0.36); color: #fff; font-weight: 700; text-align: center;
+    }
+    .video-play-circle {
+      width: 64px; height: 64px; border-radius: 999px; background: var(--yellow); color: var(--ink);
+      display: inline-flex; align-items: center; justify-content: center; font-size: 1.35rem;
+    }
+    .video-stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+    .video-chips { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .video-chip {
+      min-height: 44px; padding: 8px 15px; border-radius: 999px;
+      border: 1px solid rgba(244, 238, 226, 0.28); background: transparent;
+      color: var(--bg); font: inherit; font-size: 0.88rem; font-weight: 500; cursor: pointer;
+      transition: background-color 0.16s, color 0.16s, border-color 0.16s;
+    }
+    .video-chip:hover { border-color: var(--yellow); }
+    .video-chip[aria-pressed="true"] {
+      background: var(--yellow); color: var(--ink); border-color: var(--yellow); font-weight: 700;
     }
 
-    /* ---------- Instagram ---------- */
-    .ig-wrap { max-width: 680px; }
-    .ig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .ig-item { display: block; aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden; background: var(--accent-soft); }
-    .ig-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+    /* ---------- Capítulo Crema: Discografía ---------- */
+    .albums-trio { margin-top: 28px; display: grid; gap: 18px; }
+    @media (min-width: 720px) { .albums-trio { grid-template-columns: repeat(3, 1fr); } }
+    .album-feature {
+      display: flex; flex-direction: column; gap: 10px;
+      padding: 16px; border-radius: var(--radius);
+      background: var(--paper); border: 1.5px solid var(--ink);
+      text-decoration: none; transition: transform 0.18s ease, background-color 0.18s ease;
+    }
+    .album-feature:hover { transform: translateY(-4px); background: #fff; }
+    .album-feature img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 8px; display: block; }
+    .album-feature .af-title { font-family: 'Neutra Text', 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.18rem; }
+    .album-feature .af-meta { font-size: 0.88rem; color: var(--muted); }
+
+    .singles-heading {
+      margin-top: 48px; margin-bottom: 14px; display: flex; flex-wrap: wrap;
+      justify-content: space-between; align-items: baseline; gap: 12px;
+    }
+    .singles-heading h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+
+    .singles-index { list-style: none; border-top: 2px solid var(--ink); }
+    .singles-index a {
+      display: grid; grid-template-columns: 52px 52px 1fr auto; gap: 14px; align-items: center;
+      padding: 14px 6px; border-bottom: 1px solid var(--line); text-decoration: none;
+      transition: background-color 0.15s;
+    }
+    .singles-index a:hover { background: var(--paper); }
+    .singles-index .sy { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; font-size: 0.92rem; }
+    .singles-index img { width: 52px; height: 52px; border-radius: 6px; object-fit: cover; display: block; background: var(--line); }
+    .singles-index .st { font-family: 'Neutra Text', 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.06rem; line-height: 1.2; }
+    .singles-index .sa { font-size: 0.86rem; font-weight: 600; color: var(--muted); white-space: nowrap; }
+    .singles-index .sa-new { color: var(--accent); }
+
+    @media (max-width: 560px) {
+      .singles-index a {
+        grid-template-columns: 48px 1fr auto; gap: 12px; padding: 13px 2px;
+      }
+      .singles-index .sy { display: none; }
+      .singles-index img { width: 48px; height: 48px; }
+      .singles-index .st { font-size: 1rem; }
+      .singles-index .sa { font-size: 0.82rem; }
+    }
+
+    .toggle-archive {
+      margin-top: 18px; min-height: 46px; padding: 10px 22px; border-radius: 999px;
+      border: 1.5px solid var(--ink); background: transparent; color: var(--ink);
+      font: inherit; font-weight: 700; cursor: pointer;
+      transition: background-color 0.16s, color 0.16s;
+    }
+    .toggle-archive:hover { background: var(--ink); color: var(--bg); }
+
+    /* ---------- Capítulo Oscuro: Biografía + Próximos shows + Instagram ---------- */
+    .band-split {
+      margin-top: 28px; display: grid; gap: 36px; align-items: start;
+    }
+    @media (min-width: 840px) { .band-split { grid-template-columns: 1.05fr 0.95fr; gap: 56px; } }
+
+    .bio-copy { font-size: 1.05rem; color: rgba(244, 238, 226, 0.88); max-width: 54ch; }
+    .bio-copy + .bio-copy { margin-top: 14px; }
+    .bio-more { margin-top: 14px; }
+    .bio-toggle {
+      margin-top: 18px; min-height: 44px; padding: 9px 20px; border-radius: 999px;
+      border: 1px solid rgba(244, 238, 226, 0.34); background: transparent;
+      color: var(--yellow); font: inherit; font-size: 0.9rem; font-weight: 700;
+      cursor: pointer; transition: background-color 0.16s, color 0.16s, border-color 0.16s;
+    }
+    .bio-toggle:hover { background: var(--yellow); color: var(--ink); border-color: var(--yellow); }
+
+    .shows-heading { font-size: 1.45rem; margin-bottom: 16px; color: var(--yellow); }
+    .shows-panel {
+      background: var(--paper); color: var(--ink);
+      border-radius: var(--radius); padding: 20px; min-height: 210px;
+    }
+
+    .ig-block { margin-top: 52px; }
+    .ig-header {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 14px; flex-wrap: wrap;
+    }
+    .ig-header h3 { font-size: 1.45rem; }
+    .ig-header a { color: var(--yellow); font-weight: 600; text-decoration: none; }
+    .ig-header a:hover { text-decoration: underline; }
+    .ig-mosaic {
+      margin-top: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+    }
+    @media (min-width: 740px) { .ig-mosaic { grid-template-columns: repeat(6, 1fr); gap: 12px; } }
+    .ig-item { display: block; aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden; background: var(--ink-soft); }
+    .ig-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.25s; }
     .ig-item:hover img { transform: scale(1.05); }
-    .ig-more {
-      display: inline-block; margin-top: 20px; font-size: 0.9rem;
-      color: var(--accent); text-decoration: none; font-weight: 500;
-    }
-    .ig-more:hover { text-decoration: underline; }
-    @media (max-width: 520px) { .ig-grid { grid-template-columns: repeat(2, 1fr); } }
-    .ig-fallback {
-      display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center;
-      padding: 56px 24px; border: 1px solid var(--line); border-radius: 14px;
-      background: var(--paper); text-decoration: none;
-      transition: border-color 0.2s, transform 0.15s;
-    }
-    .ig-fallback:hover { border-color: var(--accent); transform: translateY(-3px); }
-    .ig-fallback svg { width: 40px; height: 40px; fill: var(--text); }
-    .ig-fallback .name { font-family: 'Neutra Text', 'Inter', sans-serif; font-weight: 600; font-size: 1.1rem; }
-    .ig-fallback .handle { font-size: 0.9rem; color: var(--muted); }
 
-    /* ---------- Redes ---------- */
-    .socials {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 14px;
-    }
-    .social-card {
-      display: flex; flex-direction: column; gap: 4px;
-      padding: 20px; border: 1px solid var(--line); border-radius: 14px;
-      text-decoration: none; background: var(--paper);
-      transition: border-color 0.2s, transform 0.15s;
-    }
-    .social-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-    .social-card .sicon { width: 26px; height: 26px; fill: var(--text); margin-bottom: 8px; transition: fill 0.2s; }
-    .social-card:hover .sicon { fill: var(--accent); }
-    .social-card .name { font-weight: 500; }
-    .social-card .handle { font-size: 0.85rem; color: var(--muted); }
-
-    /* ---------- Contacto (formulario) ---------- */
-    .contact-card {
-      background: var(--text);
-      border-top: 6px solid var(--accent);
-      border-radius: 22px; padding: clamp(28px, 5vw, 56px);
-      display: grid; gap: 36px;
-      box-shadow: 0 24px 60px rgba(20, 20, 20, 0.25);
-    }
-    .contact-intro .section-label { color: var(--yellow); }
-    .contact-intro h2 { color: #fff; margin-bottom: 14px; }
-    .contact-lead { color: rgba(255,255,255,0.74); font-size: 1.05rem; max-width: 32ch; }
-    .contact-direct { margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
-    .contact-direct a { color: var(--yellow); text-decoration: none; }
-    .contact-direct a:hover { text-decoration: underline; }
+    /* ---------- Contacto (solo mensaje + formulario, sin email directo) ---------- */
+    .contact-wrap { display: grid; gap: 32px; align-items: start; }
+    @media (min-width: 820px) { .contact-wrap { grid-template-columns: 0.85fr 1.15fr; gap: 56px; } }
+    .contact-lead { margin-top: 12px; font-size: 1.06rem; color: var(--muted); max-width: 36ch; }
 
     .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
     .field { margin-bottom: 16px; display: flex; flex-direction: column; gap: 6px; }
-    .field label { font-size: 0.82rem; color: rgba(255,255,255,0.75); letter-spacing: 0.02em; }
+    .field label { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
     .field input, .field textarea {
-      font-family: inherit; font-size: 1rem; color: #fff;
-      padding: 13px 15px; border: 1px solid rgba(255,255,255,0.16); border-radius: 12px;
-      background: rgba(255,255,255,0.06); transition: border-color 0.2s, background 0.2s, box-shadow 0.2s; width: 100%;
+      font: inherit; color: var(--ink); caret-color: var(--accent);
+      padding: 13px 15px; border: 1.5px solid #9d9485;
+      border-radius: 10px; background: var(--paper); width: 100%;
     }
-    .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.4); }
+    .field input::placeholder, .field textarea::placeholder { color: #676056; }
     .field input:focus, .field textarea:focus {
-      outline: none; border-color: var(--yellow); background: rgba(255,255,255,0.1);
-      box-shadow: 0 0 0 3px rgba(233,183,47,0.2);
+      border-color: var(--accent); outline: 2.5px solid var(--accent); outline-offset: 2px;
     }
-    .field input:user-invalid, .field textarea:user-invalid { border-color: #ff9b9b; }
-    .field textarea { resize: vertical; min-height: 110px; }
+    .field textarea { min-height: 112px; resize: vertical; }
     .cf-submit {
-      display: inline-block; margin-top: 4px; padding: 14px 34px; border: 0; border-radius: 999px;
-      background: var(--accent); color: #fff; font-size: 0.95rem; font-weight: 600;
-      cursor: pointer; transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
+      min-height: 48px; padding: 12px 32px; border: 0; border-radius: 999px;
+      background: var(--ink); color: var(--bg); font: inherit; font-weight: 700; cursor: pointer;
+      transition: background-color 0.18s, color 0.18s;
     }
-    .cf-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.22); }
-    .cf-submit:disabled { opacity: 0.6; cursor: default; transform: none; box-shadow: none; }
-    .cf-status { margin-top: 14px; font-size: 0.9rem; min-height: 1.2em; }
-    .cf-status.ok { color: #86e0a6; }
-    .cf-status.err { color: #ff9b9b; }
-
-    @media (min-width: 760px) {
-      .contact-card { grid-template-columns: 0.85fr 1.15fr; gap: 52px; align-items: center; }
-    }
+    .cf-submit:hover { background: var(--accent); color: #fff; }
+    .cf-submit:disabled { opacity: 0.6; cursor: default; }
+    .cf-status { margin-top: 10px; font-size: 0.92rem; min-height: 1.2em; font-weight: 500; }
+    .cf-status.ok { color: #196b38; }
+    .cf-status.err { color: var(--accent); }
 
     /* ---------- Footer ---------- */
     footer {
-      border-top: 1px solid var(--line);
-      padding: 56px 24px; text-align: center;
+      background: var(--ink); color: rgba(244, 238, 226, 0.74);
+      padding: 40px 0; border-top: 1px solid rgba(244, 238, 226, 0.14);
     }
-    .footer-icons {
-      display: flex; justify-content: center; align-items: center;
-      gap: 26px; flex-wrap: wrap; margin-bottom: 22px;
+    .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+    .footer-links { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 20px; }
+    .footer-links a, .footer-links button {
+      display: inline-flex; align-items: center; min-height: 44px;
+      background: none; border: 0; padding: 0; color: inherit;
+      font: inherit; font-size: 0.9rem; text-decoration: none; cursor: pointer;
     }
-    .footer-icons a { display: inline-flex; }
-    .footer-icons svg { width: 24px; height: 24px; fill: var(--muted); transition: fill 0.2s, transform 0.15s; }
-    .footer-icons a:hover svg { fill: var(--accent); transform: translateY(-2px); }
-    .footer-meta { font-size: 0.88rem; color: var(--muted); }
-    .footer-meta .heart { color: var(--text); }
-
-    @media (min-width: 720px) {
-      .music-grid { grid-template-columns: 1fr 1fr; }
-    }
+    .footer-links a:hover, .footer-links button:hover { color: var(--yellow); text-decoration: underline; }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <nav>
+  <nav class="site-nav" aria-label="Navegación principal">
     <div class="nav-inner">
-      <a class="wordmark" href="#hero">Paraleia</a>
-      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+      <a class="wordmark" href="#inicio">PARALEIA</a>
+      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
       <div class="nav-links" id="navLinks">
-        <a href="#banda">La banda</a>
-        <a href="#musica">Música</a>
-        <a href="#videos">Videos</a>
+        <a href="#single">Single</a>
+        <a href="#escenario">Videos</a>
         <a href="#discografia">Discografía</a>
-        <a href="#shows">Shows</a>
+        <a href="#vivo">En vivo</a>
         <a href="#contacto">Contacto</a>
+        <a class="nav-pill" href="/figuras-perfectas/">Figuras Perfectas</a>
       </div>
     </div>
   </nav>
 
-  <header class="hero" id="hero">
-    <div class="hero-content">
-      <p class="hero-kicker"><span class="dot" aria-hidden="true"></span>Nuevo single · Figuras Perfectas</p>
-      <h1>Paraleia</h1>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="/figuras-perfectas/">Escuchar Figuras Perfectas</a>
-        <a class="btn btn-ghost" href="https://open.spotify.com/artist/737T198kjU3hbvxpc2wnhC" target="_blank" rel="noopener">Spotify</a>
-        <a class="btn btn-ghost" href="#shows">Próximos shows</a>
-      </div>
-    </div>
-  </header>
-
-  <section id="banda">
-    <div class="wrap">
-      <p class="section-label">La banda</p>
-      <h2>Entre Buenos Aires y Barcelona</h2>
-      <div class="bio">
-        <div class="bio-text">
-          <p>Paraleia nació en el año 2007 en un garage, en el oeste del Gran Buenos Aires.</p>
-          <p>Cruzando las veredas del indie rock y el pop alternativo, con nostalgia analógica y producción actual, las canciones de la banda hablan de momentos bisagra, vínculos, desamor y lugares que ya no están.</p>
-          <div class="milestones">
-            <p><strong>2014</strong>Primer disco, <em>Espacios</em>.</p>
-            <p><strong>2021</strong><em>Nadie Piensa en Dormir</em>. Ganadores de la convocatoria nacional 20Sesiones21 y alianza con Warner Chappell Argentina.</p>
-            <p><strong>2022</strong>Seleccionados entre más de 1200 bandas para el Festival Ciudad Emergente y la primera edición argentina de Primavera Sound.</p>
-            <p><strong>2026</strong>Lanzamiento de <em>Todas Aquellas Luces</em> junto a la banda española Los Chicos del Sótano.</p>
+  <main id="contenido">
+    <header class="hero" id="inicio">
+      <div class="wrap hero-inner">
+        <h1>PARALEIA</h1>
+        <div class="hero-bottom">
+          <div>
+            <p class="hero-lead">Indie rock y pop alternativo entre Buenos Aires y Barcelona. Nostalgia analógica y producción actual desde 2007.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-yellow" href="/figuras-perfectas/">Escuchar nuevo single</a>
+              <a class="btn btn-ghost-light" href="#vivo">Próximos shows</a>
+            </div>
+          </div>
+          <div class="hero-proof" aria-label="Hitos de la banda">
+            <div><strong>Primavera Sound AR</strong><span>Primera edición, 2022</span></div>
+            <div><strong>Ciudad Emergente</strong><span>+1200 bandas, 2022</span></div>
+            <div><strong>20Sesiones21</strong><span>Convocatoria nacional</span></div>
+            <div><strong>Nuevo single · 2026</strong><span>Figuras Perfectas</span></div>
           </div>
         </div>
-        <ul class="members" aria-label="Integrantes">
-          <li><span class="who">Francisco Carlucci</span><span class="role">Voz y guitarra</span></li>
-          <li><span class="who">Rodrigo Ares</span><span class="role">Guitarra y coros</span></li>
-          <li><span class="who">Daniel Artola</span><span class="role">Bajo</span></li>
-          <li><span class="who">Joaquin Pecci</span><span class="role">Batería</span></li>
+      </div>
+    </header>
+
+    <section id="single" class="band-cream">
+      <div class="wrap spotlight">
+        <a class="vinyl-frame" href="/figuras-perfectas/" aria-label="Ir al micrositio de Figuras Perfectas">
+          <img src="/figuras-perfectas/portada.jpg" width="400" height="400" loading="lazy" alt="Portada oficial de Figuras Perfectas — PARALEIA">
+        </a>
+        <div class="spotlight-copy">
+          <h2>Figuras Perfectas</h2>
+          <p>Nuestro nuevo single ya tiene su propio espacio: escuchalo en tu plataforma, elegí tu frase favorita y descargá tu story en 35mm lista para compartir.</p>
+          <div class="spotlight-actions">
+            <a class="btn btn-red" href="/figuras-perfectas/">Ir a micrositio</a>
+          </div>
+          <div class="platform-logos">
+            <span class="platform-logos-label">Escuchanos en</span>
+            <div class="logo-links" aria-label="Plataformas de streaming">
+              <a class="logo-link" href="https://open.spotify.com/artist/737T198kjU3hbvxpc2wnhC" target="_blank" rel="noopener" aria-label="Spotify" title="Spotify">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.1 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.32-1.32 11.4-1.02 15.9 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.18z"/></svg>
+              </a>
+              <a class="logo-link" href="https://music.apple.com/es/artist/paraleia/1080736795" target="_blank" rel="noopener" aria-label="Apple Music" title="Apple Music">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043A5.022 5.022 0 0 0 19.497.165c-.512-.096-1.032-.146-1.554-.16-.04-.003-.083-.01-.124-.013H5.858c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.193.4-1.336.53-2.3 1.452-2.865 2.78-.192.448-.292.925-.363 1.408-.056.392-.088.785-.1 1.18 0 .032-.007.062-.01.093v12.223c.01.14.017.283.027.424.05.815.154 1.624.497 2.373.65 1.42 1.738 2.353 3.234 2.802.42.127.856.187 1.293.228.555.053 1.11.06 1.667.06h11.03a12.5 12.5 0 0 0 1.57-.1c.822-.106 1.596-.35 2.295-.81a5.046 5.046 0 0 0 1.88-2.207c.186-.42.293-.87.37-1.324.113-.675.138-1.358.137-2.04-.002-3.8 0-7.595-.003-11.393zm-6.423 3.99v5.712c0 .417-.058.827-.244 1.206-.29.59-.76.962-1.388 1.14-.35.1-.706.157-1.07.173-.95.045-1.773-.6-1.943-1.536-.142-.773.227-1.624 1.038-2.022.323-.16.67-.25 1.018-.324.378-.082.758-.153 1.134-.24.274-.063.457-.23.51-.516a.918.918 0 0 0 .02-.193c0-1.815 0-3.63-.002-5.443a.725.725 0 0 0-.026-.185c-.04-.15-.15-.243-.304-.234-.16.01-.318.035-.475.066-.76.15-1.52.303-2.28.456l-2.326.47-1.374.278c-.016.003-.032.01-.048.013-.277.077-.377.203-.39.49-.002.042 0 .086 0 .13-.002 2.602 0 5.204-.003 7.805 0 .42-.047.836-.215 1.227-.278.64-.77 1.04-1.434 1.233-.35.1-.71.16-1.075.172-.96.036-1.767-.6-1.943-1.556-.14-.773.238-1.62 1.05-2.01.32-.153.66-.24 1.005-.313.386-.08.775-.16 1.16-.24.283-.06.462-.23.51-.522.01-.06.014-.12.014-.18 0-2.953 0-5.906.002-8.86 0-.417.056-.827.242-1.206.29-.59.76-.962 1.387-1.14.246-.07.5-.104.755-.14.28-.04.56-.076.842-.106.286-.03.573-.056.86-.084l.86-.084.717-.07c.29-.028.487.12.52.41.007.06.01.12.01.18.002 1.94.002 3.878.002 5.817z"/></svg>
+              </a>
+              <a class="logo-link" href="https://www.deezer.com/es/artist/9784156" target="_blank" rel="noopener" aria-label="Deezer" title="Deezer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.81 4.16h5.19v3.02h-5.19V4.16zM12.41 8.42h5.19v3.02h-5.19V8.42zm6.4 0H24v3.02h-5.19V8.42zM0 12.68h5.19v3.02H0v-3.02zm6.4 0h5.2v3.02H6.4v-3.02zm6.41 0H18v3.02h-5.19v-3.02zm6.4 0H24v3.02h-5.19v-3.02zM0 16.94h5.19v3.02H0v-3.02zm6.4 0h5.2v3.02H6.4v-3.02zm6.41 0H18v3.02h-5.19v-3.02zm6.4 0H24v3.02h-5.19v-3.02z"/></svg>
+              </a>
+              <a class="logo-link" href="https://paraleia.bandcamp.com" target="_blank" rel="noopener" aria-label="Bandcamp" title="Bandcamp">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 18.75l7.437-13.5H24l-7.437 13.5H0z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="escenario" class="band-dark">
+      <div class="wrap">
+        <h2>Sonido y pantalla</h2>
+        <div class="stage-grid">
+          <div class="spotify-card">
+            <iframe title="Canciones de PARALEIA en Spotify"
+                    src="https://open.spotify.com/embed/artist/737T198kjU3hbvxpc2wnhC?utm_source=generator&theme=0"
+                    height="390" loading="lazy"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          </div>
+          <div>
+            <div class="video-stage" id="cVideoStage">
+              <button class="video-trigger" type="button" id="cVideoPlay" aria-label="Reproducir Mañana tal vez — Video oficial">
+                <img width="480" height="360" src="https://i.ytimg.com/vi/rmRytDuEEBA/hqdefault.jpg" alt="Mañana tal vez — Video oficial">
+                <span class="video-play">
+                  <span class="video-play-circle" aria-hidden="true">▶</span>
+                  <span>Mañana tal vez — Video oficial</span>
+                </span>
+              </button>
+            </div>
+            <div class="video-chips" role="group" aria-label="Elegir video">
+              <button class="video-chip" type="button" aria-pressed="true" data-id="rmRytDuEEBA" data-title="Mañana tal vez — Video oficial">Mañana tal vez</button>
+              <button class="video-chip" type="button" aria-pressed="false" data-id="bYxuCW635XM" data-title="Dos Extraños — Video oficial">Dos Extraños</button>
+              <button class="video-chip" type="button" aria-pressed="false" data-id="IQduopeTUX8" data-title="Estrellados — Video oficial">Estrellados</button>
+              <button class="video-chip" type="button" aria-pressed="false" data-id="FyivXKKhs98" data-title="La Fiebre — Video oficial">La Fiebre</button>
+              <button class="video-chip" type="button" aria-pressed="false" data-id="VvBuSKc0S_s" data-title="Amantes Rotos — VIVO en Groove">Amantes Rotos (Vivo)</button>
+              <button class="video-chip" type="button" aria-pressed="false" data-id="-k0cum1vhbk" data-title="VIVO en Groove — Show completo">Show en Groove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="discografia" class="band-cream">
+      <div class="wrap">
+        <h2>Discografía</h2>
+        <div class="albums-trio">
+          <a class="album-feature" href="https://open.spotify.com/album/1516hTiOkKS2wHx1RYfovu" target="_blank" rel="noopener">
+            <img loading="lazy" width="320" height="320" src="https://i.scdn.co/image/ab67616d0000b2734bc56c6787591ad2f574ef6e" alt="Nadie Piensa en Dormir">
+            <span class="af-title">Nadie Piensa en Dormir</span>
+            <span class="af-meta">Álbum · 2021 · Spotify ↗</span>
+          </a>
+          <a class="album-feature" href="https://open.spotify.com/album/5litrW5VnzEs3W3nomvnd8" target="_blank" rel="noopener">
+            <img loading="lazy" width="320" height="320" src="https://i.scdn.co/image/ab67616d0000b27306804a45c26f9ee9919e6cd3" alt="Zig-Zag">
+            <span class="af-title">Zig-Zag</span>
+            <span class="af-meta">EP · 2016 · Spotify ↗</span>
+          </a>
+          <a class="album-feature" href="https://open.spotify.com/album/7mGp8tgusUOxiajFRXtqKv" target="_blank" rel="noopener">
+            <img loading="lazy" width="320" height="320" src="https://i.scdn.co/image/ab67616d0000b27352bb473dfc5fdc22d234f039" alt="Espacios">
+            <span class="af-title">Espacios</span>
+            <span class="af-meta">Álbum · 2014 · Spotify ↗</span>
+          </a>
+        </div>
+
+        <div class="singles-heading">
+          <h3>Singles</h3>
+          <span style="color:var(--muted); font-size:0.92rem;">2018 — 2026</span>
+        </div>
+        <ul class="singles-index">
+          <li><a href="/figuras-perfectas/"><span class="sy">2026</span><img loading="lazy" width="52" height="52" src="/figuras-perfectas/portada.jpg" alt=""><span class="st">Figuras Perfectas</span><span class="sa sa-new">Nuevo single</span></a></li>
+          <li><a href="https://open.spotify.com/album/3Cl4WM4egCze1lwhWVRAFz" target="_blank" rel="noopener"><span class="sy">2026</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b273c5b57db9862941ebc46e66d9" alt=""><span class="st">Todas Aquellas Luces</span><span class="sa">Spotify ↗</span></a></li>
+          <li><a href="https://open.spotify.com/album/6is5TuwwHjYziEdkLemVZZ" target="_blank" rel="noopener"><span class="sy">2023</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b273c3ac915374ec6a07654e49a8" alt=""><span class="st">El Mejor Momento</span><span class="sa">Spotify ↗</span></a></li>
+          <li><a href="https://open.spotify.com/album/3C9ryxb8QnUXnr5h441bkp" target="_blank" rel="noopener"><span class="sy">2022</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b273a3caf479100c39307c710d1b" alt=""><span class="st">Nada Es en Serio</span><span class="sa">Spotify ↗</span></a></li>
         </ul>
+        <ul class="singles-index" id="cArchive" style="border-top:0;" hidden>
+          <li><a href="https://open.spotify.com/album/0D0lrPxPqDivDpxhftoYTu" target="_blank" rel="noopener"><span class="sy">2021</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b273194cea9df54688c96785e2f8" alt=""><span class="st">La Fiebre</span><span class="sa">Spotify ↗</span></a></li>
+          <li><a href="https://open.spotify.com/album/2UgHcQTWCDecvbN92LfLSw" target="_blank" rel="noopener"><span class="sy">2021</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b2739c7b97c41f93eb60c1b65c99" alt=""><span class="st">Amantes Rotos</span><span class="sa">Spotify ↗</span></a></li>
+          <li><a href="https://open.spotify.com/album/5fE8LmOvegL7tIfGmq9dVh" target="_blank" rel="noopener"><span class="sy">2020</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b2734e02ec7201e842523f247789" alt=""><span class="st">Dos Extraños</span><span class="sa">Spotify ↗</span></a></li>
+          <li><a href="https://open.spotify.com/album/7vV1KhQT2SHsHaiCpVEU39" target="_blank" rel="noopener"><span class="sy">2020</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b273db9066d67ab9a81bd4468365" alt=""><span class="st">Prime Time</span><span class="sa">Spotify ↗</span></a></li>
+          <li><a href="https://open.spotify.com/album/1QmtHGjlznUZ4cHKPylj6g" target="_blank" rel="noopener"><span class="sy">2020</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b2732bf701b25c1a8cd64f1a4900" alt=""><span class="st">Cassette</span><span class="sa">Spotify ↗</span></a></li>
+          <li><a href="https://open.spotify.com/album/1GKH7lLNgaL97q6Xsa1PHN" target="_blank" rel="noopener"><span class="sy">2019</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b273e6c6a5e8f09505510e26548e" alt=""><span class="st">Soltar</span><span class="sa">Spotify ↗</span></a></li>
+          <li><a href="https://open.spotify.com/album/6rXvzVTtf6gvR4jSzp11lG" target="_blank" rel="noopener"><span class="sy">2018</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b273ebc01bfb2deecddff0d59f8f" alt=""><span class="st">Estrellados</span><span class="sa">Spotify ↗</span></a></li>
+        </ul>
+        <button class="toggle-archive" type="button" id="cToggleArchive" aria-expanded="false" aria-controls="cArchive">Mostrar los 7 singles anteriores</button>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="musica">
-    <div class="wrap">
-      <p class="section-label">Música</p>
-      <h2>Nuestras canciones</h2>
-      <div class="release-feature">
-        <a class="release-cover-link" href="/figuras-perfectas/" aria-label="Ir a Figuras Perfectas">
-          <img class="release-cover" src="/figuras-perfectas/portada.jpg" alt="Portada de Figuras Perfectas — Paraleia" loading="lazy">
-        </a>
-        <div class="release-body">
-          <p class="release-tag">Nuevo single · 2026</p>
-          <h3>Figuras Perfectas</h3>
-          <p class="release-copy">Escuchá nuestro nuevo single y armá tu story con tu frase favorita para compartir.</p>
-          <div class="release-actions">
-            <a class="btn btn-primary" href="/figuras-perfectas/">Escuchar y crear tu story →</a>
+    <section id="vivo" class="band-dark">
+      <div class="wrap">
+        <h2>Entre Buenos Aires y Barcelona</h2>
+        <div class="band-split">
+          <div id="biografia">
+            <p class="bio-copy">PARALEIA nació en un garage de Castelar, en el oeste del Gran Buenos Aires, a mediados de los 2000. Entre el indie rock y el pop alternativo, con nostalgia analógica y producción actual, nuestras canciones hablan de momentos bisagra, vínculos, desamor y lugares que ya no están.</p>
+            <div class="bio-more" id="bioMore" hidden>
+              <p class="bio-copy">En 2014 publicamos <em>Espacios</em>, nuestro primer disco en plataformas, y dos años más tarde el EP <em>Zig-Zag</em>. Siguieron singles como <em>Estrellados</em>, <em>Soltar</em> y <em>Cassette</em>, que terminamos en plena cuarentena. En 2021 salió <em>Nadie Piensa en Dormir</em>: ganamos la convocatoria nacional 20Sesiones21 y empezamos a trabajar con Warner Chappell Argentina. Al año siguiente nos eligieron entre más de 1200 bandas para el Festival Ciudad Emergente y para la primera edición argentina de Primavera Sound.</p>
+              <p class="bio-copy">Hoy la banda vive entre Buenos Aires y Barcelona. En 2026 grabamos <em>Todas Aquellas Luces</em> con la banda española Los Chicos del Sótano, y acabamos de presentar <em>Figuras Perfectas</em>, el primer adelanto de nuestro próximo disco.</p>
+            </div>
+            <button class="bio-toggle" type="button" id="bioToggle" aria-expanded="false" aria-controls="bioMore">Ver más</button>
+          </div>
+          <div>
+            <h3 class="shows-heading">Próximos shows</h3>
+            <div class="shows-panel">
+              <a href="https://www.songkick.com/artists/9144894-paraleia"
+                 class="songkick-widget" data-theme="light" data-track-button="on"
+                 data-detect-style="true" data-background-color="#fbf8f1" data-locale="es">PARALEIA en Songkick</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="spotify-embed">
-        <iframe src="https://open.spotify.com/embed/artist/737T198kjU3hbvxpc2wnhC?utm_source=generator"
-                height="420" loading="lazy"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      </div>
-      <div class="platform-icons">
-        <span class="lead">También en</span>
-        <a href="https://music.apple.com/es/artist/paraleia/1080736795" target="_blank" rel="noopener" aria-label="Apple Music" title="Apple Music">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043A5.022 5.022 0 0 0 19.497.165c-.512-.096-1.032-.146-1.554-.16-.04-.003-.083-.01-.124-.013H5.858c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.193.4-1.336.53-2.3 1.452-2.865 2.78-.192.448-.292.925-.363 1.408-.056.392-.088.785-.1 1.18 0 .032-.007.062-.01.093v12.223c.01.14.017.283.027.424.05.815.154 1.624.497 2.373.65 1.42 1.738 2.353 3.234 2.802.42.127.856.187 1.293.228.555.053 1.11.06 1.667.06h11.03a12.5 12.5 0 0 0 1.57-.1c.822-.106 1.596-.35 2.295-.81a5.046 5.046 0 0 0 1.88-2.207c.186-.42.293-.87.37-1.324.113-.675.138-1.358.137-2.04-.002-3.8 0-7.595-.003-11.393zm-6.423 3.99v5.712c0 .417-.058.827-.244 1.206-.29.59-.76.962-1.388 1.14-.35.1-.706.157-1.07.173-.95.045-1.773-.6-1.943-1.536-.142-.773.227-1.624 1.038-2.022.323-.16.67-.25 1.018-.324.378-.082.758-.153 1.134-.24.274-.063.457-.23.51-.516a.918.918 0 0 0 .02-.193c0-1.815 0-3.63-.002-5.443a.725.725 0 0 0-.026-.185c-.04-.15-.15-.243-.304-.234-.16.01-.318.035-.475.066-.76.15-1.52.303-2.28.456l-2.326.47-1.374.278c-.016.003-.032.01-.048.013-.277.077-.377.203-.39.49-.002.042 0 .086 0 .13-.002 2.602 0 5.204-.003 7.805 0 .42-.047.836-.215 1.227-.278.64-.77 1.04-1.434 1.233-.35.1-.71.16-1.075.172-.96.036-1.767-.6-1.943-1.556-.14-.773.238-1.62 1.05-2.01.32-.153.66-.24 1.005-.313.386-.08.775-.16 1.16-.24.283-.06.462-.23.51-.522.01-.06.014-.12.014-.18 0-2.953 0-5.906.002-8.86 0-.417.056-.827.242-1.206.29-.59.76-.962 1.387-1.14.246-.07.5-.104.755-.14.28-.04.56-.076.842-.106.286-.03.573-.056.86-.084l.86-.084.717-.07c.29-.028.487.12.52.41.007.06.01.12.01.18.002 1.94.002 3.878.002 5.817z"/></svg>
-        </a>
-        <a href="https://www.deezer.com/es/artist/9784156" target="_blank" rel="noopener" aria-label="Deezer" title="Deezer">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.81 4.16h5.19v3.02h-5.19V4.16zM12.41 8.42h5.19v3.02h-5.19V8.42zm6.4 0H24v3.02h-5.19V8.42zM0 12.68h5.19v3.02H0v-3.02zm6.4 0h5.2v3.02H6.4v-3.02zm6.41 0H18v3.02h-5.19v-3.02zm6.4 0H24v3.02h-5.19v-3.02zM0 16.94h5.19v3.02H0v-3.02zm6.4 0h5.2v3.02H6.4v-3.02zm6.41 0H18v3.02h-5.19v-3.02zm6.4 0H24v3.02h-5.19v-3.02z"/></svg>
-        </a>
-        <a href="https://paraleia.bandcamp.com" target="_blank" rel="noopener" aria-label="Bandcamp" title="Bandcamp">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 18.75l7.437-13.5H24l-7.437 13.5H0z"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
 
-  <section id="videos">
-    <div class="wrap">
-      <p class="section-label">Videos</p>
-      <h2>Videoclips</h2>
-      <div class="carousel">
-        <div class="carousel-track" id="videoTrack">
-          <div class="video-card">
-            <div class="frame" data-video="rmRytDuEEBA" onclick="playVideo(this)">
-              <img class="thumb" loading="lazy" src="https://i.ytimg.com/vi/rmRytDuEEBA/hqdefault.jpg" alt="Mañana tal vez">
-              <div class="play"><span></span></div>
-            </div>
-            <p class="vtitle">Mañana tal vez — Video oficial</p>
+        <div class="ig-block">
+          <div class="ig-header">
+            <h3>@paraleia en Instagram</h3>
+            <a href="https://instagram.com/paraleia" target="_blank" rel="noopener">Seguir en Instagram ↗</a>
           </div>
-          <div class="video-card">
-            <div class="frame" data-video="IQduopeTUX8" onclick="playVideo(this)">
-              <img class="thumb" loading="lazy" src="https://i.ytimg.com/vi/IQduopeTUX8/hqdefault.jpg" alt="Estrellados">
-              <div class="play"><span></span></div>
-            </div>
-            <p class="vtitle">Estrellados — Video oficial</p>
-          </div>
-          <div class="video-card">
-            <div class="frame" data-video="FyivXKKhs98" onclick="playVideo(this)">
-              <img class="thumb" loading="lazy" src="https://i.ytimg.com/vi/FyivXKKhs98/hqdefault.jpg" alt="La Fiebre">
-              <div class="play"><span></span></div>
-            </div>
-            <p class="vtitle">La Fiebre — Video oficial</p>
-          </div>
-          <div class="video-card">
-            <div class="frame" data-video="VvBuSKc0S_s" onclick="playVideo(this)">
-              <img class="thumb" loading="lazy" src="https://i.ytimg.com/vi/VvBuSKc0S_s/hqdefault.jpg" alt="Amantes Rotos (VIVO en Groove)">
-              <div class="play"><span></span></div>
-            </div>
-            <p class="vtitle">Amantes Rotos — VIVO en Groove</p>
-          </div>
-          <div class="video-card">
-            <div class="frame" data-video="-k0cum1vhbk" onclick="playVideo(this)">
-              <img class="thumb" loading="lazy" src="https://i.ytimg.com/vi/-k0cum1vhbk/hqdefault.jpg" alt="VIVO en Groove (Show completo)">
-              <div class="play"><span></span></div>
-            </div>
-            <p class="vtitle">VIVO en Groove — Show completo</p>
-          </div>
+          <div class="ig-mosaic" id="igGrid" hidden></div>
+          <p id="igFallback" style="margin-top:12px; color:rgba(244,238,226,0.72);">Seguinos en <a href="https://instagram.com/paraleia" target="_blank" rel="noopener">@paraleia</a>.</p>
         </div>
-        <div class="carousel-dots" id="videoDots" aria-label="Navegación de videos"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="discografia">
-    <div class="wrap">
-      <p class="section-label">Discografía</p>
-      <h2>Álbumes y EPs</h2>
-      <div class="discography">
-        <a class="album-card" href="https://open.spotify.com/album/1516hTiOkKS2wHx1RYfovu" target="_blank" rel="noopener">
-          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b2734bc56c6787591ad2f574ef6e" alt="Nadie Piensa en Dormir">
-          <span class="atitle">Nadie Piensa en Dormir</span><span class="ayear">Álbum · 2021</span>
-        </a>
-        <a class="album-card" href="https://open.spotify.com/album/5litrW5VnzEs3W3nomvnd8" target="_blank" rel="noopener">
-          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b27306804a45c26f9ee9919e6cd3" alt="Zig-Zag">
-          <span class="atitle">Zig-Zag</span><span class="ayear">EP · 2016</span>
-        </a>
-        <a class="album-card" href="https://open.spotify.com/album/7mGp8tgusUOxiajFRXtqKv" target="_blank" rel="noopener">
-          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b27352bb473dfc5fdc22d234f039" alt="Espacios">
-          <span class="atitle">Espacios</span><span class="ayear">Álbum · 2014</span>
-        </a>
-      </div>
-
-      <h2 class="disco-singles">Singles</h2>
-      <div class="discography">
-        <a class="album-card album-card-new" href="/figuras-perfectas/">
-          <img class="cover" loading="lazy" src="/figuras-perfectas/portada.jpg" alt="Figuras Perfectas">
-          <span class="atitle">Figuras Perfectas</span><span class="ayear">Nuevo · 2026</span>
-        </a>
-        <a class="album-card" href="https://open.spotify.com/album/3Cl4WM4egCze1lwhWVRAFz" target="_blank" rel="noopener">
-          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b273c5b57db9862941ebc46e66d9" alt="Todas Aquellas Luces">
-          <span class="atitle">Todas Aquellas Luces</span><span class="ayear">2026</span>
-        </a>
-        <a class="album-card" href="https://open.spotify.com/album/6is5TuwwHjYziEdkLemVZZ" target="_blank" rel="noopener">
-          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b273c3ac915374ec6a07654e49a8" alt="El Mejor Momento">
-          <span class="atitle">El Mejor Momento</span><span class="ayear">2023</span>
-        </a>
-        <a class="album-card" href="https://open.spotify.com/album/3C9ryxb8QnUXnr5h441bkp" target="_blank" rel="noopener">
-          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b273a3caf479100c39307c710d1b" alt="Nada Es en Serio">
-          <span class="atitle">Nada Es en Serio</span><span class="ayear">2022</span>
-        </a>
-        <a class="album-card" href="https://open.spotify.com/album/0D0lrPxPqDivDpxhftoYTu" target="_blank" rel="noopener">
-          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b273194cea9df54688c96785e2f8" alt="La Fiebre">
-          <span class="atitle">La Fiebre</span><span class="ayear">2021</span>
-        </a>
-        <a class="album-card" href="https://open.spotify.com/album/2UgHcQTWCDecvbN92LfLSw" target="_blank" rel="noopener">
-          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b2739c7b97c41f93eb60c1b65c99" alt="Amantes Rotos">
-          <span class="atitle">Amantes Rotos</span><span class="ayear">2021</span>
-        </a>
-        <a class="album-card" href="https://open.spotify.com/album/5fE8LmOvegL7tIfGmq9dVh" target="_blank" rel="noopener">
-          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b2734e02ec7201e842523f247789" alt="Dos Extraños">
-          <span class="atitle">Dos Extraños</span><span class="ayear">2020</span>
-        </a>
-        <a class="album-card" href="https://open.spotify.com/album/7vV1KhQT2SHsHaiCpVEU39" target="_blank" rel="noopener">
-          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b273db9066d67ab9a81bd4468365" alt="Prime Time">
-          <span class="atitle">Prime Time</span><span class="ayear">2020</span>
-        </a>
-        <a class="album-card" href="https://open.spotify.com/album/1QmtHGjlznUZ4cHKPylj6g" target="_blank" rel="noopener">
-          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b2732bf701b25c1a8cd64f1a4900" alt="Cassette">
-          <span class="atitle">Cassette</span><span class="ayear">2020</span>
-        </a>
-        <a class="album-card" href="https://open.spotify.com/album/1GKH7lLNgaL97q6Xsa1PHN" target="_blank" rel="noopener">
-          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b273e6c6a5e8f09505510e26548e" alt="Soltar">
-          <span class="atitle">Soltar</span><span class="ayear">2019</span>
-        </a>
-        <a class="album-card" href="https://open.spotify.com/album/6rXvzVTtf6gvR4jSzp11lG" target="_blank" rel="noopener">
-          <img class="cover" loading="lazy" src="https://i.scdn.co/image/ab67616d0000b273ebc01bfb2deecddff0d59f8f" alt="Estrellados">
-          <span class="atitle">Estrellados</span><span class="ayear">2018</span>
-        </a>
-      </div>
-      <div class="platform-icons">
-        <span class="lead">Discografía completa en</span>
-        <a href="https://www.deezer.com/es/artist/9784156" target="_blank" rel="noopener" aria-label="Deezer" title="Deezer">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.81 4.16h5.19v3.02h-5.19V4.16zM12.41 8.42h5.19v3.02h-5.19V8.42zm6.4 0H24v3.02h-5.19V8.42zM0 12.68h5.19v3.02H0v-3.02zm6.4 0h5.2v3.02H6.4v-3.02zm6.41 0H18v3.02h-5.19v-3.02zm6.4 0H24v3.02h-5.19v-3.02zM0 16.94h5.19v3.02H0v-3.02zm6.4 0h5.2v3.02H6.4v-3.02zm6.41 0H18v3.02h-5.19v-3.02zm6.4 0H24v3.02h-5.19v-3.02z"/></svg>
-        </a>
-        <a href="https://open.spotify.com/artist/737T198kjU3hbvxpc2wnhC" target="_blank" rel="noopener" aria-label="Spotify" title="Spotify">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.1 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.32-1.32 11.4-1.02 15.9 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.18z"/></svg>
-        </a>
-        <a href="https://music.apple.com/es/artist/paraleia/1080736795" target="_blank" rel="noopener" aria-label="Apple Music" title="Apple Music">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043A5.022 5.022 0 0 0 19.497.165c-.512-.096-1.032-.146-1.554-.16-.04-.003-.083-.01-.124-.013H5.858c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.193.4-1.336.53-2.3 1.452-2.865 2.78-.192.448-.292.925-.363 1.408-.056.392-.088.785-.1 1.18 0 .032-.007.062-.01.093v12.223c.01.14.017.283.027.424.05.815.154 1.624.497 2.373.65 1.42 1.738 2.353 3.234 2.802.42.127.856.187 1.293.228.555.053 1.11.06 1.667.06h11.03a12.5 12.5 0 0 0 1.57-.1c.822-.106 1.596-.35 2.295-.81a5.046 5.046 0 0 0 1.88-2.207c.186-.42.293-.87.37-1.324.113-.675.138-1.358.137-2.04-.002-3.8 0-7.595-.003-11.393zm-6.423 3.99v5.712c0 .417-.058.827-.244 1.206-.29.59-.76.962-1.388 1.14-.35.1-.706.157-1.07.173-.95.045-1.773-.6-1.943-1.536-.142-.773.227-1.624 1.038-2.022.323-.16.67-.25 1.018-.324.378-.082.758-.153 1.134-.24.274-.063.457-.23.51-.516a.918.918 0 0 0 .02-.193c0-1.815 0-3.63-.002-5.443a.725.725 0 0 0-.026-.185c-.04-.15-.15-.243-.304-.234-.16.01-.318.035-.475.066-.76.15-1.52.303-2.28.456l-2.326.47-1.374.278c-.016.003-.032.01-.048.013-.277.077-.377.203-.39.49-.002.042 0 .086 0 .13-.002 2.602 0 5.204-.003 7.805 0 .42-.047.836-.215 1.227-.278.64-.77 1.04-1.434 1.233-.35.1-.71.16-1.075.172-.96.036-1.767-.6-1.943-1.556-.14-.773.238-1.62 1.05-2.01.32-.153.66-.24 1.005-.313.386-.08.775-.16 1.16-.24.283-.06.462-.23.51-.522.01-.06.014-.12.014-.18 0-2.953 0-5.906.002-8.86 0-.417.056-.827.242-1.206.29-.59.76-.962 1.387-1.14.246-.07.5-.104.755-.14.28-.04.56-.076.842-.106.286-.03.573-.056.86-.084l.86-.084.717-.07c.29-.028.487.12.52.41.007.06.01.12.01.18.002 1.94.002 3.878.002 5.817z"/></svg>
-        </a>
-        <a href="https://paraleia.bandcamp.com" target="_blank" rel="noopener" aria-label="Bandcamp" title="Bandcamp">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 18.75l7.437-13.5H24l-7.437 13.5H0z"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="shows">
-    <div class="wrap">
-      <p class="section-label">En vivo</p>
-      <h2>Próximos shows</h2>
-      <div class="bit-wrap">
-        <a href="https://www.songkick.com/artists/9144894-paraleia"
-           class="songkick-widget"
-           data-theme="light"
-           data-track-button="on"
-           data-detect-style="true"
-           data-background-color="#ffffff"
-           data-locale="es">Paraleia en Songkick</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="instagram">
-    <div class="wrap">
-      <p class="section-label">Instagram</p>
-      <h2>Últimas publicaciones</h2>
-      <div class="ig-wrap">
-        <div class="ig-grid" id="igGrid" hidden></div>
-        <a class="ig-fallback" id="igFallback" href="https://instagram.com/paraleia" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.36 2.67.94 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.38.66-.66 1.08-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.12C21.33 1.36 20.66.94 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-10.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
-          <span class="name">@paraleia</span>
-          <span class="handle">Seguinos para ver las últimas publicaciones →</span>
-        </a>
-        <a class="ig-more" id="igMore" href="https://instagram.com/paraleia" target="_blank" rel="noopener" hidden>Ver más en Instagram →</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="contacto">
-    <div class="wrap">
-      <div class="contact-card">
-        <div class="contact-intro">
-          <p class="section-label">Contacto</p>
+    <section id="contacto" class="band-cream">
+      <div class="wrap contact-wrap">
+        <div>
           <h2>Escribinos</h2>
-          <p class="contact-lead">¿Una fecha, prensa o una colaboración? Contanos en qué andás y te respondemos.</p>
-          <p class="contact-direct">O directo a <a href="mailto:infoparaleia@gmail.com">infoparaleia@gmail.com</a></p>
+          <p class="contact-lead">¿Una fecha, prensa o una colaboración? Mandanos un mensaje.</p>
         </div>
-
-        <form class="contact-form" id="contactForm">
+        <form id="contactForm">
           <!-- Access Key de https://web3forms.com (enruta los mensajes a infoparaleia@gmail.com) -->
           <input type="hidden" name="access_key" value="127d739e-74e6-4476-b8c0-5b7bc81ee5d2">
           <input type="hidden" name="subject" value="Nuevo mensaje desde paraleia.vercel.app">
-          <input type="hidden" name="from_name" value="Web Paraleia">
+          <input type="hidden" name="from_name" value="Web PARALEIA">
           <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-          <div class="field">
-            <label for="cf-name">Nombre</label>
-            <input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Tu nombre">
-          </div>
-          <div class="field">
-            <label for="cf-email">Email</label>
-            <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="tucorreo@ejemplo.com">
-          </div>
-          <div class="field">
-            <label for="cf-msg">Mensaje</label>
-            <textarea id="cf-msg" name="message" rows="4" required placeholder="Contanos en qué andás…"></textarea>
-          </div>
+          <div class="field"><label for="c-name">Nombre</label><input id="c-name" name="name" type="text" required autocomplete="name" placeholder="Tu nombre"></div>
+          <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required autocomplete="email" placeholder="tucorreo@ejemplo.com"></div>
+          <div class="field"><label for="c-msg">Mensaje</label><textarea id="c-msg" name="message" rows="4" required placeholder="Contanos en qué andás…"></textarea></div>
           <button type="submit" class="cf-submit">Enviar mensaje</button>
           <p class="cf-status" id="cfStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <footer id="redes">
-    <div class="footer-icons">
-      <a href="https://instagram.com/paraleia" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.36 2.67.94 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.38.66-.66 1.08-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.12C21.33 1.36 20.66.94 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-10.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
-      </a>
-      <a href="https://www.tiktok.com/@paraleia" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64c.3 0 .58.04.85.13V9.4a6.33 6.33 0 00-.85-.06 6.34 6.34 0 105.34 6.26v-6.9a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-.35-.13z"/></svg>
-      </a>
-      <a href="https://www.youtube.com/@paraleiaoficial" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 00.5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 002.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 002.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
-      </a>
-      <a href="https://facebook.com/paraleiaok" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
-      </a>
-      <a href="https://x.com/paraleia" target="_blank" rel="noopener" aria-label="X" title="X">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26L22.85 21.75h-6.66l-5.22-6.82-5.97 6.82H1.68l7.73-8.84L1.15 2.25h6.83l4.71 6.23 5.55-6.23zm-1.16 17.52h1.83L7.01 4.13H5.05L17.08 19.77z"/></svg>
-      </a>
+  <footer>
+    <div class="wrap footer-row">
+      <span>PARALEIA · Buenos Aires &amp; Barcelona · © 2026</span>
+      <div class="footer-links">
+        <a href="https://open.spotify.com/artist/737T198kjU3hbvxpc2wnhC" target="_blank" rel="noopener">Spotify</a>
+        <a href="https://instagram.com/paraleia" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@paraleiaoficial" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.tiktok.com/@paraleia" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://paraleia.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>
+        <button type="button" data-cc="show-preferencesModal">Preferencias de cookies</button>
+      </div>
     </div>
-    <p class="footer-meta">Paraleia · © 2026 · <a href="#" data-cc="show-preferencesModal">Preferencias de cookies</a></p>
   </footer>
 
-  <script src="https://widget.songkick.com/9144894/widget.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
+  <script defer src="https://widget.songkick.com/9144894/widget.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
   <script>
-    // Aviso de cookies: los scripts marcados con data-category="analytics" (Clarity)
-    // solo se ejecutan si el visitante acepta.
-    if (window.CookieConsent) CookieConsent.run({
-      guiOptions: { consentModal: { layout: 'box', position: 'bottom left' } },
-      categories: {
-        necessary: { enabled: true, readOnly: true },
-        analytics: {
-          autoClear: { cookies: [{ name: /^_clck/ }, { name: /^_clsk/ }, { name: 'CLID' }, { name: 'MUID' }] }
-        }
-      },
-      language: {
-        default: 'es',
-        translations: {
-          es: {
-            consentModal: {
-              title: 'Cookies',
-              description: 'Usamos Microsoft Clarity para entender cómo se navega la web y mejorarla. Solo se activa si aceptás.',
-              acceptAllBtn: 'Aceptar',
-              acceptNecessaryBtn: 'Rechazar',
-              showPreferencesBtn: 'Elegir'
-            },
-            preferencesModal: {
-              title: 'Preferencias de cookies',
-              acceptAllBtn: 'Aceptar todas',
-              acceptNecessaryBtn: 'Rechazar todas',
-              savePreferencesBtn: 'Guardar',
-              closeIconLabel: 'Cerrar',
-              sections: [
-                { title: 'Necesarias', description: 'Guardan tu elección sobre cookies. Siempre activas.', linkedCategory: 'necessary' },
-                { title: 'Analítica', description: 'Microsoft Clarity registra de forma anónima clics y scroll para mejorar el sitio.', linkedCategory: 'analytics' },
-                { title: 'Contenido externo', description: 'Spotify, YouTube, Songkick e Instagram pueden usar sus propias cookies cuando reproducís o abrís su contenido. Consultas: infoparaleia@gmail.com.' }
-              ]
+    window.addEventListener('DOMContentLoaded', function () {
+      // Aviso de cookies (bottom right para no pisar el CTA del hero)
+      if (window.CookieConsent) {
+        CookieConsent.run({
+          guiOptions: { consentModal: { layout: 'box', position: 'bottom right' } },
+          categories: {
+            necessary: { enabled: true, readOnly: true },
+            analytics: {
+              autoClear: { cookies: [{ name: /^_clck/ }, { name: /^_clsk/ }, { name: 'CLID' }, { name: 'MUID' }] }
+            }
+          },
+          language: {
+            default: 'es',
+            translations: {
+              es: {
+                consentModal: {
+                  title: 'Cookies',
+                  description: 'Usamos Microsoft Clarity para entender cómo se navega la web y mejorarla. Solo se activa si aceptás.',
+                  acceptAllBtn: 'Aceptar',
+                  acceptNecessaryBtn: 'Rechazar',
+                  showPreferencesBtn: 'Elegir'
+                },
+                preferencesModal: {
+                  title: 'Preferencias de cookies',
+                  acceptAllBtn: 'Aceptar todas',
+                  acceptNecessaryBtn: 'Rechazar todas',
+                  savePreferencesBtn: 'Guardar',
+                  closeIconLabel: 'Cerrar',
+                  sections: [
+                    { title: 'Necesarias', description: 'Guardan tu elección sobre cookies. Siempre activas.', linkedCategory: 'necessary' },
+                    { title: 'Analítica', description: 'Microsoft Clarity registra de forma anónima clics y scroll para mejorar el sitio.', linkedCategory: 'analytics' },
+                    { title: 'Contenido externo', description: 'Spotify, YouTube, Songkick e Instagram pueden usar sus propias cookies cuando reproducís o abrís su contenido.' }
+                  ]
+                }
+              }
             }
           }
-        }
+        });
       }
     });
-  </script>
-  <script>
-    // Si existe assets/hero.jpg, la usa como fondo del hero.
+
+    // Menú móvil accesible + Escape
     (function () {
-      var img = new Image();
-      img.onload = function () {
-        document.getElementById('hero').classList.add('has-photo');
-      };
-      img.src = 'assets/hero.jpg';
+      var t = document.querySelector('.nav-toggle'), l = document.getElementById('navLinks');
+      if (!t || !l) return;
+      function close() {
+        l.classList.remove('open');
+        t.setAttribute('aria-expanded', 'false');
+        t.setAttribute('aria-label', 'Abrir menú');
+      }
+      t.addEventListener('click', function () {
+        var o = l.classList.toggle('open');
+        t.setAttribute('aria-expanded', String(o));
+        t.setAttribute('aria-label', o ? 'Cerrar menú' : 'Abrir menú');
+      });
+      l.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
     })();
 
-    // Reproducir videoclip al hacer clic en la miniatura
-    function playVideo(frame) {
-      var id = frame.getAttribute('data-video');
-      if (!id || frame.querySelector('iframe')) return;
-      var iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1';
-      iframe.title = 'Videoclip Paraleia';
-      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-      iframe.setAttribute('allowfullscreen', '');
-      frame.innerHTML = '';
-      frame.appendChild(iframe);
-    }
+    // Desplegable de biografía (Ver más / Ver menos)
+    (function () {
+      var btn = document.getElementById('bioToggle'), more = document.getElementById('bioMore');
+      if (!btn || !more) return;
+      btn.addEventListener('click', function () {
+        var exp = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!exp));
+        more.hidden = exp;
+        btn.textContent = exp ? 'Ver más' : 'Ver menos';
+      });
+    })();
 
-    // Feed de Instagram: lee assets/instagram.json (lo genera GitHub Actions)
+    // Desplegable de singles anteriores
+    (function () {
+      var btn = document.getElementById('cToggleArchive'), list = document.getElementById('cArchive');
+      if (!btn || !list) return;
+      btn.addEventListener('click', function () {
+        var exp = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!exp));
+        list.hidden = exp;
+        btn.textContent = exp ? 'Mostrar los 7 singles anteriores' : 'Ocultar archivo 2018–2021';
+      });
+    })();
+
+    // Videos con fachada accesible + selector por chips
+    (function () {
+      var stage = document.getElementById('cVideoStage');
+      var chips = document.querySelectorAll('.video-chip');
+      var curId = 'rmRytDuEEBA', curTitle = 'Mañana tal vez — Video oficial';
+      function play() {
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + curId + '?autoplay=1';
+        iframe.title = curTitle;
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+        iframe.setAttribute('allowfullscreen', '');
+        stage.innerHTML = '';
+        stage.appendChild(iframe);
+      }
+      var pBtn = document.getElementById('cVideoPlay');
+      if (pBtn) pBtn.addEventListener('click', play);
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+          curId = chip.getAttribute('data-id');
+          curTitle = chip.getAttribute('data-title');
+          play();
+        });
+      });
+    })();
+
+    // Feed de Instagram (6 publicaciones)
     (function () {
       var esc = function (s) {
         return String(s || '').replace(/[&<>"]/g, function (c) {
           return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
         });
       };
-      fetch('assets/instagram.json', { cache: 'no-store' })
+      fetch('/assets/instagram.json')
         .then(function (r) { return r.ok ? r.json() : []; })
         .then(function (posts) {
           if (!Array.isArray(posts) || !posts.length) return;
           var grid = document.getElementById('igGrid');
-          grid.innerHTML = posts.map(function (p) {
-            var alt = esc(p.caption || 'Publicación de Paraleia');
+          grid.innerHTML = posts.slice(0, 6).map(function (p) {
+            var src = /^https?:|^\//.test(p.image || '') ? p.image : '/' + String(p.image || '').replace(/^\/+/, '');
             return '<a class="ig-item" href="' + esc(p.permalink) + '" target="_blank" rel="noopener">' +
-                   '<img loading="lazy" src="' + esc(p.image) + '" alt="' + alt + '"></a>';
+                   '<img loading="lazy" width="200" height="200" src="' + esc(src) + '" alt="' + esc(p.caption || 'Publicación de PARALEIA') + '"></a>';
           }).join('');
           grid.hidden = false;
           document.getElementById('igFallback').hidden = true;
-          document.getElementById('igMore').hidden = false;
         })
-        .catch(function () { /* si falla, queda la tarjeta de fallback */ });
+        .catch(function () {});
     })();
 
-    // Formulario de contacto (Web3Forms)
+    // Formulario Web3Forms
     (function () {
       var form = document.getElementById('contactForm');
       if (!form) return;
-      var status = document.getElementById('cfStatus');
-      var btn = form.querySelector('.cf-submit');
+      var status = document.getElementById('cfStatus'), btn = form.querySelector('.cf-submit');
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        status.className = 'cf-status';
-        status.textContent = 'Enviando…';
-        btn.disabled = true;
-        fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: new FormData(form)
-        })
+        status.className = 'cf-status'; status.textContent = 'Enviando…'; btn.disabled = true;
+        fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
           .then(function (r) { return r.json(); })
-          .then(function (data) {
-            if (data.success) {
-              status.className = 'cf-status ok';
-              status.textContent = '¡Gracias! Recibimos tu mensaje.';
-              form.reset();
-            } else {
-              status.className = 'cf-status err';
-              status.textContent = 'Hubo un problema. Probá de nuevo o escribinos a infoparaleia@gmail.com.';
-            }
+          .then(function (d) {
+            if (d.success) { status.className = 'cf-status ok'; status.textContent = '¡Gracias! Recibimos tu mensaje.'; form.reset(); }
+            else { status.className = 'cf-status err'; status.textContent = 'Hubo un problema al enviar. Probá de nuevo en unos minutos.'; }
           })
-          .catch(function () {
-            status.className = 'cf-status err';
-            status.textContent = 'No se pudo enviar. Revisá tu conexión o escribinos a infoparaleia@gmail.com.';
-          })
+          .catch(function () { status.className = 'cf-status err'; status.textContent = 'No se pudo enviar. Revisá tu conexión y probá de nuevo.'; })
           .finally(function () { btn.disabled = false; });
       });
     })();
-
-    // Menú hamburguesa (móvil)
-    (function () {
-      var toggle = document.querySelector('.nav-toggle');
-      var links = document.getElementById('navLinks');
-      if (!toggle || !links) return;
-      toggle.addEventListener('click', function () {
-        var open = links.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
-      });
-      links.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () {
-          links.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-          toggle.setAttribute('aria-label', 'Abrir menú');
-        });
-      });
-    })();
-
-    // Accesibilidad por teclado en las miniaturas de video
-    (function () {
-      document.querySelectorAll('.frame[data-video]').forEach(function (frame) {
-        frame.setAttribute('role', 'button');
-        frame.setAttribute('tabindex', '0');
-        var t = frame.parentElement.querySelector('.vtitle');
-        frame.setAttribute('aria-label', 'Reproducir ' + (t ? t.textContent.trim() : 'video'));
-        frame.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playVideo(frame); }
-        });
-      });
-    })();
-
-    // Carrusel de videos: puntos indicadores
-    (function () {
-      var track = document.getElementById('videoTrack');
-      var dotsBox = document.getElementById('videoDots');
-      if (!track || !dotsBox) return;
-      var cards = Array.prototype.slice.call(track.querySelectorAll('.video-card'));
-
-      cards.forEach(function (card, i) {
-        var dot = document.createElement('button');
-        dot.type = 'button';
-        dot.setAttribute('aria-label', 'Ir al video ' + (i + 1));
-        dot.addEventListener('click', function () {
-          var left = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
-          track.scrollTo({ left: left, behavior: 'smooth' });
-        });
-        dotsBox.appendChild(dot);
-      });
-
-      var dots = Array.prototype.slice.call(dotsBox.children);
-      function setActive() {
-        var center = track.scrollLeft + track.clientWidth / 2;
-        var best = 0, bestDist = Infinity;
-        cards.forEach(function (card, i) {
-          var cardCenter = card.offsetLeft + card.clientWidth / 2;
-          var d = Math.abs(cardCenter - center);
-          if (d < bestDist) { bestDist = d; best = i; }
-        });
-        dots.forEach(function (dot, i) { dot.classList.toggle('active', i === best); });
-      }
-      setActive();
-      var raf;
-      track.addEventListener('scroll', function () {
-        if (raf) return;
-        raf = requestAnimationFrame(function () { setActive(); raf = null; });
-      });
-      window.addEventListener('resize', setActive);
-    })();
   </script>
-
 </body>
 </html>
