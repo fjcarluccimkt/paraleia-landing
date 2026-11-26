@@ -453,10 +453,37 @@
     .ig-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.25s; }
     .ig-item:hover img { transform: scale(1.05); }
 
-    /* ---------- Contacto (solo mensaje + formulario, sin email directo) ---------- */
+    /* ---------- Novedades + Contacto (bloque único con pestañas) ---------- */
     .contact-wrap { display: grid; gap: 32px; align-items: start; }
-    @media (min-width: 820px) { .contact-wrap { grid-template-columns: 0.85fr 1.15fr; gap: 56px; } }
-    .contact-lead { margin-top: 12px; font-size: 1.06rem; color: var(--muted); max-width: 36ch; }
+    @media (min-width: 820px) { .contact-wrap { grid-template-columns: 0.88fr 1.12fr; gap: 56px; } }
+    .contact-tabs {
+      display: inline-flex; flex-wrap: nowrap; gap: 4px; padding: 4px;
+      margin-bottom: 24px; border-radius: 999px;
+      background: var(--paper); border: 1.5px solid var(--line);
+      max-width: 100%;
+    }
+    .contact-tab {
+      min-height: 44px; padding: 9px 18px; border: 0; border-radius: 999px;
+      background: transparent; color: var(--muted);
+      font: inherit; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+      white-space: nowrap; transition: background-color 0.16s, color 0.16s;
+    }
+    .contact-tab:hover { color: var(--ink); }
+    .contact-tab[aria-selected="true"] { background: var(--ink); color: var(--bg); }
+    @media (max-width: 400px) {
+      .contact-tab { padding: 9px 13px; font-size: 0.85rem; }
+    }
+    .contact-lead { margin-top: 12px; font-size: 1.06rem; color: var(--muted); max-width: 38ch; }
+    .nl-row { display: grid; gap: 12px; align-items: end; }
+    @media (min-width: 520px) { .nl-row { grid-template-columns: 1fr auto; } }
+    .nl-row .field { margin-bottom: 0; }
+    .nl-submit {
+      min-height: 50px; padding: 12px 28px; border: 0; border-radius: 999px;
+      background: var(--accent); color: #fff; font: inherit; font-weight: 700; cursor: pointer;
+      white-space: nowrap; transition: background-color 0.18s, transform 0.16s;
+    }
+    .nl-submit:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .nl-submit:disabled { opacity: 0.6; cursor: default; transform: none; }
 
     .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
     .field { margin-bottom: 16px; display: flex; flex-direction: column; gap: 6px; }
@@ -674,21 +701,49 @@
     <section id="contacto" class="band-cream">
       <div class="wrap contact-wrap">
         <div>
-          <h2>Escribinos</h2>
-          <p class="contact-lead">¿Una fecha, prensa o una colaboración? Mandanos un mensaje.</p>
+          <div class="contact-tabs" role="tablist" aria-label="Elegir entre novedades o mensaje">
+            <button class="contact-tab" type="button" role="tab" id="tabNewsletter" aria-selected="true" aria-controls="panelNewsletter">Enterate primero</button>
+            <button class="contact-tab" type="button" role="tab" id="tabContact" aria-selected="false" aria-controls="panelContact">Escribinos</button>
+          </div>
+          <h2 id="contactHeading">Enterate primero</h2>
+          <p class="contact-lead" id="contactLead">Registrá tu mail para enterarte de próximos singles, lanzamientos y fechas de shows antes que nadie.</p>
         </div>
-        <form id="contactForm">
-          <!-- Access Key de https://web3forms.com (enruta los mensajes a infoparaleia@gmail.com) -->
-          <input type="hidden" name="access_key" value="127d739e-74e6-4476-b8c0-5b7bc81ee5d2">
-          <input type="hidden" name="subject" value="Nuevo mensaje desde paraleia.vercel.app">
-          <input type="hidden" name="from_name" value="Web PARALEIA">
-          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <div class="field"><label for="c-name">Nombre</label><input id="c-name" name="name" type="text" required autocomplete="name" placeholder="Tu nombre"></div>
-          <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required autocomplete="email" placeholder="tucorreo@ejemplo.com"></div>
-          <div class="field"><label for="c-msg">Mensaje</label><textarea id="c-msg" name="message" rows="4" required placeholder="Contanos en qué andás…"></textarea></div>
-          <button type="submit" class="cf-submit">Enviar mensaje</button>
-          <p class="cf-status" id="cfStatus" role="status" aria-live="polite"></p>
-        </form>
+
+        <div>
+          <div id="panelNewsletter" role="tabpanel" aria-labelledby="tabNewsletter">
+            <form id="newsletterForm">
+              <!-- Access Key de https://web3forms.com (enruta los registros a infoparaleia@gmail.com) -->
+              <input type="hidden" name="access_key" value="127d739e-74e6-4476-b8c0-5b7bc81ee5d2">
+              <input type="hidden" name="subject" value="Nuevo registro de novedades — Web PARALEIA">
+              <input type="hidden" name="from_name" value="Web PARALEIA · Novedades">
+              <input type="hidden" name="message" value="Quiero registrar mi mail para recibir novedades, próximos singles y fechas de shows de PARALEIA antes que nadie.">
+              <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <div class="nl-row">
+                <div class="field">
+                  <label for="nl-email">Email</label>
+                  <input id="nl-email" name="email" type="email" required autocomplete="email" placeholder="tucorreo@ejemplo.com">
+                </div>
+                <button type="submit" class="nl-submit">Registrarme</button>
+              </div>
+              <p class="cf-status" id="nlStatus" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div id="panelContact" role="tabpanel" aria-labelledby="tabContact" hidden>
+            <form id="contactForm">
+              <!-- Access Key de https://web3forms.com (enruta los mensajes a infoparaleia@gmail.com) -->
+              <input type="hidden" name="access_key" value="127d739e-74e6-4476-b8c0-5b7bc81ee5d2">
+              <input type="hidden" name="subject" value="Nuevo mensaje desde paraleia.vercel.app">
+              <input type="hidden" name="from_name" value="Web PARALEIA">
+              <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <div class="field"><label for="c-name">Nombre</label><input id="c-name" name="name" type="text" required autocomplete="name" placeholder="Tu nombre"></div>
+              <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required autocomplete="email" placeholder="tucorreo@ejemplo.com"></div>
+              <div class="field"><label for="c-msg">Mensaje</label><textarea id="c-msg" name="message" rows="4" required placeholder="Contanos en qué andás…"></textarea></div>
+              <button type="submit" class="cf-submit">Enviar mensaje</button>
+              <p class="cf-status" id="cfStatus" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -842,7 +897,69 @@
         .catch(function () {});
     })();
 
-    // Formulario Web3Forms
+    // Pestañas de Novedades / Escribinos
+    (function () {
+      var tabNl = document.getElementById('tabNewsletter');
+      var tabCf = document.getElementById('tabContact');
+      var panelNl = document.getElementById('panelNewsletter');
+      var panelCf = document.getElementById('panelContact');
+      var heading = document.getElementById('contactHeading');
+      var lead = document.getElementById('contactLead');
+      if (!tabNl || !tabCf || !panelNl || !panelCf) return;
+
+      function activate(mode) {
+        var isContact = mode === 'contact';
+        tabNl.setAttribute('aria-selected', String(!isContact));
+        tabCf.setAttribute('aria-selected', String(isContact));
+        panelNl.hidden = isContact;
+        panelCf.hidden = !isContact;
+        if (heading) heading.textContent = isContact ? 'Escribinos' : 'Enterate primero';
+        if (lead) {
+          lead.textContent = isContact
+            ? '¿Una fecha, prensa o una colaboración? Mandanos un mensaje.'
+            : 'Registrá tu mail para enterarte de próximos singles, lanzamientos y fechas de shows antes que nadie.';
+        }
+      }
+
+      tabNl.addEventListener('click', function () { activate('newsletter'); });
+      tabCf.addEventListener('click', function () { activate('contact'); });
+      [tabNl, tabCf].forEach(function (tab) {
+        tab.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            var next = tab === tabNl ? tabCf : tabNl;
+            activate(next === tabCf ? 'contact' : 'newsletter');
+            next.focus();
+          }
+        });
+      });
+
+      // Si el visitante entra por "Contacto" en la nav, abre directo Escribinos
+      document.querySelectorAll('a[href="#contacto"]').forEach(function (link) {
+        link.addEventListener('click', function () { activate('contact'); });
+      });
+    })();
+
+    // Registro de novedades (Web3Forms)
+    (function () {
+      var form = document.getElementById('newsletterForm');
+      if (!form) return;
+      var status = document.getElementById('nlStatus'), btn = form.querySelector('.nl-submit');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        status.className = 'cf-status'; status.textContent = 'Registrando tu mail…'; btn.disabled = true;
+        fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            if (d.success) { status.className = 'cf-status ok'; status.textContent = '¡Listo! Ya estás en la lista para enterarte antes que nadie.'; form.reset(); }
+            else { status.className = 'cf-status err'; status.textContent = 'Hubo un problema al registrar tu mail. Probá de nuevo en unos minutos.'; }
+          })
+          .catch(function () { status.className = 'cf-status err'; status.textContent = 'No se pudo enviar. Revisá tu conexión y probá de nuevo.'; })
+          .finally(function () { btn.disabled = false; });
+      });
+    })();
+
+    // Formulario Web3Forms (Escribinos)
     (function () {
       var form = document.getElementById('contactForm');
       if (!form) return;
