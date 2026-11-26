@@ -249,17 +249,13 @@
       letter-spacing: 0.06em; text-transform: uppercase;
       line-height: 0.94; color: var(--bg);
     }
-    .hero-bottom {
-      margin-top: 24px; display: grid; gap: 28px; align-items: end;
-    }
-    @media (min-width: 820px) {
-      .hero-bottom { grid-template-columns: 1.15fr 0.85fr; gap: 40px; }
-    }
     .hero-lead {
-      font-size: clamp(1.06rem, 2.2vw, 1.4rem);
-      color: rgba(244, 238, 226, 0.9); max-width: 38ch; line-height: 1.45;
+      margin-top: 14px;
+      font-size: clamp(1.06rem, 2.2vw, 1.35rem);
+      color: rgba(244, 238, 226, 0.9);
+      letter-spacing: 0.01em;
     }
-    .hero-ctas { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-ctas { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 12px; }
 
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -274,13 +270,6 @@
     .btn-yellow:hover { background: #f3c84d; }
     .btn-ghost-light { border: 1.5px solid rgba(244, 238, 226, 0.65); color: var(--bg); }
     .btn-ghost-light:hover { border-color: var(--yellow); color: var(--yellow); }
-
-    .hero-proof {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 20px;
-      border-top: 1px solid rgba(244, 238, 226, 0.22); padding-top: 20px;
-    }
-    .hero-proof strong { display: block; font-size: 0.94rem; color: var(--yellow); line-height: 1.3; }
-    .hero-proof span { display: block; margin-top: 2px; font-size: 0.84rem; color: rgba(244, 238, 226, 0.76); line-height: 1.35; }
 
     /* ---------- Capítulos alternados ---------- */
     .band-cream { background: var(--bg); color: var(--ink); }
@@ -532,20 +521,10 @@
     <header class="hero" id="inicio">
       <div class="wrap hero-inner">
         <h1>PARALEIA</h1>
-        <div class="hero-bottom">
-          <div>
-            <p class="hero-lead">Indie rock y pop alternativo entre Buenos Aires y Barcelona. Nostalgia analógica y producción actual desde 2007.</p>
-            <div class="hero-ctas">
-              <a class="btn btn-yellow" href="/figuras-perfectas/">Escuchar nuevo single</a>
-              <a class="btn btn-ghost-light" href="#vivo">Próximos shows</a>
-            </div>
-          </div>
-          <div class="hero-proof" aria-label="Hitos de la banda">
-            <div><strong>Primavera Sound AR</strong><span>Primera edición, 2022</span></div>
-            <div><strong>Ciudad Emergente</strong><span>+1200 bandas, 2022</span></div>
-            <div><strong>20Sesiones21</strong><span>Convocatoria nacional</span></div>
-            <div><strong>Nuevo single · 2026</strong><span>Figuras Perfectas</span></div>
-          </div>
+        <p class="hero-lead">Indie rock y pop alternativo</p>
+        <div class="hero-ctas">
+          <a class="btn btn-yellow" href="/figuras-perfectas/">Escuchar nuevo single</a>
+          <a class="btn btn-ghost-light" href="#vivo">Próximos shows</a>
         </div>
       </div>
     </header>
