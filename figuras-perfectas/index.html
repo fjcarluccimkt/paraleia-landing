@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth overflow-x-hidden">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>PARALEIA — Figuras Perfectas | Nuevo Single</title>
+  <meta name="description" content="Escuchá 'Figuras Perfectas', el nuevo single de PARALEIA. Elegí tu frase favorita y creá tu story en HD para compartir." />
+  <meta name="theme-color" content="#07222e" />
+  <link rel="canonical" href="https://paraleia.vercel.app/figuras-perfectas/" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph (WhatsApp, Instagram, Facebook) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="PARALEIA" />
+  <meta property="og:url" content="https://paraleia.vercel.app/figuras-perfectas/" />
+  <meta property="og:title" content="PARALEIA — Figuras Perfectas | Nuevo Single" />
+  <meta property="og:description" content="Nuevo single ya disponible. Escuchalo en tu plataforma favorita y creá tu story." />
+  <meta property="og:image" content="https://paraleia.vercel.app/figuras-perfectas/portada.jpg" />
+  <meta property="og:image:alt" content="Portada oficial de Figuras Perfectas — PARALEIA" />
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PARALEIA — Figuras Perfectas | Nuevo Single" />
+  <meta name="twitter:description" content="Nuevo single ya disponible. Escuchalo en tu plataforma favorita y creá tu story." />
+  <meta name="twitter:image" content="https://paraleia.vercel.app/figuras-perfectas/portada.jpg" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Montserrat (marca y UI), Playfair Display (Nocturno serif), Caveat (acento manuscrito) e Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            night: {
+              950: '#041620',
+              900: '#062230',
+              800: '#092c3c',
+              700: '#0f4157',
+            },
+            moon: {
+              300: '#ff9d52',
+              400: '#f59e42',
+              500: '#ff7e33',
+            },
+            leak: '#e8412c',
+            cream: '#f6e8d5',
+          },
+          fontFamily: {
+            sans: ['"Montserrat"', '"Inter"', 'sans-serif'],
+            brand: ['"Montserrat"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+            hand: ['"Caveat"', 'cursive'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* =========================================================================
+       ESTÉTICA ANALÓGICA CINEMATOGRÁFICA — PARALEIA "FIGURAS PERFECTAS"
+       ========================================================================= */
+    html, body {
+      overflow-x: hidden;
+      background-color: #062230;
+    }
+
+    body {
+      background-image:
+        radial-gradient(circle at 86% 8%, rgba(255, 126, 51, 0.18) 0%, rgba(9, 44, 60, 0.42) 38%, transparent 66%),
+        radial-gradient(circle at 8% 85%, rgba(232, 65, 44, 0.12) 0%, transparent 50%),
+        linear-gradient(180deg, #092c3c 0%, #062230 52%, #041620 100%);
+      color: #f6e8d5;
+      font-family: 'Montserrat', 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Light leak rojo analógico en el borde izquierdo */
+    .film-light-leak {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: clamp(18px, 4.2vw, 68px);
+      pointer-events: none;
+      z-index: 30;
+      background: linear-gradient(
+        90deg,
+        rgba(232, 65, 44, 0.48) 0%,
+        rgba(255, 126, 51, 0.16) 48%,
+        rgba(245, 158, 66, 0.03) 78%,
+        transparent 100%
+      );
+      mix-blend-mode: screen;
+      animation: leakBreath 9.5s ease-in-out infinite;
+    }
+
+    @keyframes leakBreath {
+      0%, 100% { opacity: 0.7; transform: scaleX(1); }
+      50% { opacity: 0.94; transform: scaleX(1.06); }
+    }
+
+    /* Halo lunar atmosférico */
+    .lunar-halo {
+      position: fixed;
+      top: -64px;
+      right: -48px;
+      width: clamp(180px, 34vw, 360px);
+      height: clamp(180px, 34vw, 360px);
+      border-radius: 9999px;
+      pointer-events: none;
+      z-index: 1;
+      background: radial-gradient(
+        circle at 38% 38%,
+        rgba(255, 200, 128, 0.48) 0%,
+        rgba(255, 126, 51, 0.22) 46%,
+        rgba(232, 65, 44, 0.04) 76%,
+        transparent 100%
+      );
+      filter: blur(24px);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+
+    /* Grano de película 35mm */
+    #film-grain {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 25;
+      opacity: 0.045;
+      mix-blend-mode: overlay;
+    }
+
+    /* Superficie glass nocturna */
+    .glass-card {
+      background: rgba(9, 44, 60, 0.48);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(246, 232, 213, 0.13);
+    }
+
+    /* Portada 1:1 — Tilt 3D habilitado únicamente en dispositivos con hover real */
+    .vinyl-stage {
+      perspective: 1100px;
+    }
+    .vinyl-sleeve {
+      transform-style: preserve-3d;
+      transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+      box-shadow:
+        0 26px 60px -16px rgba(0, 0, 0, 0.84),
+        0 0 0 1px rgba(246, 232, 213, 0.18),
+        0 0 50px -10px rgba(245, 158, 66, 0.28);
+      will-change: transform;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .vinyl-sleeve:hover {
+        box-shadow:
+          0 32px 70px -14px rgba(0, 0, 0, 0.9),
+          0 0 0 1px rgba(245, 158, 66, 0.5),
+          0 0 64px -6px rgba(255, 126, 51, 0.38);
+      }
+    }
+    @media (hover: none) {
+      .vinyl-sleeve {
+        transform: none !important;
+      }
+    }
+
+    .vinyl-crease {
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.13) 0%,
+        rgba(0, 0, 0, 0.22) 2.2%,
+        rgba(255, 255, 255, 0.06) 4.2%,
+        transparent 9%
+      );
+    }
+
+    /* Botón CTA principal ámbar */
+    .btn-amber {
+      background: linear-gradient(135deg, #ff9d52 0%, #f59e42 52%, #ff7e33 100%);
+      color: #041620;
+      box-shadow: 0 12px 28px -8px rgba(245, 158, 66, 0.46);
+      transition: all 0.22s ease;
+    }
+    @media (hover: hover) {
+      .btn-amber:hover {
+        filter: brightness(1.06);
+        transform: translateY(-1px);
+        box-shadow: 0 16px 34px -8px rgba(255, 126, 51, 0.56);
+      }
+    }
+    .btn-amber:active {
+      transform: scale(0.98);
+    }
+
+    /* Botón secundario glass */
+    .btn-glass {
+      background: linear-gradient(135deg, rgba(15, 65, 87, 0.55) 0%, rgba(6, 34, 48, 0.88) 100%);
+      border: 1px solid rgba(246, 232, 213, 0.18);
+      transition: all 0.22s ease;
+    }
+    @media (hover: hover) {
+      .btn-glass:hover {
+        border-color: rgba(245, 158, 66, 0.6);
+        transform: translateY(-1px);
+        box-shadow: 0 12px 26px -10px rgba(245, 158, 66, 0.25);
+      }
+    }
+    .btn-glass:active {
+      transform: scale(0.98);
+    }
+
+    /* Botones circulares accesibles (>= 48x48px) con brillo de marca */
+    .icon-circle-btn {
+      min-width: 48px;
+      min-height: 48px;
+      background: rgba(9, 44, 60, 0.62);
+      border: 1px solid rgba(246, 232, 213, 0.18);
+      color: #f6e8d5;
+      transition: all 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @media (hover: hover) {
+      .icon-circle-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        border-color: var(--brand-color, #f59e42);
+        color: var(--brand-color, #f59e42);
+        background: rgba(4, 22, 32, 0.92);
+        box-shadow: 0 10px 24px -6px var(--brand-glow, rgba(245, 158, 66, 0.45));
+      }
+    }
+    .icon-circle-btn:active {
+      transform: scale(0.95);
+      border-color: var(--brand-color, #f59e42);
+      color: var(--brand-color, #f59e42);
+    }
+
+    /* Scrollbar sutil */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #041620; }
+    ::-webkit-scrollbar-thumb { background: #134d66; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #f59e42; }
+  </style>
+</head>
+<body class="min-h-[100dvh] flex flex-col antialiased selection:bg-moon-400/30 selection:text-cream relative overflow-x-hidden">
+
+  <!-- =========================================================================
+       CAPAS ATMOSFÉRICAS: Partículas, Halo Lunar, Grano 35mm y Light Leak Rojo
+       ========================================================================= -->
+  <canvas id="particles-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-80" aria-hidden="true"></canvas>
+  <div id="lunar-halo" class="lunar-halo" aria-hidden="true"></div>
+  <canvas id="film-grain" aria-hidden="true"></canvas>
+  <div class="film-light-leak" aria-hidden="true"></div>
+
+  <!-- =========================================================================
+       TOAST NO INTRUSIVO (REEMPLAZA alert() / confirm())
+       ========================================================================= -->
+  <div id="toast" role="status" aria-live="polite"
+       class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 translate-y-4 transition-all duration-300 w-[92%] max-w-md">
+    <div class="glass-card rounded-2xl px-4 py-3.5 border border-moon-400/50 shadow-2xl flex items-center gap-3">
+      <span class="w-2.5 h-2.5 rounded-full bg-moon-400 shrink-0 animate-pulse"></span>
+      <p id="toast-message" class="text-xs sm:text-sm text-cream font-medium leading-snug"></p>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       1. HEADER MINIMALISTA STICKY
+       ========================================================================= -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-night-900/75 border-b border-cream/10">
+    <nav class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[64px] flex items-center justify-between gap-3" aria-label="Navegación principal">
+      <!-- Marca izquierda -->
+      <a href="#inicio"
+         class="font-brand text-xs sm:text-sm font-semibold tracking-[0.38em] uppercase text-cream hover:text-moon-300 transition-colors min-h-[48px] inline-flex items-center pl-1 shrink-0">
+        P A R A L E I A
+      </a>
+
+      <!-- Enlaces derecha: Novedades + Web Oficial -->
+      <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+        <a href="#novedades"
+           class="min-h-[44px] px-3.5 sm:px-4 py-2 rounded-full text-xs font-semibold text-moon-300 hover:text-cream border border-moon-400/35 hover:border-moon-400/75 bg-moon-400/10 transition-all inline-flex items-center gap-1.5 shrink-0">
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <span>Novedades</span>
+        </a>
+
+        <a id="nav-website-link"
+           href="/"
+           class="min-h-[44px] px-3.5 sm:px-4 py-2 rounded-full text-xs font-semibold text-cream hover:text-moon-300 border border-cream/20 hover:border-moon-400/60 bg-night-950/55 transition-all inline-flex items-center gap-1.5 shrink-0">
+          <span aria-hidden="true" class="text-moon-400">←</span>
+          <span>Web Oficial</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =========================================================================
+       CONTENIDO PRINCIPAL
+       ========================================================================= -->
+  <main id="inicio" class="relative z-10 flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 pt-8 sm:pt-14 pb-16 sm:pb-24">
+
+    <!-- =======================================================================
+         2. HERO SECTION (Móvil: Título -> Portada -> Plataformas | Desktop: 2 col)
+         ======================================================================= -->
+    <section aria-labelledby="hero-title" class="grid grid-cols-1 lg:grid-cols-12 gap-y-7 lg:gap-x-12 lg:gap-y-6 items-center mb-16 sm:mb-24">
+
+      <!-- Bloque Título (arriba de la portada en móvil, columna derecha superior en desktop) -->
+      <div class="lg:col-span-7 lg:col-start-6 lg:row-start-1 lg:self-end flex flex-col items-center lg:items-start text-center lg:text-left">
+
+        <!-- Badge luminoso -->
+        <div class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full glass-card border border-moon-400/40 shadow-[0_0_26px_rgba(245,158,66,0.18)] mb-4 sm:mb-5 max-w-full">
+          <span class="relative flex h-2.5 w-2.5 shrink-0">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-moon-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-moon-400"></span>
+          </span>
+          <span class="font-brand text-[10px] sm:text-xs font-semibold tracking-[0.16em] sm:tracking-[0.24em] uppercase text-moon-300 whitespace-nowrap">
+            NUEVO SINGLE · YA DISPONIBLE
+          </span>
+        </div>
+
+        <!-- Título (tipografía original de portada) y banda -->
+        <h1 id="hero-title" class="mb-3 flex justify-center lg:justify-start">
+          <img src="/figuras-perfectas/titulo-figuras-perfectas.png"
+               alt="Figuras Perfectas"
+               width="802"
+               height="429"
+               class="w-[260px] sm:w-[350px] lg:w-[400px] xl:w-[445px] h-auto select-none drop-shadow-[0_6px_26px_rgba(245,158,66,0.25)]" />
+        </h1>
+        <p class="font-brand text-xs sm:text-sm font-medium tracking-[0.5em] uppercase text-moon-300/90 pl-[0.5em] lg:pl-0">
+          P A R A L E I A
+        </p>
+      </div>
+
+      <!-- Bloque Portada (debajo del título en móvil, columna izquierda en desktop) -->
+      <div class="lg:col-span-5 lg:col-start-1 lg:row-start-1 lg:row-span-2 flex flex-col items-center self-center">
+        <div class="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-full">
+          <!-- Resplandor lunar detrás de la portada -->
+          <div class="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-tr from-leak/20 via-moon-400/20 to-moon-500/25 blur-2xl opacity-75" aria-hidden="true"></div>
+
+          <div class="vinyl-stage relative w-full">
+            <div id="hero-tilt" class="vinyl-sleeve relative aspect-square w-full rounded-2xl overflow-hidden bg-night-950">
+              <img id="hero-cover-img"
+                   alt="Portada oficial de Figuras Perfectas — PARALEIA"
+                   class="hidden w-full h-full object-cover select-none" />
+              <canvas id="hero-fallback-canvas" class="w-full h-full block"></canvas>
+
+              <!-- Pliegue sutil de funda de vinilo -->
+              <div class="vinyl-crease pointer-events-none absolute inset-0"></div>
+
+              <!-- Brillo especular interactivo (solo desktop hover) -->
+              <div id="hero-glare"
+                   class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300"
+                   style="background: radial-gradient(circle at 50% 50%, rgba(255, 224, 178, 0.22), transparent 64%);">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloque Plataformas y CTAs (debajo de la portada en móvil, columna derecha inferior en desktop) -->
+      <div class="lg:col-span-7 lg:col-start-6 lg:row-start-2 lg:self-start flex flex-col items-center lg:items-start text-center lg:text-left">
+
+        <!-- Fila de Plataformas de Streaming (SOLO Spotify, YouTube, Apple Music y Amazon Music) -->
+        <div class="w-full max-w-md mb-7 sm:mb-8">
+          <p class="font-brand text-[10px] sm:text-[11px] tracking-[0.26em] uppercase text-cream/65 font-medium mb-3.5">
+            Escuchalo en tu plataforma
+          </p>
+          <div id="hero-platforms-row" class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 sm:gap-4">
+            <!-- Generado dinámicamente desde CONFIG.platforms -->
+          </div>
+        </div>
+
+        <!-- CTAs: Creá tu story + Web Oficial -->
+        <div class="flex flex-col sm:flex-row items-center lg:items-stretch justify-center lg:justify-start gap-3.5 w-full max-w-md">
+          <a href="#estudio-postales"
+             class="btn-amber w-full sm:w-auto flex-1 min-h-[52px] rounded-2xl py-3.5 px-6 text-sm font-bold tracking-wide inline-flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <span>Creá tu story</span>
+          </a>
+
+          <a id="hero-website-link"
+             href="/"
+             class="btn-glass w-full sm:w-auto min-h-[52px] rounded-2xl py-3.5 px-6 text-sm font-semibold text-cream tracking-wide inline-flex items-center justify-center gap-2">
+            <span aria-hidden="true" class="text-moon-400">←</span>
+            <span>Web Oficial</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         3. ESTUDIO DE POSTALES INTERACTIVO
+         ======================================================================= -->
+    <section id="estudio-postales" aria-labelledby="studio-heading" class="scroll-mt-20">
+      <div class="glass-card rounded-3xl p-4 sm:p-8 md:p-10 border border-cream/15 shadow-2xl">
+
+        <!-- Encabezado -->
+        <div class="text-center max-w-xl mx-auto mb-7 sm:mb-10">
+          <span class="font-brand text-[10px] sm:text-[11px] tracking-[0.28em] uppercase text-moon-300 font-semibold">
+            Stories · 35mm
+          </span>
+          <h2 id="studio-heading" class="font-hand text-5xl sm:text-6xl md:text-7xl font-bold text-cream mt-1 mb-2.5 leading-tight drop-shadow-[0_4px_18px_rgba(245,158,66,0.2)]">
+            Creá tu story
+          </h2>
+          <p class="text-xs sm:text-sm text-cream/80 leading-relaxed">
+            Elegí tu frase favorita y compartila en tus Stories arrobándonos en <span class="text-moon-300 font-semibold">@paraleia</span>.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10 items-start">
+
+          <!-- VISTA PREVIA EN VIVO (compacta y visible en móvil sin scroll excesivo) -->
+          <div class="lg:col-span-5 flex flex-col items-center order-1 lg:order-2 lg:sticky lg:top-24">
+            <div id="preview-frame"
+                 class="relative rounded-2xl overflow-hidden bg-night-950 transition-all duration-300 shadow-[0_22px_54px_-14px_rgba(0,0,0,0.85)] ring-1 ring-cream/15 flex items-center justify-center">
+              <canvas id="postal-canvas"
+                      class="block w-auto h-auto max-w-full max-h-[46dvh] lg:max-h-[62dvh] object-contain"></canvas>
+            </div>
+
+            <p class="text-[11px] text-cream/55 mt-3 text-center">
+              Vista previa en vivo · Exportación PNG HD (1080px)
+            </p>
+          </div>
+
+          <!-- CONTROLES DEL ESTUDIO -->
+          <div class="lg:col-span-7 space-y-6 order-2 lg:order-1">
+
+            <!-- 1. Selector de frases -->
+            <div>
+              <span class="font-brand block text-xs tracking-[0.22em] uppercase text-cream/80 font-semibold mb-3">
+                1. Elegí tu frase
+              </span>
+              <div id="lyrics-list" class="space-y-2.5">
+                <!-- Generado dinámicamente desde CONFIG.lyrics -->
+              </div>
+            </div>
+
+            <!-- 2. Selector de formato -->
+            <div>
+              <span class="font-brand block text-xs tracking-[0.22em] uppercase text-cream/80 font-semibold mb-3">
+                2. Formato
+              </span>
+              <div class="grid grid-cols-2 gap-3">
+                <button type="button" data-format="story"
+                        class="format-btn min-h-[56px] rounded-2xl p-3.5 text-left border transition-all flex items-center gap-3">
+                  <span class="w-4 h-7 rounded-[4px] border-2 border-current shrink-0 opacity-85"></span>
+                  <div>
+                    <span class="block text-xs sm:text-sm font-semibold">Story (9:16)</span>
+                    <span class="block text-[11px] opacity-65">1080 × 1920 px</span>
+                  </div>
+                </button>
+                <button type="button" data-format="post"
+                        class="format-btn min-h-[56px] rounded-2xl p-3.5 text-left border transition-all flex items-center gap-3">
+                  <span class="w-6 h-6 rounded-[4px] border-2 border-current shrink-0 opacity-85"></span>
+                  <div>
+                    <span class="block text-xs sm:text-sm font-semibold">Post (1:1)</span>
+                    <span class="block text-[11px] opacity-65">1080 × 1080 px</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- 3. Selector de estilo visual -->
+            <div>
+              <span class="font-brand block text-xs tracking-[0.22em] uppercase text-cream/80 font-semibold mb-3">
+                3. Estilo visual
+              </span>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <button type="button" data-mood="analog"
+                        class="mood-btn min-h-[68px] rounded-2xl p-3 text-center border transition-all">
+                  <span class="w-6 h-6 rounded-full mx-auto mb-1.5 block bg-gradient-to-tr from-[#092c3c] via-[#f59e42] to-[#ffd28e] border border-cream/30 shadow-[0_0_10px_rgba(245,158,66,0.45)]"></span>
+                  <span class="block text-xs font-medium">Analógico</span>
+                </button>
+                <button type="button" data-mood="cold"
+                        class="mood-btn min-h-[68px] rounded-2xl p-3 text-center border transition-all">
+                  <span class="w-6 h-6 rounded-full mx-auto mb-1.5 block bg-gradient-to-tr from-[#05182d] via-[#4ea4e8] to-[#dff2ff] border border-sky-200/45 shadow-[0_0_10px_rgba(126,200,255,0.5)]"></span>
+                  <span class="block text-xs font-medium">Luna Fría</span>
+                </button>
+                <button type="button" data-mood="red"
+                        class="mood-btn min-h-[68px] rounded-2xl p-3 text-center border transition-all">
+                  <span class="w-6 h-6 rounded-full mx-auto mb-1.5 block bg-gradient-to-tr from-[#1b070b] via-[#c92020] to-[#ff6b57] border border-red-300/40 shadow-[0_0_10px_rgba(235,56,44,0.55)]"></span>
+                  <span class="block text-xs font-medium">Luna Roja</span>
+                </button>
+                <button type="button" data-mood="nocturne"
+                        class="mood-btn min-h-[68px] rounded-2xl p-3 text-center border transition-all">
+                  <span class="w-6 h-6 rounded-full mx-auto mb-1.5 block bg-gradient-to-tr from-[#020a12] via-[#0c2738] to-[#e6c48c] border border-cream/25 shadow-[0_0_10px_rgba(230,196,140,0.3)]"></span>
+                  <span class="block text-xs font-medium">Nocturno</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Botones de exportación y compartir -->
+            <div class="pt-1 space-y-2.5">
+              <div class="flex flex-col sm:flex-row gap-3">
+                <button id="btn-download" type="button"
+                        class="btn-amber flex-1 min-h-[52px] rounded-2xl py-3.5 px-6 font-bold text-sm tracking-wide flex items-center justify-center gap-2.5">
+                  <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3" />
+                  </svg>
+                  <span>Descargar Story HD</span>
+                </button>
+
+                <button id="btn-share" type="button"
+                        class="btn-glass min-h-[52px] rounded-2xl py-3.5 px-6 font-semibold text-sm text-cream flex items-center justify-center gap-2">
+                  <svg class="w-4 h-4 text-moon-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                  </svg>
+                  <span>Compartir</span>
+                </button>
+              </div>
+              <p class="text-[11px] text-cream/55 text-center sm:text-left leading-relaxed">
+                Tip: si abrís esta web desde Instagram, tocá <span class="text-cream/80 font-medium">Compartir</span> o abrí en tu navegador (Chrome / Safari) para guardar la imagen en tu galería.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         3.5. REGISTRO DE NOVEDADES (PRÓXIMOS SINGLES Y SHOWS ANTES QUE NADIE)
+         ======================================================================= -->
+    <section id="novedades" aria-labelledby="newsletter-heading" class="scroll-mt-24 mt-14 sm:mt-20">
+      <div class="glass-card rounded-3xl p-6 sm:p-10 border border-moon-400/20 shadow-2xl relative overflow-hidden">
+        <div class="pointer-events-none absolute -top-24 -right-20 w-64 h-64 rounded-full bg-moon-400/10 blur-3xl" aria-hidden="true"></div>
+
+        <div class="relative max-w-xl mx-auto text-center">
+          <span class="font-brand text-[10px] sm:text-[11px] tracking-[0.28em] uppercase text-moon-300 font-semibold">
+            Lista exclusiva · Antes que nadie
+          </span>
+          <h2 id="newsletter-heading" class="font-hand text-5xl sm:text-6xl font-bold text-cream mt-1 mb-2.5 leading-tight drop-shadow-[0_4px_18px_rgba(245,158,66,0.2)]">
+            Enterate primero
+          </h2>
+          <p class="text-xs sm:text-sm text-cream/80 leading-relaxed mb-6">
+            Registrá tu mail para enterarte de los próximos singles, lanzamientos y fechas de shows de <span class="text-moon-300 font-semibold">PARALEIA</span> antes que nadie.
+          </p>
+
+          <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <!-- Web3Forms Access Key de PARALEIA (enruta directo a infoparaleia@gmail.com) -->
+            <input type="hidden" name="access_key" value="127d739e-74e6-4476-b8c0-5b7bc81ee5d2" />
+            <input type="hidden" name="subject" value="Nuevo registro de novedades — Figuras Perfectas (PARALEIA)" />
+            <input type="hidden" name="from_name" value="PARALEIA · Figuras Perfectas" />
+            <input type="hidden" name="message" value="Quiero registrar mi mail para recibir novedades, próximos singles y fechas de shows de PARALEIA antes que nadie." />
+            <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <label for="newsletter-email" class="sr-only">Tu correo electrónico</label>
+            <input id="newsletter-email"
+                   name="email"
+                   type="email"
+                   required
+                   autocomplete="email"
+                   placeholder="tuemail@ejemplo.com"
+                   class="flex-1 min-h-[52px] rounded-2xl px-4 py-3 bg-night-950/80 border border-cream/20 focus:border-moon-400 focus:outline-none focus:ring-2 focus:ring-moon-400/25 text-sm text-cream placeholder:text-cream/40 transition-all" />
+
+            <button id="newsletter-submit"
+                    type="submit"
+                    class="btn-amber min-h-[52px] rounded-2xl px-6 py-3.5 text-sm font-bold tracking-wide shrink-0 inline-flex items-center justify-center gap-2">
+              <span>Registrarme</span>
+            </button>
+          </form>
+
+          <p id="newsletter-status" class="text-xs mt-3 min-h-[18px] text-cream/75" role="status" aria-live="polite"></p>
+
+          <p class="text-[11px] text-cream/50 mt-2">
+            O escribinos directo a
+            <a href="mailto:infoparaleia@gmail.com?subject=Quiero%20recibir%20novedades%20de%20PARALEIA&body=Hola%20PARALEIA%2C%20quiero%20registrar%20mi%20mail%20para%20enterarme%20de%20pr%C3%B3ximos%20singles%20y%20shows%20antes%20que%20nadie."
+               class="text-moon-300/90 hover:text-cream underline underline-offset-2 transition-colors">
+              infoparaleia@gmail.com
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       4. FOOTER — REDES SOCIALES (Instagram, YouTube, X, TikTok) + WEB OFICIAL
+       ========================================================================= -->
+  <footer class="relative z-10 border-t border-cream/10 bg-night-950/85 backdrop-blur-md">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-12 flex flex-col items-center gap-5 text-center">
+
+      <p class="font-brand text-[10px] sm:text-[11px] tracking-[0.28em] uppercase text-cream/65 font-semibold">
+        Seguí a Paraleia
+      </p>
+
+      <!-- Fila de Redes Sociales (NO repite plataformas de streaming) -->
+      <div id="footer-socials-row" class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
+        <!-- Generado dinámicamente desde CONFIG.socials -->
+      </div>
+
+      <!-- Enlace limpio a la Web Oficial -->
+      <a id="footer-website-link"
+         href="/"
+         class="min-h-[44px] px-4 inline-flex items-center gap-1.5 text-xs sm:text-sm text-moon-300 hover:text-cream transition-colors font-semibold">
+        <span aria-hidden="true">←</span>
+        <span>Web Oficial</span>
+      </a>
+
+      <p class="font-brand text-[11px] tracking-[0.28em] uppercase text-cream/50">
+        © 2026 PARALEIA
+      </p>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       JAVASCRIPT PURO — CONFIGURACIÓN, PLATAFORMAS, REDES Y ESTUDIO HD
+       ========================================================================= -->
+  <script>
+    /**
+     * =========================================================================
+     * BLOQUE DE CONFIGURACIÓN — EDITÁ TUS LINKS AQUÍ ANTES DE SUBIR
+     * =========================================================================
+     * 1) `officialWeb` ya apunta a tu web oficial activa en Vercel.
+     * 2) Reemplazá cada placeholder `#...` en `platforms` y `socials` por tus
+     *    URLs reales. Mientras empiecen con `#`, muestran un aviso elegante.
+     * 3) Subí tu portada como `portada.png` (o `1000352196.png`) en la misma
+     *    carpeta que este `index.html`.
+     * 4) Opcional: subí una imagen sin texto como `fondo-postal.png` para
+     *    usarla en el Estudio de Postales (si no existe, se genera la escena
+     *    nocturna ilustrada en alta definición automáticamente).
+     */
+    const CONFIG = {
+      bandName: "P A R A L E I A",
+      singleTitle: "Figuras Perfectas",
+      officialWeb: "/",
+
+      // Rutas de imágenes en producción
+      coverCandidates: ["/figuras-perfectas/portada.jpg"],
+      postcardBgCandidates: ["/figuras-perfectas/fondo-postal.png"],
+
+      // Plataformas de streaming (Hero)
+      platforms: {
+        spotify: "https://open.spotify.com/playlist/7bGhKvlhmo79ttvI87aqfE?si=YGxb3GJZSa-1ckb2RLlTtw",
+        youtube: "https://www.youtube.com/@paraleiaoficial",
+        appleMusic: "https://music.apple.com/es/artist/paraleia/1080736795",
+        amazonMusic: "https://music.amazon.es/artists/B01BEJWMK6/paraleia"
+      },
+
+      // Redes sociales oficiales (Footer)
+      socials: {
+        instagram: "https://instagram.com/paraleia",
+        youtube: "https://www.youtube.com/@paraleiaoficial",
+        x: "https://x.com/paraleia",
+        tiktok: "https://www.tiktok.com/@paraleia"
+      },
+
+      // Las frases de "Figuras Perfectas"
+      lyrics: [
+        "Tu misterio me encandiló",
+        "Decías que todo da vueltas y no puedo dejar de pensar si es cierto",
+        "Presos de este hermoso juego",
+        "Me dijiste adiós y en tus ojos había fuego",
+        "La noche nos llegó"
+      ]
+    };
+
+    // =========================================================================
+    // ESTADO GLOBAL
+    // =========================================================================
+    const state = {
+      selectedLyric: 0,
+      format: "story",       // "story" (1080x1920) | "post" (1080x1080)
+      mood: "analog",        // "analog" | "cold" | "red" | "nocturne"
+      heroCoverImg: null,
+      postcardBgImg: null,
+      pointer: { x: 0.5, y: 0.5, active: false }
+    };
+
+    // =========================================================================
+    // TOAST ELEGANTE (SIN alert() NI confirm())
+    // =========================================================================
+    let toastTimer = null;
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      const text = document.getElementById("toast-message");
+      if (!toast || !text) return;
+
+      text.textContent = message;
+      toast.classList.remove("opacity-0", "translate-y-4");
+      toast.classList.add("opacity-100", "translate-y-0");
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add("opacity-0", "translate-y-4");
+        toast.classList.remove("opacity-100", "translate-y-0");
+      }, 3200);
+    }
+
+    function isPlaceholderLink(url) {
+      return !url || url.trim() === "" || url.trim().startsWith("#");
+    }
+
+    // =========================================================================
+    // 1. BOTONES DE PLATAFORMAS (HERO) Y REDES SOCIALES (FOOTER)
+    // =========================================================================
+    const STREAMING_PLATFORMS = [
+      {
+        key: "spotify",
+        name: "Spotify",
+        shortLabel: "Spotify",
+        color: "#1DB954",
+        glow: "rgba(29, 185, 84, 0.48)",
+        svg: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.72 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>`
+      },
+      {
+        key: "youtube",
+        name: "YouTube",
+        shortLabel: "YouTube",
+        color: "#FF4B4B",
+        glow: "rgba(255, 75, 75, 0.45)",
+        svg: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`
+      },
+      {
+        key: "appleMusic",
+        name: "Apple Music",
+        shortLabel: "Apple",
+        color: "#FA586A",
+        glow: "rgba(250, 88, 106, 0.45)",
+        svg: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.96 6.32c.68-.82 1.14-1.97 1.01-3.12-.98.04-2.17.65-2.87 1.48-.62.72-1.17 1.89-1.02 3.01 1.09.08 2.2-.55 2.88-1.37z"/></svg>`
+      },
+      {
+        key: "amazonMusic",
+        name: "Amazon Music",
+        shortLabel: "Amazon",
+        color: "#25D1DA",
+        glow: "rgba(37, 209, 218, 0.45)",
+        svg: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm4.2 13.72a.75.75 0 0 1-1.02.27 8.47 8.47 0 0 0-8.36 0 .75.75 0 1 1-.75-1.3 9.97 9.97 0 0 1 9.86 0 .75.75 0 0 1 .27 1.03zm-.9-3.1a.75.75 0 0 1-1.03.24 10.7 10.7 0 0 0-6.54 0 .75.75 0 0 1-.46-1.42 12.2 12.2 0 0 1 7.46 0 .75.75 0 0 1 .57 1.18zm-1.15-3.1a.75.75 0 0 1-.96.44 7.7 7.7 0 0 0-4.38 0 .75.75 0 1 1-.42-1.44 9.2 9.2 0 0 1 5.22 0 .75.75 0 0 1 .54 1z"/></svg>`
+      }
+    ];
+
+    const SOCIAL_NETWORKS = [
+      {
+        key: "instagram",
+        name: "Instagram",
+        color: "#E4405F",
+        glow: "rgba(228, 64, 95, 0.46)",
+        svg: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>`
+      },
+      {
+        key: "youtube",
+        name: "YouTube",
+        color: "#FF4B4B",
+        glow: "rgba(255, 75, 75, 0.45)",
+        svg: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`
+      },
+      {
+        key: "x",
+        name: "X",
+        color: "#f6e8d5",
+        glow: "rgba(246, 232, 213, 0.42)",
+        svg: `<svg class="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`
+      },
+      {
+        key: "tiktok",
+        name: "TikTok",
+        color: "#25F4EE",
+        glow: "rgba(37, 244, 238, 0.45)",
+        svg: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>`
+      }
+    ];
+
+    function renderIconRow(containerId, items, urlMap, showSubLabel) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = "";
+
+      items.forEach((item) => {
+        const url = urlMap[item.key];
+        const placeholder = isPlaceholderLink(url);
+
+        const wrapper = document.createElement("div");
+        wrapper.className = "relative group flex flex-col items-center";
+
+        const a = document.createElement("a");
+        a.href = placeholder ? `#${item.key}` : url;
+        if (!placeholder) {
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
+        a.setAttribute("aria-label", `${item.name} — PARALEIA`);
+        a.style.setProperty("--brand-color", item.color);
+        a.style.setProperty("--brand-glow", item.glow);
+        a.className = "icon-circle-btn w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-lg cursor-pointer";
+        a.innerHTML = item.svg;
+
+        // Tooltip flotante en desktop
+        const tooltip = document.createElement("span");
+        tooltip.className =
+          "hidden sm:block pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap px-2.5 py-1 rounded-lg bg-night-950/95 border border-cream/20 text-[11px] font-medium text-cream opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 shadow-xl z-20";
+        tooltip.textContent = item.name;
+
+        if (placeholder) {
+          a.addEventListener("click", (e) => {
+            e.preventDefault();
+            showToast("Disponible muy pronto · Estreno viernes 27 de noviembre");
+          });
+        }
+
+        wrapper.appendChild(tooltip);
+        wrapper.appendChild(a);
+
+        if (showSubLabel) {
+          const label = document.createElement("span");
+          label.className = "mt-1.5 text-[10px] font-medium text-cream/60 group-hover:text-cream/90 transition-colors";
+          label.textContent = item.shortLabel || item.name;
+          wrapper.appendChild(label);
+        }
+
+        container.appendChild(wrapper);
+      });
+    }
+
+    function syncWebsiteLinks() {
+      ["nav-website-link", "hero-website-link", "footer-website-link"].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el && CONFIG.officialWeb) el.href = CONFIG.officialWeb;
+      });
+    }
+
+    // =========================================================================
+    // 2. ESCENA AISLADA EN ALTA DEFINICIÓN (PAREJA EN EL BANCO + LUNA NARANJA)
+    //    CIELO COMPLETAMENTE DESPEJADO (SIN EL LOGO DE "FIGURAS PERFECTAS")
+    // =========================================================================
+    function drawIsolatedBenchScene(ctx, W, H, options = {}) {
+      const {
+        deeperSky = false,
+        extraStars = false,
+        horizonRatio = 0.73,
+        moonXRatio = 0.81,
+        moonYRatio = 0.16,
+        moonRadius = W * 0.082,
+        scaleSubject = 1
+      } = options;
+
+      const horizonY = H * horizonRatio;
+
+      // 1) Cielo azul petróleo profundo
+      const sky = ctx.createLinearGradient(0, 0, 0, horizonY);
+      if (deeperSky) {
+        sky.addColorStop(0, "#031018");
+        sky.addColorStop(0.55, "#051d2a");
+        sky.addColorStop(1, "#092c3c");
+      } else {
+        sky.addColorStop(0, "#041822");
+        sky.addColorStop(0.52, "#062230");
+        sky.addColorStop(1, "#092c3c");
+      }
+      ctx.fillStyle = sky;
+      ctx.fillRect(0, 0, W, horizonY + 2);
+
+      // 2) Estrellas sutiles determinísticas
+      const starCount = extraStars ? 120 : 42;
+      for (let i = 0; i < starCount; i++) {
+        const sx = ((Math.sin(i * 127.1 + 311.7) * 43758.5453) % 1 + 1) % 1 * W;
+        const sy = ((Math.sin(i * 269.5 + 183.3) * 43758.5453) % 1 + 1) % 1 * (horizonY * 0.86);
+        const sr = (i % 7 === 0 ? 2.1 : 1.1) * (extraStars ? 1.15 : 0.85);
+        const alpha = extraStars ? (0.18 + (i % 5) * 0.11) : (0.08 + (i % 4) * 0.05);
+        ctx.fillStyle = i % 3 === 0
+          ? `rgba(255, 198, 128, ${alpha})`
+          : `rgba(246, 232, 213, ${alpha})`;
+        ctx.beginPath();
+        ctx.arc(sx, sy, sr, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // 3) Luna llena ámbar/naranja con cráteres
+      const mx = W * moonXRatio;
+      const my = H * moonYRatio;
+      const mr = moonRadius;
+
+      const outerHalo = ctx.createRadialGradient(mx, my, mr * 0.6, mx, my, mr * (extraStars ? 4.3 : 3.4));
+      outerHalo.addColorStop(0, "rgba(255, 126, 51, 0.44)");
+      outerHalo.addColorStop(0.42, "rgba(245, 158, 66, 0.15)");
+      outerHalo.addColorStop(1, "rgba(245, 158, 66, 0)");
+      ctx.fillStyle = outerHalo;
+      ctx.beginPath();
+      ctx.arc(mx, my, mr * (extraStars ? 4.3 : 3.4), 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(mx, my, mr, 0, Math.PI * 2);
+      ctx.clip();
+
+      const moonGrad = ctx.createRadialGradient(mx - mr * 0.25, my - mr * 0.25, mr * 0.08, mx, my, mr * 1.05);
+      moonGrad.addColorStop(0, "#ffe4ad");
+      moonGrad.addColorStop(0.48, "#f59e42");
+      moonGrad.addColorStop(0.84, "#ff7e33");
+      moonGrad.addColorStop(1, "#d95f22");
+      ctx.fillStyle = moonGrad;
+      ctx.fillRect(mx - mr, my - mr, mr * 2, mr * 2);
+
+      const craters = [
+        [-0.28, -0.18, 0.26, 0.13],
+        [0.24, -0.22, 0.20, 0.11],
+        [0.14, 0.22, 0.28, 0.14],
+        [-0.32, 0.28, 0.18, 0.10],
+        [0.42, 0.04, 0.16, 0.11]
+      ];
+      craters.forEach(([cx, cy, cr, a]) => {
+        ctx.fillStyle = `rgba(176, 72, 22, ${a})`;
+        ctx.beginPath();
+        ctx.arc(mx + cx * mr, my + cy * mr, cr * mr, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      ctx.restore();
+
+      // 4) Suelo iluminado en tonos cálidos ocre/ámbar
+      const groundH = H - horizonY;
+      const groundGrad = ctx.createLinearGradient(0, horizonY, 0, H);
+      groundGrad.addColorStop(0, "#d88336");
+      groundGrad.addColorStop(0.28, "#b25e24");
+      groundGrad.addColorStop(0.68, "#723616");
+      groundGrad.addColorStop(1, "#2a1209");
+      ctx.fillStyle = groundGrad;
+      ctx.fillRect(0, horizonY, W, groundH);
+
+      const horizonGlow = ctx.createRadialGradient(W * 0.5, horizonY, 12, W * 0.5, horizonY, W * 0.58);
+      horizonGlow.addColorStop(0, "rgba(255, 126, 51, 0.34)");
+      horizonGlow.addColorStop(0.55, "rgba(245, 158, 66, 0.1)");
+      horizonGlow.addColorStop(1, "rgba(245, 158, 66, 0)");
+      ctx.fillStyle = horizonGlow;
+      ctx.fillRect(0, horizonY - W * 0.22, W, W * 0.48);
+
+      // Textura orgánica del suelo
+      ctx.save();
+      for (let i = 0; i < 400; i++) {
+        const gx = ((Math.sin(i * 91.7 + 12.3) * 43758.5453) % 1 + 1) % 1 * W;
+        const gy = horizonY + (((Math.sin(i * 47.3 + 81.1) * 43758.5453) % 1 + 1) % 1) * groundH;
+        const gw = 14 + (i % 5) * 8;
+        ctx.fillStyle = i % 2 === 0 ? "rgba(255, 198, 120, 0.06)" : "rgba(32, 12, 5, 0.14)";
+        ctx.fillRect(gx, gy, gw, 2.2);
+      }
+      ctx.restore();
+
+      // 5) Banco de madera y pareja de espaldas
+      const s = (W / 1080) * scaleSubject;
+      const centerX = W * 0.5;
+      const baseGroundY = horizonY + 72 * s;
+
+      ctx.save();
+      ctx.translate(centerX, baseGroundY);
+
+      // Sombra cálida proyectada
+      const shadowGrad = ctx.createRadialGradient(-26 * s, 12 * s, 20 * s, -26 * s, 12 * s, 365 * s);
+      shadowGrad.addColorStop(0, "rgba(18, 7, 3, 0.76)");
+      shadowGrad.addColorStop(0.65, "rgba(22, 9, 4, 0.44)");
+      shadowGrad.addColorStop(1, "rgba(22, 9, 4, 0)");
+      ctx.fillStyle = shadowGrad;
+      ctx.beginPath();
+      ctx.ellipse(-26 * s, 14 * s, 355 * s, 36 * s, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Piernas (izquierda)
+      ctx.fillStyle = "#161111";
+      ctx.fillRect(-132 * s, -68 * s, 26 * s, 60 * s);
+      ctx.fillRect(-94 * s, -68 * s, 26 * s, 60 * s);
+      ctx.beginPath();
+      ctx.ellipse(-120 * s, -4 * s, 18 * s, 8 * s, 0, 0, Math.PI * 2);
+      ctx.ellipse(-81 * s, -4 * s, 18 * s, 8 * s, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Piernas (derecha)
+      ctx.fillStyle = "#c8865c";
+      ctx.fillRect(68 * s, -68 * s, 22 * s, 54 * s);
+      ctx.fillRect(102 * s, -68 * s, 22 * s, 54 * s);
+      ctx.fillStyle = "#1c1311";
+      ctx.beginPath();
+      ctx.ellipse(79 * s, -6 * s, 16 * s, 8 * s, 0, 0, Math.PI * 2);
+      ctx.ellipse(113 * s, -6 * s, 16 * s, 8 * s, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Estructura del banco
+      ctx.fillStyle = "#1d1411";
+      ctx.fillRect(-275 * s, -220 * s, 22 * s, 222 * s);
+      ctx.fillRect(253 * s, -220 * s, 22 * s, 222 * s);
+      ctx.fillRect(-12 * s, -214 * s, 18 * s, 178 * s);
+
+      ctx.fillStyle = "#2b1b15";
+      ctx.fillRect(-310 * s, -82 * s, 620 * s, 24 * s);
+      ctx.fillStyle = "rgba(245, 158, 66, 0.25)";
+      ctx.fillRect(-310 * s, -82 * s, 620 * s, 3 * s);
+
+      [-206, -162, -118].forEach((sy) => {
+        ctx.fillStyle = "#241712";
+        ctx.fillRect(-306 * s, sy * s, 612 * s, 28 * s);
+        ctx.fillStyle = "rgba(245, 158, 66, 0.24)";
+        ctx.fillRect(-306 * s, sy * s, 612 * s, 3 * s);
+      });
+
+      // Figura izquierda
+      ctx.save();
+      ctx.fillStyle = "#0e151b";
+      ctx.beginPath();
+      ctx.moveTo(-175 * s, -82 * s);
+      ctx.quadraticCurveTo(-188 * s, -172 * s, -162 * s, -228 * s);
+      ctx.quadraticCurveTo(-105 * s, -248 * s, -48 * s, -224 * s);
+      ctx.quadraticCurveTo(-24 * s, -168 * s, -34 * s, -82 * s);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.strokeStyle = "rgba(245, 158, 66, 0.38)";
+      ctx.lineWidth = 3 * s;
+      ctx.beginPath();
+      ctx.moveTo(-162 * s, -226 * s);
+      ctx.quadraticCurveTo(-105 * s, -248 * s, -48 * s, -222 * s);
+      ctx.stroke();
+
+      ctx.fillStyle = "#141010";
+      ctx.beginPath();
+      ctx.arc(-104 * s, -280 * s, 40 * s, 0, Math.PI * 2);
+      ctx.fill();
+      [[-130, -296, 17], [-112, -314, 19], [-88, -312, 18], [-70, -294, 16], [-134, -274, 15], [-72, -270, 14]]
+        .forEach(([cx, cy, cr]) => {
+          ctx.beginPath();
+          ctx.arc(cx * s, cy * s, cr * s, 0, Math.PI * 2);
+          ctx.fill();
+        });
+      ctx.strokeStyle = "rgba(255, 178, 92, 0.62)";
+      ctx.lineWidth = 3.2 * s;
+      ctx.beginPath();
+      ctx.arc(-100 * s, -284 * s, 42 * s, -Math.PI * 0.65, -Math.PI * 0.05);
+      ctx.stroke();
+      ctx.restore();
+
+      // Figura derecha
+      ctx.save();
+      const dressGrad = ctx.createLinearGradient(35 * s, -220 * s, 165 * s, -78 * s);
+      dressGrad.addColorStop(0, "#8f3214");
+      dressGrad.addColorStop(0.55, "#b84418");
+      dressGrad.addColorStop(1, "#5c1f0d");
+      ctx.fillStyle = dressGrad;
+      ctx.beginPath();
+      ctx.moveTo(32 * s, -78 * s);
+      ctx.quadraticCurveTo(36 * s, -168 * s, 56 * s, -214 * s);
+      ctx.quadraticCurveTo(96 * s, -228 * s, 138 * s, -212 * s);
+      ctx.quadraticCurveTo(164 * s, -164 * s, 172 * s, -78 * s);
+      ctx.closePath();
+      ctx.fill();
+
+      const hairGrad = ctx.createLinearGradient(96 * s, -304 * s, 96 * s, -135 * s);
+      hairGrad.addColorStop(0, "#24110b");
+      hairGrad.addColorStop(0.55, "#3b170c");
+      hairGrad.addColorStop(1, "#5c210e");
+      ctx.fillStyle = hairGrad;
+      ctx.beginPath();
+      ctx.moveTo(64 * s, -274 * s);
+      ctx.quadraticCurveTo(96 * s, -320 * s, 130 * s, -274 * s);
+      ctx.quadraticCurveTo(154 * s, -220 * s, 152 * s, -148 * s);
+      ctx.quadraticCurveTo(126 * s, -132 * s, 98 * s, -142 * s);
+      ctx.quadraticCurveTo(66 * s, -132 * s, 44 * s, -152 * s);
+      ctx.quadraticCurveTo(44 * s, -220 * s, 64 * s, -274 * s);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.strokeStyle = "rgba(255, 178, 92, 0.65)";
+      ctx.lineWidth = 3.4 * s;
+      ctx.beginPath();
+      ctx.moveTo(68 * s, -280 * s);
+      ctx.quadraticCurveTo(98 * s, -318 * s, 132 * s, -274 * s);
+      ctx.quadraticCurveTo(150 * s, -236 * s, 152 * s, -192 * s);
+      ctx.stroke();
+      ctx.restore();
+
+      ctx.fillStyle = "rgba(18, 11, 8, 0.42)";
+      ctx.fillRect(-310 * s, -82 * s, 620 * s, 5 * s);
+
+      ctx.restore();
+    }
+
+    // =========================================================================
+    // 3. FALLBACK DE PORTADA DEL HERO (SI NO EXISTE portada.png)
+    // =========================================================================
+    function renderHeroFallback() {
+      const canvas = document.getElementById("hero-fallback-canvas");
+      if (!canvas) return;
+      const size = 1080;
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext("2d");
+
+      drawIsolatedBenchScene(ctx, size, size, {
+        horizonRatio: 0.72,
+        moonXRatio: 0.81,
+        moonYRatio: 0.16,
+        moonRadius: size * 0.082
+      });
+
+      const leak = ctx.createLinearGradient(0, 0, size * 0.14, 0);
+      leak.addColorStop(0, "rgba(232, 65, 44, 0.76)");
+      leak.addColorStop(0.45, "rgba(255, 126, 51, 0.22)");
+      leak.addColorStop(1, "rgba(0, 0, 0, 0)");
+      ctx.fillStyle = leak;
+      ctx.fillRect(0, 0, size * 0.14, size);
+
+      ctx.save();
+      ctx.fillStyle = "#f6e8d5";
+      ctx.shadowColor = "rgba(0, 0, 0, 0.48)";
+      ctx.shadowBlur = 18;
+      ctx.font = `700 ${Math.round(size * 0.145)}px "Caveat", cursive`;
+      ctx.translate(size * 0.15, size * 0.25);
+      ctx.rotate(-0.07);
+      ctx.fillText("Figuras", 0, 0);
+      ctx.fillText("Perfectas", size * 0.12, size * 0.12);
+      ctx.restore();
+
+      ctx.save();
+      ctx.fillStyle = "#f6e8d5";
+      ctx.font = `600 ${Math.round(size * 0.027)}px "Montserrat", sans-serif`;
+      ctx.textAlign = "center";
+      ctx.fillText("P  A  R  A  L  E  I  A", size / 2, size * 0.915);
+      ctx.restore();
+    }
+
+    // =========================================================================
+    // 4. CARGA INDEPENDIENTE DE IMÁGENES (HERO vs. FONDO DE POSTAL)
+    // =========================================================================
+    function applyHeroCover(imgElement, srcUrl) {
+      state.heroCoverImg = imgElement;
+      const heroImg = document.getElementById("hero-cover-img");
+      const heroFallback = document.getElementById("hero-fallback-canvas");
+
+      if (heroImg && heroFallback) {
+        heroImg.src = srcUrl;
+        heroImg.classList.remove("hidden");
+        heroFallback.classList.add("hidden");
+      }
+    }
+
+    function applyPostcardBg(imgElement) {
+      state.postcardBgImg = imgElement;
+      renderPostalCanvas();
+    }
+
+    function initAssetLoaders() {
+      renderHeroFallback();
+
+      // Auto-carga portada del Hero: ./portada.jpg -> ./portada.png -> ./1000352196.png
+      let coverIdx = 0;
+      function tryHeroCover() {
+        if (coverIdx >= CONFIG.coverCandidates.length) return;
+        const url = CONFIG.coverCandidates[coverIdx++];
+        const img = new Image();
+        img.onload = () => applyHeroCover(img, url);
+        img.onerror = () => tryHeroCover();
+        img.src = url;
+      }
+      tryHeroCover();
+
+      // Auto-carga fondo de postal: ./fondo-postal.png
+      let bgIdx = 0;
+      function tryPostcardBg() {
+        if (bgIdx >= CONFIG.postcardBgCandidates.length) {
+          renderPostalCanvas();
+          return;
+        }
+        const url = CONFIG.postcardBgCandidates[bgIdx++];
+        const img = new Image();
+        img.onload = () => applyPostcardBg(img);
+        img.onerror = () => tryPostcardBg();
+        img.src = url;
+      }
+      tryPostcardBg();
+    }
+
+    // =========================================================================
+    // 5. RENDERIZADO DE POSTALES HD (1080×1920 STORY / 1080×1080 POST)
+    // =========================================================================
+    let cachedGrainTile = null;
+    function getGrainTile() {
+      if (cachedGrainTile) return cachedGrainTile;
+      const tile = document.createElement("canvas");
+      tile.width = 180;
+      tile.height = 180;
+      const gctx = tile.getContext("2d");
+      const data = gctx.createImageData(180, 180);
+      const px = data.data;
+      for (let i = 0; i < px.length; i += 4) {
+        const v = (Math.random() * 255) | 0;
+        px[i] = v;
+        px[i + 1] = v;
+        px[i + 2] = v;
+        px[i + 3] = 28;
+      }
+      gctx.putImageData(data, 0, 0);
+      cachedGrainTile = tile;
+      return tile;
+    }
+
+    function drawRoundedRectPath(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r);
+      ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r);
+      ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+    }
+
+    function wrapText(ctx, text, maxWidth) {
+      const words = text.split(" ");
+      const lines = [];
+      let current = "";
+      for (const word of words) {
+        const test = current ? `${current} ${word}` : word;
+        if (ctx.measureText(test).width > maxWidth && current) {
+          lines.push(current);
+          current = word;
+        } else {
+          current = test;
+        }
+      }
+      if (current) lines.push(current);
+      return lines;
+    }
+
+    function drawImageCover(ctx, img, x, y, w, h) {
+      const sw = img.naturalWidth || img.width;
+      const sh = img.naturalHeight || img.height;
+      const scale = Math.max(w / sw, h / sh);
+      const dw = sw * scale;
+      const dh = sh * scale;
+      ctx.drawImage(img, x + (w - dw) / 2, y + (h - dh) / 2, dw, dh);
+    }
+
+    const filteredBackdropCache = {};
+
+    function rgbToHsl(r, g, b) {
+      r /= 255; g /= 255; b /= 255;
+      const max = Math.max(r, g, b);
+      const min = Math.min(r, g, b);
+      const l = (max + min) / 2;
+      let h = 0, s = 0;
+      if (max !== min) {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        if (max === r) h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
+        else if (max === g) h = ((b - r) / d + 2) / 6;
+        else h = ((r - g) / d + 4) / 6;
+      }
+      return [h, s, l];
+    }
+
+    function hslToRgb(h, s, l) {
+      if (s === 0) {
+        const v = Math.round(l * 255);
+        return [v, v, v];
+      }
+      const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+      const p = 2 * l - q;
+      const hue2rgb = (t) => {
+        if (t < 0) t += 1;
+        if (t > 1) t -= 1;
+        if (t < 1 / 6) return p + (q - p) * 6 * t;
+        if (t < 1 / 2) return q;
+        if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+        return p;
+      };
+      return [
+        Math.round(hue2rgb(h + 1 / 3) * 255),
+        Math.round(hue2rgb(h) * 255),
+        Math.round(hue2rgb(h - 1 / 3) * 255)
+      ];
+    }
+
+    function getFilteredBackdropCanvas(img, mood) {
+      if (mood === "analog") return img;
+      if (filteredBackdropCache[mood]) return filteredBackdropCache[mood];
+
+      const w = img.naturalWidth || img.width;
+      const h = img.naturalHeight || img.height;
+      const off = document.createElement("canvas");
+      off.width = w;
+      off.height = h;
+      const octx = off.getContext("2d");
+      octx.drawImage(img, 0, 0, w, h);
+
+      // Coordenadas relativas de la luna en fondo-postal.png (892.5 / 1080, 253.5 / 1920)
+      const moonCx = w * 0.8264;
+      const moonCy = h * 0.1320;
+      const moonR = w * 0.088;
+
+      try {
+        const imgData = octx.getImageData(0, 0, w, h);
+        const d = imgData.data;
+
+        for (let y = 0; y < h; y++) {
+          for (let x = 0; x < w; x++) {
+            const idx = (y * w + x) * 4;
+            const r = d[idx];
+            const g = d[idx + 1];
+            const b = d[idx + 2];
+
+            const [hh, ss, ll] = rgbToHsl(r, g, b);
+            const deg = hh * 360;
+            // Detecta píxeles cálidos (luna naranja, piso iluminado, reflejos cálidos)
+            const warmDist = Math.min(Math.abs(deg - 28), 360 - Math.abs(deg - 28));
+            const warmWeight = warmDist < 52 ? (1 - warmDist / 52) * Math.min(1, ss * 1.65) : 0;
+
+            const dx = x - moonCx;
+            const dy = y - moonCy;
+            const distMoon = Math.sqrt(dx * dx + dy * dy);
+            const inMoon = distMoon < moonR * 1.18 ? Math.max(0, Math.min(1, 1 - (distMoon - moonR * 0.82) / (moonR * 0.36))) : 0;
+
+            let nh = hh, ns = ss, nl = ll;
+
+            if (mood === "cold") {
+              if (inMoon > 0 && warmWeight > 0.05) {
+                // Luna fría plateada / celeste hielo manteniendo cráteres intactos
+                nh = 207 / 360;
+                ns = Math.min(1, ss * 0.56);
+                nl = Math.min(0.96, ll * 1.10);
+              } else if (warmWeight > 0.06) {
+                // Enfría el reflejo cálido del piso y siluetas hacia luz lunar azul-plata
+                const blend = Math.min(1, warmWeight * 1.15);
+                nh = (deg * (1 - blend) + 210 * blend) / 360;
+                ns = ss * (1 - blend * 0.38);
+                nl = ll * (1 - blend * 0.04);
+              } else {
+                // Cielo nocturno azul zafiro más frío y profundo
+                nh = ((deg * 0.55) + (212 * 0.45)) / 360;
+                ns = Math.min(1, ss * 1.08);
+                nl = ll * 0.94;
+              }
+            } else if (mood === "red") {
+              if (inMoon > 0 && warmWeight > 0.05) {
+                // Luna de sangre carmesí intensa con alto contraste de cráteres
+                nh = 3 / 360;
+                ns = Math.min(1, ss * 1.24 + 0.08);
+                nl = Math.max(0.06, ll * 0.84);
+              } else if (warmWeight > 0.06) {
+                // Piso y bordes cálidos hacia rojo rubí / terracota profundo
+                const blend = Math.min(1, warmWeight * 1.15);
+                nh = (deg * (1 - blend) + 6 * blend) / 360;
+                ns = Math.min(1, ss * (1 + blend * 0.22));
+                nl = ll * (1 - blend * 0.12);
+              } else {
+                // Cielo más oscuro y dramático para resaltar el eclipse rojo
+                nl = ll * 0.86;
+                ns = ss * 0.88;
+              }
+            } else if (mood === "nocturne") {
+              // Noche profunda cinematográfica: sombras densas, luna dorada tenue
+              nl = Math.pow(ll, 1.18);
+              ns = ss * 0.72;
+              if (inMoon > 0 && warmWeight > 0.05) {
+                nh = 36 / 360;
+                ns = ss * 0.62;
+                nl = Math.min(0.92, ll * 0.95);
+              }
+            }
+
+            const [nr, ng, nb] = hslToRgb(nh, Math.max(0, Math.min(1, ns)), Math.max(0, Math.min(1, nl)));
+            d[idx] = nr;
+            d[idx + 1] = ng;
+            d[idx + 2] = nb;
+          }
+        }
+        octx.putImageData(imgData, 0, 0);
+      } catch (err) {
+        // Fallback seguro (por ejemplo abriendo index.html directo con file://)
+        octx.save();
+        if (mood === "cold") {
+          octx.globalCompositeOperation = "color";
+          octx.fillStyle = "rgba(86, 172, 245, 0.85)";
+          octx.fillRect(0, 0, w, h);
+          octx.globalCompositeOperation = "screen";
+          const g = octx.createRadialGradient(moonCx, moonCy, 0, moonCx, moonCy, moonR * 1.5);
+          g.addColorStop(0, "rgba(180, 226, 255, 0.55)");
+          g.addColorStop(1, "rgba(120, 190, 255, 0)");
+          octx.fillStyle = g;
+          octx.fillRect(0, 0, w, h);
+        } else if (mood === "red") {
+          octx.globalCompositeOperation = "multiply";
+          octx.fillStyle = "rgba(215, 78, 72, 0.78)";
+          octx.fillRect(0, 0, w, h);
+          octx.globalCompositeOperation = "color";
+          octx.fillStyle = "rgba(215, 32, 28, 0.55)";
+          octx.fillRect(0, 0, w, h);
+        } else if (mood === "nocturne") {
+          octx.globalCompositeOperation = "multiply";
+          octx.fillStyle = "rgba(130, 152, 172, 0.82)";
+          octx.fillRect(0, 0, w, h);
+        }
+        octx.restore();
+      }
+
+      filteredBackdropCache[mood] = off;
+      return off;
+    }
+
+    function drawCleanPostcardBackdrop(ctx, W, H, isStory, mood) {
+      const isNocturne = mood === "nocturne";
+      if (state.postcardBgImg) {
+        const src = getFilteredBackdropCanvas(state.postcardBgImg, mood);
+        const sw = src.naturalWidth || src.width;
+        const sh = src.naturalHeight || src.height;
+        const drawW = W;
+        const drawH = (sh / sw) * drawW;
+
+        let moonPosX = W * 0.8264;
+        let moonPosY = H * 0.1320;
+
+        if (isStory && drawH < H - 4) {
+          const skyExt = ctx.createLinearGradient(0, 0, 0, H);
+          skyExt.addColorStop(0, isNocturne ? "#031018" : "#041822");
+          skyExt.addColorStop(0.46, "#062230");
+          skyExt.addColorStop(0.75, "#092c3c");
+          skyExt.addColorStop(1, "#2a1209");
+          ctx.fillStyle = skyExt;
+          ctx.fillRect(0, 0, W, H);
+
+          const artY = H - drawH;
+          ctx.drawImage(src, 0, artY, drawW, drawH);
+        } else if (!isStory && drawH > H + 4) {
+          // En Post (1:1): ancla abajo para conservar pareja/banco/PARALEIA y compone la luna arriba a la derecha sin corte visible
+          ctx.drawImage(src, 0, H - drawH, drawW, drawH);
+
+          const topStripSrcY = Math.round(sh * 0.042);
+          const topStripH = Math.round(sh * 0.175);
+          const destH = Math.round((topStripH / sw) * W);
+          const stripCanvas = document.createElement("canvas");
+          stripCanvas.width = W;
+          stripCanvas.height = destH;
+          const sctx = stripCanvas.getContext("2d");
+          sctx.drawImage(src, 0, topStripSrcY, sw, topStripH, 0, 0, W, destH);
+          sctx.globalCompositeOperation = "destination-in";
+          const fade = sctx.createLinearGradient(0, 0, 0, destH);
+          fade.addColorStop(0, "rgba(0,0,0,1)");
+          fade.addColorStop(0.68, "rgba(0,0,0,1)");
+          fade.addColorStop(1, "rgba(0,0,0,0)");
+          sctx.fillStyle = fade;
+          sctx.fillRect(0, 0, W, destH);
+          ctx.drawImage(stripCanvas, 0, 0);
+
+          moonPosY = (sh * 0.1320 - topStripSrcY) * (W / sw);
+        } else {
+          drawImageCover(ctx, src, 0, 0, W, H);
+        }
+
+        // Atmósfera extra según el filtro elegido (halo lunar, light leak, viñeta y grano)
+        ctx.save();
+        if (mood === "analog") {
+          const leak = ctx.createLinearGradient(0, 0, W * 0.11, 0);
+          leak.addColorStop(0, "rgba(232, 65, 44, 0.34)");
+          leak.addColorStop(0.55, "rgba(255, 126, 51, 0.08)");
+          leak.addColorStop(1, "rgba(255, 126, 51, 0)");
+          ctx.globalCompositeOperation = "screen";
+          ctx.fillStyle = leak;
+          ctx.fillRect(0, 0, W * 0.11, H);
+        } else if (mood === "cold") {
+          ctx.globalCompositeOperation = "screen";
+          const coldHalo = ctx.createRadialGradient(moonPosX, moonPosY, 20, moonPosX, moonPosY, W * 0.36);
+          coldHalo.addColorStop(0, "rgba(175, 225, 255, 0.34)");
+          coldHalo.addColorStop(0.45, "rgba(92, 168, 240, 0.14)");
+          coldHalo.addColorStop(1, "rgba(92, 168, 240, 0)");
+          ctx.fillStyle = coldHalo;
+          ctx.fillRect(0, 0, W, H);
+        } else if (mood === "red") {
+          ctx.globalCompositeOperation = "screen";
+          const redHalo = ctx.createRadialGradient(moonPosX, moonPosY, 18, moonPosX, moonPosY, W * 0.38);
+          redHalo.addColorStop(0, "rgba(255, 62, 48, 0.42)");
+          redHalo.addColorStop(0.45, "rgba(190, 24, 24, 0.16)");
+          redHalo.addColorStop(1, "rgba(190, 24, 24, 0)");
+          ctx.fillStyle = redHalo;
+          ctx.fillRect(0, 0, W, H);
+
+          const redLeak = ctx.createLinearGradient(0, 0, W * 0.15, 0);
+          redLeak.addColorStop(0, "rgba(220, 32, 28, 0.46)");
+          redLeak.addColorStop(0.55, "rgba(180, 22, 28, 0.14)");
+          redLeak.addColorStop(1, "rgba(180, 22, 28, 0)");
+          ctx.fillStyle = redLeak;
+          ctx.fillRect(0, 0, W * 0.15, H);
+        } else if (mood === "nocturne") {
+          const vig = ctx.createRadialGradient(W * 0.5, H * 0.48, W * 0.25, W * 0.5, H * 0.5, H * 0.72);
+          vig.addColorStop(0, "rgba(2, 10, 16, 0)");
+          vig.addColorStop(1, "rgba(2, 8, 14, 0.52)");
+          ctx.fillStyle = vig;
+          ctx.fillRect(0, 0, W, H);
+        }
+
+        // Grano sutil de película 35mm
+        const pattern = ctx.createPattern(getGrainTile(), "repeat");
+        if (pattern) {
+          ctx.globalCompositeOperation = "overlay";
+          ctx.globalAlpha = mood === "analog" ? 0.35 : 0.28;
+          ctx.fillStyle = pattern;
+          ctx.fillRect(0, 0, W, H);
+        }
+        ctx.restore();
+      } else {
+        drawIsolatedBenchScene(ctx, W, H, {
+          deeperSky: isNocturne || mood === "red",
+          extraStars: isNocturne || mood === "cold",
+          horizonRatio: isStory ? 0.785 : 0.73,
+          moonXRatio: 0.82,
+          moonYRatio: isStory ? 0.13 : 0.17,
+          moonRadius: isStory ? 90 : 84,
+          scaleSubject: isStory ? 1.02 : 0.96
+        });
+      }
+    }
+
+    function renderPostalCanvas() {
+      const canvas = document.getElementById("postal-canvas");
+      if (!canvas) return;
+
+      const isStory = state.format === "story";
+      const W = 1080;
+      const H = isStory ? 1920 : 1080;
+
+      canvas.width = W;
+      canvas.height = H;
+
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, W, H);
+
+      const lyric = CONFIG.lyrics[state.selectedLyric] || CONFIG.lyrics[0];
+      const quoted = `“${lyric}”`;
+      const isLongLyric = lyric.length > 42;
+
+      // =======================================================================
+      // ESTILOS VISUALES: ANALÓGICO · LUNA FRÍA · LUNA ROJA · NOCTURNO
+      // =======================================================================
+      const mood = state.mood || "analog";
+      const moodTheme = {
+        analog: {
+          textColor: "#f6e8d5",
+          shadowColor: "rgba(245, 158, 66, 0.34)",
+          shadowBlur: 28,
+          divider: "rgba(245, 158, 66, 0.85)",
+          footerColor: "rgba(246, 232, 213, 0.88)",
+          weight: 700
+        },
+        cold: {
+          textColor: "#eef6ff",
+          shadowColor: "rgba(126, 200, 255, 0.40)",
+          shadowBlur: 30,
+          divider: "rgba(148, 212, 255, 0.86)",
+          footerColor: "rgba(224, 240, 255, 0.88)",
+          weight: 600
+        },
+        red: {
+          textColor: "#fdece4",
+          shadowColor: "rgba(235, 58, 46, 0.44)",
+          shadowBlur: 30,
+          divider: "rgba(238, 72, 56, 0.90)",
+          footerColor: "rgba(252, 224, 216, 0.88)",
+          weight: 700
+        },
+        nocturne: {
+          textColor: "#f3eadc",
+          shadowColor: "rgba(4, 14, 20, 0.85)",
+          shadowBlur: 24,
+          divider: "rgba(232, 198, 142, 0.72)",
+          footerColor: "rgba(240, 230, 214, 0.82)",
+          weight: 600
+        }
+      }[mood] || {
+        textColor: "#f6e8d5",
+        shadowColor: "rgba(245, 158, 66, 0.34)",
+        shadowBlur: 28,
+        divider: "rgba(245, 158, 66, 0.85)",
+        footerColor: "rgba(246, 232, 213, 0.88)",
+        weight: 700
+      };
+
+      drawCleanPostcardBackdrop(ctx, W, H, isStory, mood);
+
+      // Tipografía manuscrita en el cielo despejado
+      const quoteCenterY = isStory ? H * 0.34 : (state.postcardBgImg ? H * 0.31 : H * 0.29);
+      const quoteCenterX = (!isStory && state.postcardBgImg) ? W * 0.44 : W * 0.5;
+      const quoteMaxW = (!isStory && state.postcardBgImg) ? W * 0.68 : W * 0.78;
+      const fontSize = isStory
+        ? (isLongLyric ? 76 : 96)
+        : (isLongLyric ? 56 : 72);
+      const fontDecl = `${moodTheme.weight} ${fontSize}px "Caveat", cursive`;
+      const lineHeight = fontSize * 1.14;
+
+      const textBackplate = ctx.createRadialGradient(quoteCenterX, quoteCenterY, 30, quoteCenterX, quoteCenterY, W * 0.54);
+      textBackplate.addColorStop(0, "rgba(4, 18, 26, 0.42)");
+      textBackplate.addColorStop(1, "rgba(4, 18, 26, 0)");
+      ctx.fillStyle = textBackplate;
+      ctx.fillRect(0, quoteCenterY - 260, W, 520);
+
+      ctx.save();
+      ctx.font = fontDecl;
+      ctx.fillStyle = moodTheme.textColor;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.shadowColor = moodTheme.shadowColor;
+      ctx.shadowBlur = moodTheme.shadowBlur;
+      ctx.shadowOffsetY = 4;
+
+      const lines = wrapText(ctx, quoted, quoteMaxW);
+      const startY = quoteCenterY - ((lines.length - 1) * lineHeight) / 2;
+      lines.forEach((line, idx) => {
+        ctx.fillText(line, quoteCenterX, startY + idx * lineHeight);
+      });
+
+      const sepY = startY + lines.length * lineHeight + 22;
+      ctx.shadowBlur = 0;
+      ctx.strokeStyle = moodTheme.divider;
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.moveTo(quoteCenterX - 42, sepY);
+      ctx.lineTo(quoteCenterX + 42, sepY);
+      ctx.stroke();
+      ctx.restore();
+
+      // Pie sutil al fondo (la plantilla fondo-postal.png ya incluye el logo PARALEIA)
+      if (state.postcardBgImg) {
+        ctx.save();
+        ctx.textAlign = "center";
+        ctx.fillStyle = moodTheme.footerColor;
+        ctx.shadowColor = "rgba(0, 0, 0, 0.72)";
+        ctx.shadowBlur = 10;
+        ctx.font = `500 ${isStory ? 19 : 17}px "Montserrat", sans-serif`;
+        ctx.fillText("F I G U R A S  P E R F E C T A S", W / 2, H - 46);
+        ctx.restore();
+      } else {
+        const footerShade = ctx.createLinearGradient(0, H - 170, 0, H);
+        footerShade.addColorStop(0, "rgba(4, 16, 24, 0)");
+        footerShade.addColorStop(1, "rgba(4, 16, 24, 0.78)");
+        ctx.fillStyle = footerShade;
+        ctx.fillRect(0, H - 170, W, 170);
+
+        ctx.save();
+        ctx.textAlign = "center";
+        ctx.fillStyle = moodTheme.footerColor;
+        ctx.shadowColor = "rgba(0, 0, 0, 0.72)";
+        ctx.shadowBlur = 12;
+        ctx.font = `600 ${isStory ? 22 : 19}px "Montserrat", sans-serif`;
+        ctx.fillText("P A R A L E I A  ·  FIGURAS PERFECTAS", W / 2, isStory ? H - 76 : H - 50);
+        ctx.restore();
+      }
+    }
+
+    // =========================================================================
+    // 6. CONTROLES DEL ESTUDIO DE POSTALES
+    // =========================================================================
+    function initPostalStudio() {
+      const lyricsList = document.getElementById("lyrics-list");
+      const formatBtns = document.querySelectorAll(".format-btn");
+      const moodBtns = document.querySelectorAll(".mood-btn");
+      const downloadBtn = document.getElementById("btn-download");
+      const shareBtn = document.getElementById("btn-share");
+
+      function renderLyricsOptions() {
+        lyricsList.innerHTML = "";
+        CONFIG.lyrics.forEach((phrase, idx) => {
+          const active = idx === state.selectedLyric;
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = `w-full min-h-[52px] text-left rounded-2xl px-4 py-3 border transition-all ${
+            active
+              ? "bg-moon-400/15 border-moon-400/80 text-cream shadow-[0_0_24px_rgba(245,158,66,0.16)]"
+              : "bg-night-950/55 border-cream/10 text-cream/75 hover:border-cream/30 hover:text-cream"
+          }`;
+          btn.innerHTML = `<span class="text-xs sm:text-sm font-medium leading-snug block">“${phrase}”</span>`;
+          btn.addEventListener("click", () => {
+            state.selectedLyric = idx;
+            renderLyricsOptions();
+            renderPostalCanvas();
+          });
+          lyricsList.appendChild(btn);
+        });
+      }
+
+      function syncButtons() {
+        formatBtns.forEach((btn) => {
+          const active = btn.dataset.format === state.format;
+          btn.className = `format-btn min-h-[56px] rounded-2xl p-3.5 text-left border transition-all flex items-center gap-3 ${
+            active
+              ? "bg-moon-400/15 border-moon-400/80 text-cream"
+              : "bg-night-950/55 border-cream/10 text-cream/65 hover:border-cream/30"
+          }`;
+        });
+
+        moodBtns.forEach((btn) => {
+          const active = btn.dataset.mood === state.mood;
+          btn.className = `mood-btn min-h-[68px] rounded-2xl p-3 text-center border transition-all ${
+            active
+              ? "bg-moon-400/15 border-moon-400/80 text-cream"
+              : "bg-night-950/55 border-cream/10 text-cream/65 hover:border-cream/30"
+          }`;
+        });
+      }
+
+      formatBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          state.format = btn.dataset.format;
+          syncButtons();
+          renderPostalCanvas();
+        });
+      });
+
+      moodBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          state.mood = btn.dataset.mood;
+          syncButtons();
+          renderPostalCanvas();
+        });
+      });
+
+      function triggerDownload() {
+        const canvas = document.getElementById("postal-canvas");
+        try {
+          const dataUrl = canvas.toDataURL("image/png", 1.0);
+          const link = document.createElement("a");
+          link.download = `paraleia-figuras-perfectas-${state.format}-${state.mood}.png`;
+          link.href = dataUrl;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          showToast("¡Story descargada en PNG HD! Lista para compartir.");
+        } catch (err) {
+          showToast("No se pudo exportar la imagen. Probá abrir la página desde tu navegador.");
+        }
+      }
+
+      downloadBtn.addEventListener("click", triggerDownload);
+
+      shareBtn.addEventListener("click", async () => {
+        const canvas = document.getElementById("postal-canvas");
+        const lyric = CONFIG.lyrics[state.selectedLyric];
+        try {
+          if (navigator.share && canvas.toBlob) {
+            const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png", 1.0));
+            const file = new File([blob], `paraleia-figuras-perfectas-${state.format}.png`, { type: "image/png" });
+            if (navigator.canShare && navigator.canShare({ files: [file] })) {
+              await navigator.share({
+                title: "PARALEIA — Figuras Perfectas",
+                text: `“${lyric}” — @paraleia`,
+                files: [file]
+              });
+              return;
+            }
+          }
+          triggerDownload();
+        } catch (err) {
+          if (err && err.name !== "AbortError") {
+            triggerDownload();
+          }
+        }
+      });
+
+      renderLyricsOptions();
+      syncButtons();
+      renderPostalCanvas();
+    }
+
+    // =========================================================================
+    // 7. INTERACCIÓN: TILT 3D (SOLO HOVER FINO), PARTÍCULAS Y GRANO 35MM
+    // =========================================================================
+    function initTiltAndHalo() {
+      const canHover = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+      const sleeve = document.getElementById("hero-tilt");
+      const glare = document.getElementById("hero-glare");
+      const halo = document.getElementById("lunar-halo");
+
+      if (canHover && sleeve) {
+        const applyTilt = (clientX, clientY) => {
+          const rect = sleeve.getBoundingClientRect();
+          const x = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+          const y = Math.max(0, Math.min(1, (clientY - rect.top) / rect.height));
+          const rotY = (x - 0.5) * 14;
+          const rotX = (0.5 - y) * 14;
+          sleeve.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.015)`;
+          if (glare) {
+            glare.style.opacity = "1";
+            glare.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(255, 224, 178, 0.22), transparent 62%)`;
+          }
+        };
+
+        const resetTilt = () => {
+          sleeve.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+          if (glare) glare.style.opacity = "0";
+        };
+
+        sleeve.addEventListener("mousemove", (e) => applyTilt(e.clientX, e.clientY));
+        sleeve.addEventListener("mouseleave", resetTilt);
+      }
+
+      if (canHover) {
+        window.addEventListener("mousemove", (e) => {
+          state.pointer.x = e.clientX / window.innerWidth;
+          state.pointer.y = e.clientY / window.innerHeight;
+          state.pointer.active = true;
+          if (halo) {
+            const dx = (state.pointer.x - 0.5) * -24;
+            const dy = (state.pointer.y - 0.5) * -18;
+            halo.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
+          }
+        }, { passive: true });
+      }
+    }
+
+    function initParticles() {
+      const canvas = document.getElementById("particles-canvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      let w = 0, h = 0;
+      let motes = [];
+
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+        const count = Math.min(46, Math.max(18, Math.floor((w * h) / 27000)));
+        motes = Array.from({ length: count }, () => ({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: Math.random() * 1.8 + 0.5,
+          vx: (Math.random() - 0.5) * 0.16,
+          vy: -Math.random() * 0.22 - 0.05,
+          alpha: Math.random() * 0.4 + 0.14,
+          warm: Math.random() > 0.34
+        }));
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, w, h);
+        const px = state.pointer.x * w;
+        const py = state.pointer.y * h;
+
+        for (const m of motes) {
+          if (state.pointer.active) {
+            const dx = m.x - px;
+            const dy = m.y - py;
+            const dist = Math.hypot(dx, dy);
+            if (dist < 130 && dist > 1) {
+              const push = (130 - dist) / 130;
+              m.x += (dx / dist) * push * 0.38;
+              m.y += (dy / dist) * push * 0.38;
+            }
+          }
+
+          m.x += m.vx;
+          m.y += m.vy;
+
+          if (m.y < -10) { m.y = h + 10; m.x = Math.random() * w; }
+          if (m.x < -10) m.x = w + 10;
+          if (m.x > w + 10) m.x = -10;
+
+          ctx.beginPath();
+          ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+          ctx.fillStyle = m.warm
+            ? `rgba(245, 158, 66, ${m.alpha})`
+            : `rgba(246, 232, 213, ${m.alpha * 0.72})`;
+          ctx.fill();
+        }
+        requestAnimationFrame(animate);
+      }
+
+      resize();
+      window.addEventListener("resize", resize);
+      animate();
+    }
+
+    function initFilmGrainOverlay() {
+      const canvas = document.getElementById("film-grain");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+
+      function drawGrain() {
+        const size = 200;
+        if (canvas.width !== size || canvas.height !== size) {
+          canvas.width = size;
+          canvas.height = size;
+        }
+        const img = ctx.createImageData(size, size);
+        const d = img.data;
+        for (let i = 0; i < d.length; i += 4) {
+          const v = (Math.random() * 255) | 0;
+          d[i] = v;
+          d[i + 1] = v;
+          d[i + 2] = v;
+          d[i + 3] = 255;
+        }
+        ctx.putImageData(img, 0, 0);
+      }
+
+      drawGrain();
+      setInterval(drawGrain, 200);
+    }
+
+    // =========================================================================
+    // 8. REGISTRO DE NOVEDADES (WEB3FORMS -> infoparaleia@gmail.com)
+    // =========================================================================
+    function initNewsletterForm() {
+      const form = document.getElementById("newsletter-form");
+      const status = document.getElementById("newsletter-status");
+      const submitBtn = document.getElementById("newsletter-submit");
+      if (!form || !status || !submitBtn) return;
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const emailInput = document.getElementById("newsletter-email");
+        const email = emailInput ? emailInput.value.trim() : "";
+        if (!email) return;
+
+        submitBtn.disabled = true;
+        submitBtn.classList.add("opacity-70", "cursor-wait");
+        status.className = "text-xs mt-3 min-h-[18px] text-cream/75";
+        status.textContent = "Registrando tu mail…";
+
+        try {
+          const res = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: { Accept: "application/json" },
+            body: new FormData(form)
+          });
+          const data = await res.json();
+          if (data && data.success) {
+            status.className = "text-xs mt-3 min-h-[18px] text-moon-300 font-medium";
+            status.textContent = "¡Listo! Ya estás en la lista para enterarte antes que nadie.";
+            showToast("¡Mail registrado! Te avisamos antes que nadie.");
+            form.reset();
+          } else {
+            throw new Error("submit_failed");
+          }
+        } catch (err) {
+          status.className = "text-xs mt-3 min-h-[18px] text-red-300";
+          status.textContent = "No pudimos enviarlo ahora. Probá de nuevo o escribinos a infoparaleia@gmail.com.";
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove("opacity-70", "cursor-wait");
+        }
+      });
+    }
+
+    // =========================================================================
+    // ARRANQUE PRINCIPAL
+    // =========================================================================
+    window.addEventListener("load", () => {
+      syncWebsiteLinks();
+      renderIconRow("hero-platforms-row", STREAMING_PLATFORMS, CONFIG.platforms, true);
+      renderIconRow("footer-socials-row", SOCIAL_NETWORKS, CONFIG.socials, false);
+      initTiltAndHalo();
+      initParticles();
+      initFilmGrainOverlay();
+      initPostalStudio();
+      initAssetLoaders();
+      initNewsletterForm();
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+          if (!state.heroCoverImg) {
+            renderHeroFallback();
+          }
+          renderPostalCanvas();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
