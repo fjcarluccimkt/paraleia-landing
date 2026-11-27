@@ -539,7 +539,7 @@
                 <span>Compartir</span>
               </button>
               <p class="text-[11px] text-cream/55 text-center sm:text-left leading-relaxed">
-                En el celular abre el menú para compartir directo en redes o guardarla en tu galería; en compu descarga la imagen en HD.
+                Tocá <span class="text-cream/80 font-medium">Compartir</span> para enviarla directo a tus Stories, WhatsApp o copiar la imagen.
               </p>
             </div>
 
@@ -547,6 +547,37 @@
         </div>
       </div>
     </section>
+
+    <!-- Modal de compartir (respaldo cuando el navegador no soporta Web Share de imágenes) -->
+    <div id="share-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-night-950/85 backdrop-blur-md" role="dialog" aria-modal="true" aria-labelledby="share-modal-title">
+      <div class="glass-card relative w-full max-w-sm rounded-3xl p-5 sm:p-6 border border-cream/20 shadow-2xl text-center">
+        <button id="share-modal-close" type="button" aria-label="Cerrar"
+                class="absolute top-3.5 right-3.5 w-10 h-10 rounded-full flex items-center justify-center text-cream/70 hover:text-cream hover:bg-cream/10 transition-colors text-xl leading-none">
+          ×
+        </button>
+        <h3 id="share-modal-title" class="font-hand text-4xl font-bold text-cream mb-1">Compartir story</h3>
+        <p class="text-xs text-cream/75 mb-4">Copiá la imagen para pegarla directo en tus redes, o mantenela presionada en el celular para compartirla.</p>
+        <div class="rounded-2xl overflow-hidden bg-night-950 ring-1 ring-cream/15 mb-4 max-h-[42dvh] flex items-center justify-center mx-auto">
+          <img id="share-modal-img" alt="Vista previa de tu story de Figuras Perfectas" class="block w-auto h-auto max-w-full max-h-[42dvh] object-contain" />
+        </div>
+        <div class="space-y-2.5">
+          <button id="btn-copy-image" type="button"
+                  class="btn-amber w-full min-h-[48px] rounded-2xl py-3 px-5 font-bold text-sm tracking-wide flex items-center justify-center gap-2">
+            <span>Copiar imagen</span>
+          </button>
+          <div class="grid grid-cols-2 gap-2.5">
+            <a id="share-wa-link" href="#" target="_blank" rel="noopener noreferrer"
+               class="btn-glass min-h-[44px] rounded-2xl py-2.5 px-4 text-xs font-semibold text-cream inline-flex items-center justify-center">
+              WhatsApp
+            </a>
+            <a id="share-x-link" href="#" target="_blank" rel="noopener noreferrer"
+               class="btn-glass min-h-[44px] rounded-2xl py-2.5 px-4 text-xs font-semibold text-cream inline-flex items-center justify-center">
+              X / Twitter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- =======================================================================
          3.5. REGISTRO DE NOVEDADES (PRÓXIMOS SINGLES Y SHOWS ANTES QUE NADIE)
@@ -1665,6 +1696,49 @@
         ctx.fillText("P A R A L E I A  ·  FIGURAS PERFECTAS", W / 2, isStory ? H - 76 : H - 50);
         ctx.restore();
       }
+
+      if (typeof scheduleShareCache === "function") {
+        scheduleShareCache();
+      }
+    }
+
+    // Caché pre-renderizada para compartir sin perder el gesto del usuario en móvil
+    const shareCache = {
+      key: "",
+      jpgFile: null,
+      pngBlob: null,
+      dataUrl: ""
+    };
+    let shareCacheTimer = null;
+
+    function buildShareKey() {
+      return `${state.selectedLyric}|${state.format}|${state.mood}|${state.postcardBgImg ? 1 : 0}`;
+    }
+
+    function scheduleShareCache() {
+      clearTimeout(shareCacheTimer);
+      shareCacheTimer = setTimeout(() => {
+        const canvas = document.getElementById("postal-canvas");
+        if (!canvas || !canvas.toBlob) return;
+        const key = buildShareKey();
+        canvas.toBlob((jpgBlob) => {
+          if (!jpgBlob || buildShareKey() !== key) return;
+          shareCache.key = key;
+          shareCache.jpgFile = new File(
+            [jpgBlob],
+            `paraleia-figuras-perfectas-${state.format}.jpg`,
+            { type: "image/jpeg" }
+          );
+          try {
+            shareCache.dataUrl = canvas.toDataURL("image/jpeg", 0.94);
+          } catch (e) {}
+        }, "image/jpeg", 0.94);
+
+        canvas.toBlob((pngBlob) => {
+          if (!pngBlob || buildShareKey() !== key) return;
+          shareCache.pngBlob = pngBlob;
+        }, "image/png");
+      }, 60);
     }
 
     // =========================================================================
@@ -1733,44 +1807,91 @@
         });
       });
 
-      function triggerDownload() {
+      const shareModal = document.getElementById("share-modal");
+      const shareModalClose = document.getElementById("share-modal-close");
+      const shareModalImg = document.getElementById("share-modal-img");
+      const copyImageBtn = document.getElementById("btn-copy-image");
+      const shareWaLink = document.getElementById("share-wa-link");
+      const shareXLink = document.getElementById("share-x-link");
+
+      function closeShareModal() {
+        if (!shareModal) return;
+        shareModal.classList.add("hidden");
+        shareModal.classList.remove("flex");
+      }
+
+      function openShareModal() {
         const canvas = document.getElementById("postal-canvas");
-        try {
-          const dataUrl = canvas.toDataURL("image/png", 1.0);
-          const link = document.createElement("a");
-          link.download = `paraleia-figuras-perfectas-${state.format}-${state.mood}.png`;
-          link.href = dataUrl;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          showToast("¡Story descargada en PNG HD! Lista para compartir.");
-        } catch (err) {
-          showToast("No se pudo exportar la imagen. Probá abrir la página desde tu navegador.");
+        const lyric = CONFIG.lyrics[state.selectedLyric];
+        const shareText = `“${lyric}” — PARALEIA · Figuras Perfectas https://paraleia.vercel.app/figuras-perfectas/`;
+        if (shareModalImg) {
+          shareModalImg.src = shareCache.dataUrl || canvas.toDataURL("image/jpeg", 0.94);
         }
+        if (shareWaLink) shareWaLink.href = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+        if (shareXLink) shareXLink.href = `https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+        if (shareModal) {
+          shareModal.classList.remove("hidden");
+          shareModal.classList.add("flex");
+        }
+      }
+
+      if (shareModalClose) shareModalClose.addEventListener("click", closeShareModal);
+      if (shareModal) {
+        shareModal.addEventListener("click", (e) => {
+          if (e.target === shareModal) closeShareModal();
+        });
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeShareModal();
+      });
+
+      if (copyImageBtn) {
+        copyImageBtn.addEventListener("click", async () => {
+          const canvas = document.getElementById("postal-canvas");
+          try {
+            if (navigator.clipboard && window.ClipboardItem) {
+              const pngBlob = shareCache.pngBlob || await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+              if (pngBlob) {
+                await navigator.clipboard.write([new ClipboardItem({ "image/png": pngBlob })]);
+                showToast("¡Imagen copiada! Pegala directo en WhatsApp, X o Instagram.");
+                return;
+              }
+            }
+            showToast("Mantené presionada la imagen o hacé clic derecho para copiarla y compartirla.");
+          } catch (err) {
+            showToast("Mantené presionada la imagen o hacé clic derecho para copiarla y compartirla.");
+          }
+        });
       }
 
       if (shareBtn) shareBtn.addEventListener("click", async () => {
         const canvas = document.getElementById("postal-canvas");
-        const lyric = CONFIG.lyrics[state.selectedLyric];
-        try {
-          if (navigator.share && canvas.toBlob) {
-            const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png", 1.0));
-            const file = new File([blob], `paraleia-figuras-perfectas-${state.format}.png`, { type: "image/png" });
-            if (navigator.canShare && navigator.canShare({ files: [file] })) {
-              await navigator.share({
-                title: "PARALEIA — Figuras Perfectas",
-                text: `“${lyric}” — @paraleia`,
-                files: [file]
-              });
-              return;
+        const currentKey = buildShareKey();
+
+        // 1) Intento inmediato y sincrónico con el archivo pre-generado (evita expirar el gesto en iOS/Android)
+        if (navigator.share) {
+          let file = (shareCache.key === currentKey && shareCache.jpgFile) ? shareCache.jpgFile : null;
+          if (!file && canvas && canvas.toBlob) {
+            const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.94));
+            if (blob) {
+              file = new File([blob], `paraleia-figuras-perfectas-${state.format}.jpg`, { type: "image/jpeg" });
             }
           }
-          triggerDownload();
-        } catch (err) {
-          if (err && err.name !== "AbortError") {
-            triggerDownload();
+          if (file) {
+            const canShareFiles = !navigator.canShare || navigator.canShare({ files: [file] });
+            if (canShareFiles) {
+              try {
+                await navigator.share({ files: [file] });
+                return;
+              } catch (err) {
+                if (err && err.name === "AbortError") return;
+              }
+            }
           }
         }
+
+        // 2) Respaldo sin descarga automática: abrir panel de compartir (copiar imagen / redes)
+        openShareModal();
       });
 
       renderLyricsOptions();
