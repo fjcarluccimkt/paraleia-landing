@@ -273,19 +273,144 @@
     section { padding: clamp(64px, 8.5vw, 108px) 0; scroll-margin-top: 72px; }
     h2 { font-size: clamp(2rem, 5vw, 3.35rem); line-height: 1.06; letter-spacing: -0.02em; }
 
-    /* ---------- Capítulo Crema: Spotlight de Figuras Perfectas ---------- */
-    .spotlight { display: grid; gap: 32px; align-items: center; }
+    /* ---------- Capítulo Crema: Spotlight de Figuras Perfectas (Estuche de cassette) ---------- */
+    .spotlight { display: grid; gap: 36px; align-items: center; }
     @media (min-width: 840px) {
       .spotlight { grid-template-columns: 0.92fr 1.08fr; gap: 56px; }
     }
-    .vinyl-frame {
-      position: relative; display: block; max-width: 400px; width: 100%;
-      margin: 0 auto; border-radius: var(--radius); overflow: hidden;
-      box-shadow: 0 22px 48px rgba(20, 20, 20, 0.24);
-      transform: rotate(-1.2deg); transition: transform 0.28s ease;
+    .cassette-link {
+      display: block; width: min(100%, 296px); margin: 0 auto;
+      text-decoration: none; perspective: 900px;
     }
-    .vinyl-frame:hover { transform: rotate(0deg) translateY(-4px); }
-    .vinyl-frame img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
+    .cassette-case {
+      position: relative;
+      display: grid; grid-template-columns: 36px 1fr;
+      padding: 8px 9px 8px 7px;
+      border-radius: 10px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.72) 0%, rgba(235, 232, 224, 0.42) 38%, rgba(20, 24, 28, 0.22) 100%);
+      border: 1.5px solid rgba(20, 20, 20, 0.24);
+      box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.9),
+        inset 0 -2px 3px rgba(20, 20, 20, 0.22),
+        inset 2px 0 3px rgba(255, 255, 255, 0.65),
+        inset -2px 0 3px rgba(20, 20, 20, 0.18),
+        0 26px 46px -14px rgba(20, 20, 20, 0.36),
+        0 6px 14px -4px rgba(20, 20, 20, 0.2);
+      transform: rotate(-1.6deg);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+    }
+    .cassette-link:hover .cassette-case {
+      transform: rotate(0deg) translateY(-5px);
+      box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.95),
+        inset 0 -2px 3px rgba(20, 20, 20, 0.22),
+        inset 2px 0 3px rgba(255, 255, 255, 0.7),
+        inset -2px 0 3px rgba(20, 20, 20, 0.18),
+        0 34px 58px -14px rgba(20, 20, 20, 0.42),
+        0 10px 20px -6px rgba(20, 20, 20, 0.22);
+    }
+
+    /* Pernos/bisagras plásticas del estuche Norelco */
+    .cassette-case::before,
+    .cassette-case::after {
+      content: ''; position: absolute; left: 37px; width: 7px; height: 14px; z-index: 6;
+      background: linear-gradient(90deg, rgba(255,255,255,0.75), rgba(160,165,170,0.45), rgba(20,20,20,0.28));
+      border-radius: 2px; pointer-events: none;
+    }
+    .cassette-case::before { top: 2px; }
+    .cassette-case::after { bottom: 2px; }
+
+    /* Lomo de la J-card */
+    .cassette-spine {
+      position: relative;
+      background: linear-gradient(180deg, #062838 0%, #051c29 65%, #161412 100%);
+      border-radius: 4px 0 0 4px;
+      border-right: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 18px 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+      overflow: hidden;
+    }
+    .cassette-spine::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(90deg, rgba(255,255,255,0.18) 0%, transparent 32%, rgba(0,0,0,0.32) 100%);
+    }
+    .spine-text {
+      writing-mode: vertical-rl; transform: rotate(180deg);
+      font-family: 'Neutra Text', 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 0.68rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: #f6e8d5; white-space: nowrap;
+      line-height: 1;
+    }
+    .spine-title { color: #f59e42; margin-top: 8px; }
+    .spine-year {
+      writing-mode: vertical-rl; transform: rotate(180deg);
+      font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em;
+      color: rgba(246, 232, 213, 0.62); font-variant-numeric: tabular-nums;
+    }
+
+    /* Frente de la J-card: portada 1:1 intacta + pie impreso de cassette */
+    .cassette-front {
+      position: relative;
+      display: flex; flex-direction: column;
+      background: #051d2b;
+      border-radius: 0 4px 4px 0;
+      overflow: hidden;
+      border-left: 1px solid rgba(0, 0, 0, 0.45);
+    }
+    .cassette-front img {
+      width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block;
+    }
+    .cassette-footer {
+      padding: 20px 14px 22px;
+      background: linear-gradient(180deg, #062130 0%, #041620 100%);
+      border-top: 1px solid rgba(245, 158, 66, 0.36);
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      color: #f6e8d5;
+      flex: 1;
+    }
+    .cassette-side {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: #f59e42; display: block; line-height: 1.2;
+    }
+    .cassette-track {
+      font-family: 'Neutra Text', 'Space Grotesk', sans-serif; font-weight: 700;
+      font-size: 0.86rem; letter-spacing: 0.04em; color: #f6e8d5; display: block; margin-top: 2px;
+    }
+    .cassette-badge {
+      display: inline-flex; flex-direction: column; align-items: flex-end; gap: 3px;
+      font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(246, 232, 213, 0.68); font-weight: 600; flex-shrink: 0;
+    }
+    .cassette-badge svg { width: 32px; height: 14px; stroke: rgba(246, 232, 213, 0.72); fill: none; }
+
+    /* Tapa de acrílico transparente: reflejo diagonal, surco de bisagra y muesca */
+    .cassette-glare {
+      position: absolute; inset: 0; border-radius: 10px; pointer-events: none; z-index: 5;
+      background:
+        linear-gradient(90deg,
+          transparent 0,
+          transparent 39px,
+          rgba(255, 255, 255, 0.48) 41px,
+          rgba(20, 20, 20, 0.34) 43px,
+          rgba(255, 255, 255, 0.22) 45px,
+          transparent 48px
+        ),
+        linear-gradient(122deg,
+          rgba(255, 255, 255, 0.26) 0%,
+          rgba(255, 255, 255, 0.07) 25%,
+          transparent 37%,
+          transparent 62%,
+          rgba(255, 255, 255, 0.1) 66%,
+          transparent 72%
+        );
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.32);
+    }
+    .cassette-notch {
+      position: absolute; right: 2px; top: 50%; transform: translateY(-50%);
+      width: 4px; height: 42px; border-radius: 2px; pointer-events: none; z-index: 6;
+      background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(20,20,20,0.22), rgba(255,255,255,0.5));
+    }
 
     .spotlight-copy p {
       margin-top: 16px; font-size: 1.06rem; color: var(--muted); max-width: 44ch;
@@ -535,8 +660,33 @@
 
     <section id="single" class="band-cream">
       <div class="wrap spotlight">
-        <a class="vinyl-frame" href="/figuras-perfectas/" aria-label="Descubrir Figuras Perfectas">
-          <img src="/figuras-perfectas/portada.jpg" width="400" height="400" loading="lazy" alt="Portada oficial de Figuras Perfectas — PARALEIA">
+        <a class="cassette-link" href="/figuras-perfectas/" aria-label="Descubrir Figuras Perfectas">
+          <div class="cassette-case">
+            <div class="cassette-spine" aria-hidden="true">
+              <span class="spine-year">2026</span>
+              <span class="spine-text">PARALEIA <span class="spine-title">· FIGURAS PERFECTAS</span></span>
+            </div>
+            <div class="cassette-front">
+              <img src="/figuras-perfectas/portada.jpg" width="400" height="400" loading="lazy" alt="Portada oficial de Figuras Perfectas — PARALEIA en estuche de cassette">
+              <div class="cassette-footer" aria-hidden="true">
+                <div>
+                  <span class="cassette-side">Lado A · Single</span>
+                  <span class="cassette-track">Figuras Perfectas</span>
+                </div>
+                <span class="cassette-badge">
+                  <svg viewBox="0 0 36 16" stroke-width="1.5">
+                    <rect x="1" y="1" width="34" height="14" rx="2.5"/>
+                    <circle cx="11" cy="8" r="3"/>
+                    <circle cx="25" cy="8" r="3"/>
+                    <line x1="14" y1="8" x2="22" y2="8"/>
+                  </svg>
+                  <span>Stereo</span>
+                </span>
+              </div>
+            </div>
+            <div class="cassette-glare" aria-hidden="true"></div>
+            <div class="cassette-notch" aria-hidden="true"></div>
+          </div>
         </a>
         <div class="spotlight-copy">
           <h2>Figuras Perfectas</h2>
