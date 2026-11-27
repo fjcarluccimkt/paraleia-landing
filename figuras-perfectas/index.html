@@ -277,30 +277,14 @@
        1. HEADER MINIMALISTA STICKY
        ========================================================================= -->
   <header class="sticky top-0 z-40 backdrop-blur-md bg-night-900/75 border-b border-cream/10">
-    <nav class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[64px] flex items-center justify-between gap-3" aria-label="Navegación principal">
-      <!-- Marca izquierda -->
-      <a href="#inicio"
-         class="font-brand text-xs sm:text-sm font-semibold tracking-[0.38em] uppercase text-cream hover:text-moon-300 transition-colors min-h-[48px] inline-flex items-center pl-1 shrink-0">
+    <nav class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[64px] flex items-center justify-center" aria-label="Navegación principal">
+      <!-- Marca centrada con enlace a la web oficial -->
+      <a id="nav-website-link"
+         href="/"
+         aria-label="PARALEIA — Ir a la web oficial"
+         class="font-brand text-xs sm:text-sm font-semibold tracking-[0.38em] pl-[0.38em] uppercase text-cream hover:text-moon-300 transition-colors min-h-[48px] inline-flex items-center justify-center shrink-0">
         P A R A L E I A
       </a>
-
-      <!-- Enlaces derecha: Novedades + Web Oficial -->
-      <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
-        <a href="#novedades"
-           class="min-h-[44px] px-3.5 sm:px-4 py-2 rounded-full text-xs font-semibold text-moon-300 hover:text-cream border border-moon-400/35 hover:border-moon-400/75 bg-moon-400/10 transition-all inline-flex items-center gap-1.5 shrink-0">
-          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-          <span>Novedades</span>
-        </a>
-
-        <a id="nav-website-link"
-           href="/"
-           class="min-h-[44px] px-3.5 sm:px-4 py-2 rounded-full text-xs font-semibold text-cream hover:text-moon-300 border border-cream/20 hover:border-moon-400/60 bg-night-950/55 transition-all inline-flex items-center gap-1.5 shrink-0">
-          <span aria-hidden="true" class="text-moon-400">←</span>
-          <span>Web Oficial</span>
-        </a>
-      </div>
     </nav>
   </header>
 
