@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth overflow-x-hidden">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -68,7 +68,7 @@
        ESTÉTICA ANALÓGICA CINEMATOGRÁFICA — PARALEIA "FIGURAS PERFECTAS"
        ========================================================================= */
     html, body {
-      overflow-x: hidden;
+      overflow-x: clip;
       background-color: #062230;
     }
 
@@ -252,7 +252,7 @@
     ::-webkit-scrollbar-thumb:hover { background: #f59e42; }
   </style>
 </head>
-<body class="min-h-[100dvh] flex flex-col antialiased selection:bg-moon-400/30 selection:text-cream relative overflow-x-hidden">
+<body class="min-h-[100dvh] pt-16 flex flex-col antialiased selection:bg-moon-400/30 selection:text-cream relative">
 
   <!-- =========================================================================
        CAPAS ATMOSFÉRICAS: Partículas, Halo Lunar, Grano 35mm y Light Leak Rojo
@@ -274,9 +274,9 @@
   </div>
 
   <!-- =========================================================================
-       1. HEADER MINIMALISTA STICKY
+       1. HEADER MINIMALISTA FIJO
        ========================================================================= -->
-  <header class="sticky top-0 z-40 backdrop-blur-md bg-night-900/75 border-b border-cream/10">
+  <header class="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-night-900/85 border-b border-cream/10">
     <nav class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[64px] flex items-center justify-center" aria-label="Navegación principal">
       <!-- Marca centrada con enlace a la web oficial -->
       <a id="nav-website-link"
