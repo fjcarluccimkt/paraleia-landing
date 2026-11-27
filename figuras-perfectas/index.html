@@ -484,27 +484,17 @@
               </div>
             </div>
 
-            <!-- Botones de exportación y compartir -->
+            <!-- Botón único de compartir -->
             <div class="pt-1 space-y-2.5">
-              <div class="flex flex-col sm:flex-row gap-3">
-                <button id="btn-download" type="button"
-                        class="btn-amber flex-1 min-h-[52px] rounded-2xl py-3.5 px-6 font-bold text-sm tracking-wide flex items-center justify-center gap-2.5">
-                  <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3" />
-                  </svg>
-                  <span>Descargar Story HD</span>
-                </button>
-
-                <button id="btn-share" type="button"
-                        class="btn-glass min-h-[52px] rounded-2xl py-3.5 px-6 font-semibold text-sm text-cream flex items-center justify-center gap-2">
-                  <svg class="w-4 h-4 text-moon-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                  </svg>
-                  <span>Compartir</span>
-                </button>
-              </div>
+              <button id="btn-share" type="button"
+                      class="btn-amber w-full min-h-[52px] rounded-2xl py-3.5 px-6 font-bold text-sm tracking-wide flex items-center justify-center gap-2.5">
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                </svg>
+                <span>Compartir</span>
+              </button>
               <p class="text-[11px] text-cream/55 text-center sm:text-left leading-relaxed">
-                Tip: si abrís esta web desde Instagram, tocá <span class="text-cream/80 font-medium">Compartir</span> o abrí en tu navegador (Chrome / Safari) para guardar la imagen en tu galería.
+                En el celular abre el menú para compartir directo en redes o guardarla en tu galería; en compu descarga la imagen en HD.
               </p>
             </div>
 
@@ -1639,7 +1629,6 @@
       const lyricsList = document.getElementById("lyrics-list");
       const formatBtns = document.querySelectorAll(".format-btn");
       const moodBtns = document.querySelectorAll(".mood-btn");
-      const downloadBtn = document.getElementById("btn-download");
       const shareBtn = document.getElementById("btn-share");
 
       function renderLyricsOptions() {
@@ -1715,9 +1704,7 @@
         }
       }
 
-      downloadBtn.addEventListener("click", triggerDownload);
-
-      shareBtn.addEventListener("click", async () => {
+      if (shareBtn) shareBtn.addEventListener("click", async () => {
         const canvas = document.getElementById("postal-canvas");
         const lyric = CONFIG.lyrics[state.selectedLyric];
         try {
