@@ -463,23 +463,51 @@
 
     /* ---------- Capítulo Crema: Discografía ---------- */
     .albums-trio {
-      margin-top: 24px; display: grid;
-      grid-template-columns: repeat(2, minmax(0, 175px));
-      gap: 12px;
+      margin-top: 22px;
+      display: flex; gap: 12px;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
+      margin-inline: calc(var(--gutter) * -1);
+      padding: 4px var(--gutter) 10px;
     }
-    @media (min-width: 600px) {
-      .albums-trio { grid-template-columns: repeat(3, minmax(0, 200px)); gap: 14px; }
-    }
+    .albums-trio::-webkit-scrollbar { display: none; }
     .album-feature {
-      display: flex; flex-direction: column; gap: 6px;
-      padding: 10px 10px 12px; border-radius: 12px;
-      background: var(--paper); border: 1.5px solid var(--ink);
-      text-decoration: none; transition: transform 0.18s ease, background-color 0.18s ease;
+      position: relative; display: block;
+      flex: 0 0 164px; width: 164px; aspect-ratio: 1 / 1;
+      border-radius: 10px; overflow: hidden;
+      scroll-snap-align: start; scroll-margin-left: var(--gutter);
+      background: var(--ink);
+      box-shadow: 0 10px 24px -10px rgba(20, 20, 20, 0.35);
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .album-feature:hover { transform: translateY(-3px); background: #fff; }
-    .album-feature img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 6px; display: block; }
-    .album-feature .af-title { font-family: 'Neutra Text', 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.98rem; line-height: 1.2; }
-    .album-feature .af-meta { font-size: 0.82rem; color: var(--muted); }
+    .album-feature:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 30px -10px rgba(20, 20, 20, 0.45);
+    }
+    .album-feature img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.3s ease;
+    }
+    .album-feature:hover img { transform: scale(1.04); }
+    .album-feature .af-info {
+      position: absolute; inset: auto 0 0 0;
+      padding: 28px 11px 10px;
+      background: linear-gradient(to top, rgba(14, 14, 14, 0.92) 0%, rgba(14, 14, 14, 0.56) 62%, transparent 100%);
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .album-feature .af-title {
+      font-family: 'Neutra Text', 'Space Grotesk', sans-serif; font-weight: 700;
+      font-size: 0.9rem; line-height: 1.15; color: #fff;
+    }
+    .album-feature .af-meta { font-size: 0.75rem; color: rgba(244, 238, 226, 0.84); }
+    @media (min-width: 600px) {
+      .albums-trio {
+        display: grid; grid-template-columns: repeat(3, 168px); gap: 16px;
+        overflow: visible; margin-inline: 0; padding: 0;
+      }
+      .album-feature { flex: none; width: 168px; }
+    }
 
     .singles-heading {
       margin-top: 40px; margin-bottom: 14px; display: flex; flex-wrap: wrap;
@@ -734,21 +762,27 @@
     <section id="discografia" class="band-cream">
       <div class="wrap">
         <h2>Discografía</h2>
-        <div class="albums-trio">
+        <div class="albums-trio" aria-label="Álbumes y EPs">
           <a class="album-feature" href="https://open.spotify.com/album/1516hTiOkKS2wHx1RYfovu" target="_blank" rel="noopener">
-            <img loading="lazy" width="320" height="320" src="https://i.scdn.co/image/ab67616d0000b2734bc56c6787591ad2f574ef6e" alt="Nadie Piensa en Dormir">
-            <span class="af-title">Nadie Piensa en Dormir</span>
-            <span class="af-meta">Álbum · 2021 · Spotify ↗</span>
+            <img loading="lazy" width="168" height="168" src="https://i.scdn.co/image/ab67616d0000b2734bc56c6787591ad2f574ef6e" alt="Nadie Piensa en Dormir">
+            <span class="af-info">
+              <span class="af-title">Nadie Piensa en Dormir</span>
+              <span class="af-meta">Álbum · 2021</span>
+            </span>
           </a>
           <a class="album-feature" href="https://open.spotify.com/album/5litrW5VnzEs3W3nomvnd8" target="_blank" rel="noopener">
-            <img loading="lazy" width="320" height="320" src="https://i.scdn.co/image/ab67616d0000b27306804a45c26f9ee9919e6cd3" alt="Zig-Zag">
-            <span class="af-title">Zig-Zag</span>
-            <span class="af-meta">EP · 2016 · Spotify ↗</span>
+            <img loading="lazy" width="168" height="168" src="https://i.scdn.co/image/ab67616d0000b27306804a45c26f9ee9919e6cd3" alt="Zig-Zag">
+            <span class="af-info">
+              <span class="af-title">Zig-Zag</span>
+              <span class="af-meta">EP · 2016</span>
+            </span>
           </a>
           <a class="album-feature" href="https://open.spotify.com/album/7mGp8tgusUOxiajFRXtqKv" target="_blank" rel="noopener">
-            <img loading="lazy" width="320" height="320" src="https://i.scdn.co/image/ab67616d0000b27352bb473dfc5fdc22d234f039" alt="Espacios">
-            <span class="af-title">Espacios</span>
-            <span class="af-meta">Álbum · 2014 · Spotify ↗</span>
+            <img loading="lazy" width="168" height="168" src="https://i.scdn.co/image/ab67616d0000b27352bb473dfc5fdc22d234f039" alt="Espacios">
+            <span class="af-info">
+              <span class="af-title">Espacios</span>
+              <span class="af-meta">Álbum · 2014</span>
+            </span>
           </a>
         </div>
 
