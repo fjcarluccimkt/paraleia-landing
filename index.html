@@ -427,36 +427,55 @@
     }
     .singles-heading h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 
-    .singles-index { list-style: none; border-top: 2px solid var(--ink); }
-    .singles-index a {
-      display: grid; grid-template-columns: 52px 52px 1fr auto; gap: 14px; align-items: center;
-      padding: 14px 6px; border-bottom: 1px solid var(--line); text-decoration: none;
-      transition: background-color 0.15s;
+    .singles-grid {
+      margin-top: 16px;
+      display: flex; gap: 12px;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
+      margin-inline: calc(var(--gutter) * -1);
+      padding: 4px var(--gutter) 10px;
     }
-    .singles-index a:hover { background: var(--paper); }
-    .singles-index .sy { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; font-size: 0.92rem; }
-    .singles-index img { width: 52px; height: 52px; border-radius: 6px; object-fit: cover; display: block; background: var(--line); }
-    .singles-index .st { font-family: 'Neutra Text', 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.06rem; line-height: 1.2; }
-    .singles-index .sa { font-size: 0.86rem; font-weight: 600; color: var(--muted); white-space: nowrap; }
-    .singles-index .sa-new { color: var(--accent); }
-
-    @media (max-width: 560px) {
-      .singles-index a {
-        grid-template-columns: 48px 1fr auto; gap: 12px; padding: 13px 2px;
+    .singles-grid::-webkit-scrollbar { display: none; }
+    .single-card {
+      position: relative; display: block;
+      flex: 0 0 140px; width: 140px; aspect-ratio: 1 / 1;
+      border-radius: 10px; overflow: hidden;
+      scroll-snap-align: start; scroll-margin-left: var(--gutter);
+      background: var(--ink);
+      box-shadow: 0 8px 20px -10px rgba(20, 20, 20, 0.32);
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .single-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 26px -10px rgba(20, 20, 20, 0.42);
+    }
+    .single-card img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.3s ease;
+    }
+    .single-card:hover img { transform: scale(1.04); }
+    .single-card .sf-info {
+      position: absolute; inset: auto 0 0 0;
+      padding: 26px 10px 9px;
+      background: linear-gradient(to top, rgba(14, 14, 14, 0.92) 0%, rgba(14, 14, 14, 0.56) 62%, transparent 100%);
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .single-card .sf-title {
+      font-family: 'Neutra Text', 'Space Grotesk', sans-serif; font-weight: 700;
+      font-size: 0.84rem; line-height: 1.15; color: #fff;
+    }
+    .single-card .sf-year {
+      font-size: 0.72rem; color: rgba(244, 238, 226, 0.82); font-variant-numeric: tabular-nums;
+    }
+    .single-card .sf-year-new { color: var(--yellow); font-weight: 700; }
+    @media (min-width: 600px) {
+      .singles-grid {
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(136px, 148px)); gap: 14px;
+        overflow: visible; margin-inline: 0; padding: 0;
       }
-      .singles-index .sy { display: none; }
-      .singles-index img { width: 48px; height: 48px; }
-      .singles-index .st { font-size: 1rem; }
-      .singles-index .sa { font-size: 0.82rem; }
+      .single-card { flex: none; width: 100%; }
     }
-
-    .toggle-archive {
-      margin-top: 18px; min-height: 46px; padding: 10px 22px; border-radius: 999px;
-      border: 1.5px solid var(--ink); background: transparent; color: var(--ink);
-      font: inherit; font-weight: 700; cursor: pointer;
-      transition: background-color 0.16s, color 0.16s;
-    }
-    .toggle-archive:hover { background: var(--ink); color: var(--bg); }
 
     /* ---------- Capítulo Oscuro: Biografía + Próximos shows + Instagram ---------- */
     .band-split {
@@ -676,22 +695,52 @@
           <h3>Singles</h3>
           <span style="color:var(--muted); font-size:0.92rem;">2018 — 2026</span>
         </div>
-        <ul class="singles-index">
-          <li><a href="/figuras-perfectas/"><span class="sy">2026</span><img loading="lazy" width="52" height="52" src="/figuras-perfectas/portada.jpg" alt=""><span class="st">Figuras Perfectas</span><span class="sa sa-new">Nuevo single</span></a></li>
-          <li><a href="https://open.spotify.com/album/3Cl4WM4egCze1lwhWVRAFz" target="_blank" rel="noopener"><span class="sy">2026</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b273c5b57db9862941ebc46e66d9" alt=""><span class="st">Todas Aquellas Luces</span><span class="sa">Spotify ↗</span></a></li>
-          <li><a href="https://open.spotify.com/album/6is5TuwwHjYziEdkLemVZZ" target="_blank" rel="noopener"><span class="sy">2023</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b273c3ac915374ec6a07654e49a8" alt=""><span class="st">El Mejor Momento</span><span class="sa">Spotify ↗</span></a></li>
-          <li><a href="https://open.spotify.com/album/3C9ryxb8QnUXnr5h441bkp" target="_blank" rel="noopener"><span class="sy">2022</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b273a3caf479100c39307c710d1b" alt=""><span class="st">Nada Es en Serio</span><span class="sa">Spotify ↗</span></a></li>
-        </ul>
-        <ul class="singles-index" id="cArchive" style="border-top:0;" hidden>
-          <li><a href="https://open.spotify.com/album/0D0lrPxPqDivDpxhftoYTu" target="_blank" rel="noopener"><span class="sy">2021</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b273194cea9df54688c96785e2f8" alt=""><span class="st">La Fiebre</span><span class="sa">Spotify ↗</span></a></li>
-          <li><a href="https://open.spotify.com/album/2UgHcQTWCDecvbN92LfLSw" target="_blank" rel="noopener"><span class="sy">2021</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b2739c7b97c41f93eb60c1b65c99" alt=""><span class="st">Amantes Rotos</span><span class="sa">Spotify ↗</span></a></li>
-          <li><a href="https://open.spotify.com/album/5fE8LmOvegL7tIfGmq9dVh" target="_blank" rel="noopener"><span class="sy">2020</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b2734e02ec7201e842523f247789" alt=""><span class="st">Dos Extraños</span><span class="sa">Spotify ↗</span></a></li>
-          <li><a href="https://open.spotify.com/album/7vV1KhQT2SHsHaiCpVEU39" target="_blank" rel="noopener"><span class="sy">2020</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b273db9066d67ab9a81bd4468365" alt=""><span class="st">Prime Time</span><span class="sa">Spotify ↗</span></a></li>
-          <li><a href="https://open.spotify.com/album/1QmtHGjlznUZ4cHKPylj6g" target="_blank" rel="noopener"><span class="sy">2020</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b2732bf701b25c1a8cd64f1a4900" alt=""><span class="st">Cassette</span><span class="sa">Spotify ↗</span></a></li>
-          <li><a href="https://open.spotify.com/album/1GKH7lLNgaL97q6Xsa1PHN" target="_blank" rel="noopener"><span class="sy">2019</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b273e6c6a5e8f09505510e26548e" alt=""><span class="st">Soltar</span><span class="sa">Spotify ↗</span></a></li>
-          <li><a href="https://open.spotify.com/album/6rXvzVTtf6gvR4jSzp11lG" target="_blank" rel="noopener"><span class="sy">2018</span><img loading="lazy" width="52" height="52" src="https://i.scdn.co/image/ab67616d0000b273ebc01bfb2deecddff0d59f8f" alt=""><span class="st">Estrellados</span><span class="sa">Spotify ↗</span></a></li>
-        </ul>
-        <button class="toggle-archive" type="button" id="cToggleArchive" aria-expanded="false" aria-controls="cArchive">Mostrar los 7 singles anteriores</button>
+        <div class="singles-grid" aria-label="Singles">
+          <a class="single-card" href="/figuras-perfectas/">
+            <img loading="lazy" width="148" height="148" src="/figuras-perfectas/portada.jpg" alt="Figuras Perfectas">
+            <span class="sf-info"><span class="sf-title">Figuras Perfectas</span><span class="sf-year sf-year-new">Nuevo · 2026</span></span>
+          </a>
+          <a class="single-card" href="https://open.spotify.com/album/3Cl4WM4egCze1lwhWVRAFz" target="_blank" rel="noopener">
+            <img loading="lazy" width="148" height="148" src="https://i.scdn.co/image/ab67616d0000b273c5b57db9862941ebc46e66d9" alt="Todas Aquellas Luces">
+            <span class="sf-info"><span class="sf-title">Todas Aquellas Luces</span><span class="sf-year">2026</span></span>
+          </a>
+          <a class="single-card" href="https://open.spotify.com/album/6is5TuwwHjYziEdkLemVZZ" target="_blank" rel="noopener">
+            <img loading="lazy" width="148" height="148" src="https://i.scdn.co/image/ab67616d0000b273c3ac915374ec6a07654e49a8" alt="El Mejor Momento">
+            <span class="sf-info"><span class="sf-title">El Mejor Momento</span><span class="sf-year">2023</span></span>
+          </a>
+          <a class="single-card" href="https://open.spotify.com/album/3C9ryxb8QnUXnr5h441bkp" target="_blank" rel="noopener">
+            <img loading="lazy" width="148" height="148" src="https://i.scdn.co/image/ab67616d0000b273a3caf479100c39307c710d1b" alt="Nada Es en Serio">
+            <span class="sf-info"><span class="sf-title">Nada Es en Serio</span><span class="sf-year">2022</span></span>
+          </a>
+          <a class="single-card" href="https://open.spotify.com/album/0D0lrPxPqDivDpxhftoYTu" target="_blank" rel="noopener">
+            <img loading="lazy" width="148" height="148" src="https://i.scdn.co/image/ab67616d0000b273194cea9df54688c96785e2f8" alt="La Fiebre">
+            <span class="sf-info"><span class="sf-title">La Fiebre</span><span class="sf-year">2021</span></span>
+          </a>
+          <a class="single-card" href="https://open.spotify.com/album/2UgHcQTWCDecvbN92LfLSw" target="_blank" rel="noopener">
+            <img loading="lazy" width="148" height="148" src="https://i.scdn.co/image/ab67616d0000b2739c7b97c41f93eb60c1b65c99" alt="Amantes Rotos">
+            <span class="sf-info"><span class="sf-title">Amantes Rotos</span><span class="sf-year">2021</span></span>
+          </a>
+          <a class="single-card" href="https://open.spotify.com/album/5fE8LmOvegL7tIfGmq9dVh" target="_blank" rel="noopener">
+            <img loading="lazy" width="148" height="148" src="https://i.scdn.co/image/ab67616d0000b2734e02ec7201e842523f247789" alt="Dos Extraños">
+            <span class="sf-info"><span class="sf-title">Dos Extraños</span><span class="sf-year">2020</span></span>
+          </a>
+          <a class="single-card" href="https://open.spotify.com/album/7vV1KhQT2SHsHaiCpVEU39" target="_blank" rel="noopener">
+            <img loading="lazy" width="148" height="148" src="https://i.scdn.co/image/ab67616d0000b273db9066d67ab9a81bd4468365" alt="Prime Time">
+            <span class="sf-info"><span class="sf-title">Prime Time</span><span class="sf-year">2020</span></span>
+          </a>
+          <a class="single-card" href="https://open.spotify.com/album/1QmtHGjlznUZ4cHKPylj6g" target="_blank" rel="noopener">
+            <img loading="lazy" width="148" height="148" src="https://i.scdn.co/image/ab67616d0000b2732bf701b25c1a8cd64f1a4900" alt="Cassette">
+            <span class="sf-info"><span class="sf-title">Cassette</span><span class="sf-year">2020</span></span>
+          </a>
+          <a class="single-card" href="https://open.spotify.com/album/1GKH7lLNgaL97q6Xsa1PHN" target="_blank" rel="noopener">
+            <img loading="lazy" width="148" height="148" src="https://i.scdn.co/image/ab67616d0000b273e6c6a5e8f09505510e26548e" alt="Soltar">
+            <span class="sf-info"><span class="sf-title">Soltar</span><span class="sf-year">2019</span></span>
+          </a>
+          <a class="single-card" href="https://open.spotify.com/album/6rXvzVTtf6gvR4jSzp11lG" target="_blank" rel="noopener">
+            <img loading="lazy" width="148" height="148" src="https://i.scdn.co/image/ab67616d0000b273ebc01bfb2deecddff0d59f8f" alt="Estrellados">
+            <span class="sf-info"><span class="sf-title">Estrellados</span><span class="sf-year">2018</span></span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -863,18 +912,6 @@
         btn.setAttribute('aria-expanded', String(!exp));
         more.hidden = exp;
         btn.textContent = exp ? 'Ver más' : 'Ver menos';
-      });
-    })();
-
-    // Desplegable de singles anteriores
-    (function () {
-      var btn = document.getElementById('cToggleArchive'), list = document.getElementById('cArchive');
-      if (!btn || !list) return;
-      btn.addEventListener('click', function () {
-        var exp = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!exp));
-        list.hidden = exp;
-        btn.textContent = exp ? 'Mostrar los 7 singles anteriores' : 'Ocultar archivo 2018–2021';
       });
     })();
 
