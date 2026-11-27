@@ -445,12 +445,45 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10 items-start">
 
-          <!-- VISTA PREVIA EN VIVO (compacta y visible en móvil sin scroll excesivo) -->
-          <div class="lg:col-span-5 flex flex-col items-center order-1 lg:order-2 lg:sticky lg:top-24">
-            <div id="preview-frame"
-                 class="relative rounded-2xl overflow-hidden bg-night-950 transition-all duration-300 shadow-[0_22px_54px_-14px_rgba(0,0,0,0.85)] ring-1 ring-cream/15 flex items-center justify-center">
-              <canvas id="postal-canvas"
-                      class="block w-auto h-auto max-w-full max-h-[46dvh] lg:max-h-[62dvh] object-contain"></canvas>
+          <!-- VISTA PREVIA EN VIVO + ESTILO VISUAL AL LADO EN MÓVIL -->
+          <div class="lg:col-span-5 flex flex-col items-center order-1 lg:order-2 lg:sticky lg:top-24 w-full">
+            <div class="w-full flex flex-row lg:flex-col items-center justify-center gap-3 lg:gap-4">
+              <div class="flex-1 min-w-0 lg:w-full flex justify-center">
+                <div id="preview-frame"
+                     class="relative rounded-2xl overflow-hidden bg-night-950 transition-all duration-300 shadow-[0_22px_54px_-14px_rgba(0,0,0,0.85)] ring-1 ring-cream/15 flex items-center justify-center">
+                  <canvas id="postal-canvas"
+                          class="block w-auto h-auto max-w-full max-h-[42dvh] lg:max-h-[56dvh] object-contain"></canvas>
+                </div>
+              </div>
+
+              <!-- Selector de estilo visual (rail lateral junto a la imagen en móvil, fila de 4 en desktop) -->
+              <div class="w-[88px] sm:w-[104px] lg:w-full shrink-0">
+                <span class="font-brand block text-[10px] lg:text-xs tracking-[0.18em] lg:tracking-[0.22em] uppercase text-cream/75 font-semibold mb-2 text-center lg:text-left">
+                  Estilo visual
+                </span>
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-2">
+                  <button type="button" data-mood="analog"
+                          class="mood-btn min-h-[54px] lg:min-h-[64px] rounded-xl lg:rounded-2xl px-1.5 py-2 lg:p-2.5 text-center border transition-all flex flex-col items-center justify-center">
+                    <span class="w-5 h-5 rounded-full mb-1 block bg-gradient-to-tr from-[#092c3c] via-[#f59e42] to-[#ffd28e] border border-cream/30 shadow-[0_0_10px_rgba(245,158,66,0.45)]"></span>
+                    <span class="block text-[11px] lg:text-xs font-medium leading-tight">Analógico</span>
+                  </button>
+                  <button type="button" data-mood="cold"
+                          class="mood-btn min-h-[54px] lg:min-h-[64px] rounded-xl lg:rounded-2xl px-1.5 py-2 lg:p-2.5 text-center border transition-all flex flex-col items-center justify-center">
+                    <span class="w-5 h-5 rounded-full mb-1 block bg-gradient-to-tr from-[#05182d] via-[#4ea4e8] to-[#dff2ff] border border-sky-200/45 shadow-[0_0_10px_rgba(126,200,255,0.5)]"></span>
+                    <span class="block text-[11px] lg:text-xs font-medium leading-tight">Luna Fría</span>
+                  </button>
+                  <button type="button" data-mood="red"
+                          class="mood-btn min-h-[54px] lg:min-h-[64px] rounded-xl lg:rounded-2xl px-1.5 py-2 lg:p-2.5 text-center border transition-all flex flex-col items-center justify-center">
+                    <span class="w-5 h-5 rounded-full mb-1 block bg-gradient-to-tr from-[#1b070b] via-[#c92020] to-[#ff6b57] border border-red-300/40 shadow-[0_0_10px_rgba(235,56,44,0.55)]"></span>
+                    <span class="block text-[11px] lg:text-xs font-medium leading-tight">Luna Roja</span>
+                  </button>
+                  <button type="button" data-mood="nocturne"
+                          class="mood-btn min-h-[54px] lg:min-h-[64px] rounded-xl lg:rounded-2xl px-1.5 py-2 lg:p-2.5 text-center border transition-all flex flex-col items-center justify-center">
+                    <span class="w-5 h-5 rounded-full mb-1 block bg-gradient-to-tr from-[#020a12] via-[#0c2738] to-[#e6c48c] border border-cream/25 shadow-[0_0_10px_rgba(230,196,140,0.3)]"></span>
+                    <span class="block text-[11px] lg:text-xs font-medium leading-tight">Nocturno</span>
+                  </button>
+                </div>
+              </div>
             </div>
 
             <p class="text-[11px] text-cream/55 mt-3 text-center">
@@ -492,35 +525,6 @@
                     <span class="block text-xs sm:text-sm font-semibold">Post (1:1)</span>
                     <span class="block text-[11px] opacity-65">1080 × 1080 px</span>
                   </div>
-                </button>
-              </div>
-            </div>
-
-            <!-- 3. Selector de estilo visual -->
-            <div>
-              <span class="font-brand block text-xs tracking-[0.22em] uppercase text-cream/80 font-semibold mb-3">
-                3. Estilo visual
-              </span>
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                <button type="button" data-mood="analog"
-                        class="mood-btn min-h-[68px] rounded-2xl p-3 text-center border transition-all">
-                  <span class="w-6 h-6 rounded-full mx-auto mb-1.5 block bg-gradient-to-tr from-[#092c3c] via-[#f59e42] to-[#ffd28e] border border-cream/30 shadow-[0_0_10px_rgba(245,158,66,0.45)]"></span>
-                  <span class="block text-xs font-medium">Analógico</span>
-                </button>
-                <button type="button" data-mood="cold"
-                        class="mood-btn min-h-[68px] rounded-2xl p-3 text-center border transition-all">
-                  <span class="w-6 h-6 rounded-full mx-auto mb-1.5 block bg-gradient-to-tr from-[#05182d] via-[#4ea4e8] to-[#dff2ff] border border-sky-200/45 shadow-[0_0_10px_rgba(126,200,255,0.5)]"></span>
-                  <span class="block text-xs font-medium">Luna Fría</span>
-                </button>
-                <button type="button" data-mood="red"
-                        class="mood-btn min-h-[68px] rounded-2xl p-3 text-center border transition-all">
-                  <span class="w-6 h-6 rounded-full mx-auto mb-1.5 block bg-gradient-to-tr from-[#1b070b] via-[#c92020] to-[#ff6b57] border border-red-300/40 shadow-[0_0_10px_rgba(235,56,44,0.55)]"></span>
-                  <span class="block text-xs font-medium">Luna Roja</span>
-                </button>
-                <button type="button" data-mood="nocturne"
-                        class="mood-btn min-h-[68px] rounded-2xl p-3 text-center border transition-all">
-                  <span class="w-6 h-6 rounded-full mx-auto mb-1.5 block bg-gradient-to-tr from-[#020a12] via-[#0c2738] to-[#e6c48c] border border-cream/25 shadow-[0_0_10px_rgba(230,196,140,0.3)]"></span>
-                  <span class="block text-xs font-medium">Nocturno</span>
                 </button>
               </div>
             </div>
@@ -1705,7 +1709,7 @@
 
         moodBtns.forEach((btn) => {
           const active = btn.dataset.mood === state.mood;
-          btn.className = `mood-btn min-h-[68px] rounded-2xl p-3 text-center border transition-all ${
+          btn.className = `mood-btn min-h-[54px] lg:min-h-[64px] rounded-xl lg:rounded-2xl px-1.5 py-2 lg:p-2.5 text-center border transition-all flex flex-col items-center justify-center ${
             active
               ? "bg-moon-400/15 border-moon-400/80 text-cream"
               : "bg-night-950/55 border-cream/10 text-cream/65 hover:border-cream/30"
