@@ -697,12 +697,12 @@
     <section id="contacto" class="band-cream">
       <div class="wrap contact-wrap">
         <div>
-          <div class="contact-tabs" role="tablist" aria-label="Elegir entre novedades o mensaje">
-            <button class="contact-tab" type="button" role="tab" id="tabNewsletter" aria-selected="true" aria-controls="panelNewsletter">Enterate primero</button>
+          <div class="contact-tabs" role="tablist" aria-label="Elegir entre newsletter o mensaje">
+            <button class="contact-tab" type="button" role="tab" id="tabNewsletter" aria-selected="true" aria-controls="panelNewsletter">Newsletter</button>
             <button class="contact-tab" type="button" role="tab" id="tabContact" aria-selected="false" aria-controls="panelContact">Escribinos</button>
           </div>
-          <h2 id="contactHeading">Enterate primero</h2>
-          <p class="contact-lead" id="contactLead">Registrá tu mail para enterarte de próximos singles, lanzamientos y fechas de shows antes que nadie.</p>
+          <h2 id="contactHeading">Suscribite</h2>
+          <p class="contact-lead" id="contactLead">Enterate antes que nadie todas las novedades de PARALEIA.</p>
         </div>
 
         <div>
@@ -909,11 +909,11 @@
         tabCf.setAttribute('aria-selected', String(isContact));
         panelNl.hidden = isContact;
         panelCf.hidden = !isContact;
-        if (heading) heading.textContent = isContact ? 'Escribinos' : 'Enterate primero';
+        if (heading) heading.textContent = isContact ? 'Escribinos' : 'Suscribite';
         if (lead) {
           lead.textContent = isContact
             ? '¿Una fecha, prensa o una colaboración? Mandanos un mensaje.'
-            : 'Registrá tu mail para enterarte de próximos singles, lanzamientos y fechas de shows antes que nadie.';
+            : 'Enterate antes que nadie todas las novedades de PARALEIA.';
         }
       }
 
