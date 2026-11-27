@@ -597,26 +597,35 @@
             Registrá tu mail para enterarte de los próximos singles, lanzamientos y fechas de shows de <span class="text-moon-300 font-semibold">PARALEIA</span> antes que nadie.
           </p>
 
-          <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <!-- Web3Forms Access Key de PARALEIA (enruta directo a infoparaleia@gmail.com) -->
-            <input type="hidden" name="access_key" value="127d739e-74e6-4476-b8c0-5b7bc81ee5d2" />
-            <input type="hidden" name="subject" value="Nuevo registro de novedades — Figuras Perfectas (PARALEIA)" />
-            <input type="hidden" name="from_name" value="PARALEIA · Figuras Perfectas" />
-            <input type="hidden" name="message" value="Quiero registrar mi mail para recibir novedades, próximos singles y fechas de shows de PARALEIA antes que nadie." />
-            <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <form id="newsletter-form" class="flex flex-col gap-3 max-w-md mx-auto">
+            <input type="checkbox" name="botcheck" id="newsletter-botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-            <label for="newsletter-email" class="sr-only">Tu correo electrónico</label>
-            <input id="newsletter-email"
-                   name="email"
-                   type="email"
-                   required
-                   autocomplete="email"
-                   placeholder="tuemail@ejemplo.com"
-                   class="flex-1 min-h-[52px] rounded-2xl px-4 py-3 bg-night-950/80 border border-cream/20 focus:border-moon-400 focus:outline-none focus:ring-2 focus:ring-moon-400/25 text-sm text-cream placeholder:text-cream/40 transition-all" />
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label for="newsletter-name" class="sr-only">Tu nombre (opcional)</label>
+                <input id="newsletter-name"
+                       name="name"
+                       type="text"
+                       autocomplete="given-name"
+                       placeholder="Tu nombre (opcional)"
+                       class="w-full min-h-[52px] rounded-2xl px-4 py-3 bg-night-950/80 border border-cream/20 focus:border-moon-400 focus:outline-none focus:ring-2 focus:ring-moon-400/25 text-sm text-cream placeholder:text-cream/40 transition-all" />
+              </div>
+
+              <div>
+                <label for="newsletter-email" class="sr-only">Tu correo electrónico</label>
+                <input id="newsletter-email"
+                       name="email"
+                       type="email"
+                       required
+                       autocomplete="email"
+                       placeholder="tuemail@ejemplo.com"
+                       class="w-full min-h-[52px] rounded-2xl px-4 py-3 bg-night-950/80 border border-cream/20 focus:border-moon-400 focus:outline-none focus:ring-2 focus:ring-moon-400/25 text-sm text-cream placeholder:text-cream/40 transition-all" />
+              </div>
+            </div>
 
             <button id="newsletter-submit"
                     type="submit"
-                    class="btn-amber min-h-[52px] rounded-2xl px-6 py-3.5 text-sm font-bold tracking-wide shrink-0 inline-flex items-center justify-center gap-2">
+                    class="btn-amber w-full min-h-[52px] rounded-2xl px-6 py-3.5 text-sm font-bold tracking-wide shrink-0 inline-flex items-center justify-center gap-2">
               <span>Registrarme</span>
             </button>
           </form>
@@ -2034,7 +2043,7 @@
     }
 
     // =========================================================================
-    // 8. REGISTRO DE NOVEDADES (WEB3FORMS -> infoparaleia@gmail.com)
+    // 8. REGISTRO DE NOVEDADES (/api/subscribe -> Mailchimp + Bienvenida)
     // =========================================================================
     function initNewsletterForm() {
       const form = document.getElementById("newsletter-form");
@@ -2044,7 +2053,10 @@
 
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
+        const nameInput = document.getElementById("newsletter-name");
         const emailInput = document.getElementById("newsletter-email");
+        const botInput = document.getElementById("newsletter-botcheck");
+        const name = nameInput ? nameInput.value.trim() : "";
         const email = emailInput ? emailInput.value.trim() : "";
         if (!email) return;
 
@@ -2054,15 +2066,22 @@
         status.textContent = "Registrando tu mail…";
 
         try {
-          const res = await fetch("https://api.web3forms.com/submit", {
+          const res = await fetch("/api/subscribe", {
             method: "POST",
-            headers: { Accept: "application/json" },
-            body: new FormData(form)
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: JSON.stringify({
+              name,
+              email,
+              source: "figuras-perfectas",
+              botcheck: botInput ? botInput.checked : false
+            })
           });
           const data = await res.json();
-          if (data && data.success) {
+          if (data && data.ok) {
             status.className = "text-xs mt-3 min-h-[18px] text-moon-300 font-medium";
-            status.textContent = "¡Listo! Ya estás en la lista para enterarte antes que nadie.";
+            status.textContent = data.welcomeEmail
+              ? "¡Listo! Ya estás en la lista. Revisá tu casilla porque te mandamos un mail de bienvenida."
+              : "¡Listo! Ya estás en la lista para enterarte antes que nadie.";
             showToast("¡Mail registrado! Te avisamos antes que nadie.");
             form.reset();
           } else {

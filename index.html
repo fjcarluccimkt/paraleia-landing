@@ -538,9 +538,10 @@
     }
     .contact-lead { margin-top: 12px; font-size: 1.06rem; color: var(--muted); max-width: 38ch; }
     .nl-row { display: grid; gap: 12px; align-items: end; }
-    @media (min-width: 520px) { .nl-row { grid-template-columns: 1fr auto; } }
+    @media (min-width: 520px) { .nl-row { grid-template-columns: 1fr 1fr; } }
     .nl-row .field { margin-bottom: 0; }
     .nl-submit {
+      margin-top: 14px;
       min-height: 50px; padding: 12px 28px; border: 0; border-radius: 999px;
       background: var(--accent); color: #fff; font: inherit; font-weight: 700; cursor: pointer;
       white-space: nowrap; transition: background-color 0.18s, transform 0.16s;
@@ -791,19 +792,18 @@
         <div>
           <div id="panelNewsletter" role="tabpanel" aria-labelledby="tabNewsletter">
             <form id="newsletterForm">
-              <!-- Access Key de https://web3forms.com (enruta los registros a infoparaleia@gmail.com) -->
-              <input type="hidden" name="access_key" value="127d739e-74e6-4476-b8c0-5b7bc81ee5d2">
-              <input type="hidden" name="subject" value="Nuevo registro de novedades — Web PARALEIA">
-              <input type="hidden" name="from_name" value="Web PARALEIA · Novedades">
-              <input type="hidden" name="message" value="Quiero registrar mi mail para recibir novedades, próximos singles y fechas de shows de PARALEIA antes que nadie.">
-              <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <input type="checkbox" name="botcheck" id="nl-botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
               <div class="nl-row">
+                <div class="field">
+                  <label for="nl-name">Nombre <span style="font-weight:400; color:var(--muted);">(opcional)</span></label>
+                  <input id="nl-name" name="name" type="text" autocomplete="given-name" placeholder="Tu nombre">
+                </div>
                 <div class="field">
                   <label for="nl-email">Email</label>
                   <input id="nl-email" name="email" type="email" required autocomplete="email" placeholder="tucorreo@ejemplo.com">
                 </div>
-                <button type="submit" class="nl-submit">Registrarme</button>
               </div>
+              <button type="submit" class="nl-submit">Registrarme</button>
               <p class="cf-status" id="nlStatus" role="status" aria-live="polite"></p>
             </form>
           </div>
@@ -1007,19 +1007,40 @@
       });
     })();
 
-    // Registro de novedades (Web3Forms)
+    // Registro de novedades (/api/subscribe -> Mailchimp + Mail de bienvenida vía Brevo)
     (function () {
       var form = document.getElementById('newsletterForm');
       if (!form) return;
       var status = document.getElementById('nlStatus'), btn = form.querySelector('.nl-submit');
       form.addEventListener('submit', function (e) {
         e.preventDefault();
+        var nameEl = document.getElementById('nl-name');
+        var emailEl = document.getElementById('nl-email');
+        var botEl = document.getElementById('nl-botcheck');
+        var payload = {
+          name: nameEl ? nameEl.value.trim() : '',
+          email: emailEl ? emailEl.value.trim() : '',
+          source: 'web-paraleia',
+          botcheck: botEl ? botEl.checked : false
+        };
         status.className = 'cf-status'; status.textContent = 'Registrando tu mail…'; btn.disabled = true;
-        fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
+        fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        })
           .then(function (r) { return r.json(); })
           .then(function (d) {
-            if (d.success) { status.className = 'cf-status ok'; status.textContent = '¡Listo! Ya estás en la lista para enterarte antes que nadie.'; form.reset(); }
-            else { status.className = 'cf-status err'; status.textContent = 'Hubo un problema al registrar tu mail. Probá de nuevo en unos minutos.'; }
+            if (d && d.ok) {
+              status.className = 'cf-status ok';
+              status.textContent = d.welcomeEmail
+                ? '¡Listo! Ya estás en la lista. Revisá tu casilla porque te mandamos un mail de bienvenida.'
+                : '¡Listo! Ya estás en la lista para enterarte antes que nadie.';
+              form.reset();
+            } else {
+              status.className = 'cf-status err';
+              status.textContent = 'Hubo un problema al registrar tu mail. Probá de nuevo en unos minutos.';
+            }
           })
           .catch(function () { status.className = 'cf-status err'; status.textContent = 'No se pudo enviar. Revisá tu conexión y probá de nuevo.'; })
           .finally(function () { btn.disabled = false; });
