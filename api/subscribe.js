@@ -1,5 +1,3 @@
-const crypto = require('crypto');
-
 const SITE_URL = 'https://paraleia.vercel.app';
 const SINGLE_URL = `${SITE_URL}/figuras-perfectas/`;
 const DEFAULT_SENDER_EMAIL = 'infoparaleia@gmail.com';
@@ -323,62 +321,44 @@ PARALEIA
 Web oficial de PARALEIA: ${SITE_URL}/`;
 }
 
-async function addToMailchimp({ email, name, source }) {
-  const apiKey = process.env.MAILCHIMP_API_KEY;
-  const listId = process.env.MAILCHIMP_LIST_ID;
-  if (!apiKey || !listId) return { skipped: true };
-
-  const dc = apiKey.split('-')[1];
-  if (!dc) throw new Error('MAILCHIMP_API_KEY inválida (falta datacenter ej. -us21)');
-
-  const subscriberHash = crypto.createHash('md5').update(email).digest('hex');
-  const auth = 'Basic ' + Buffer.from(`anystring:${apiKey}`).toString('base64');
-  const memberUrl = `https://${dc}.api.mailchimp.com/3.0/lists/${encodeURIComponent(listId)}/members/${subscriberHash}`;
-
+async function saveContactInBrevo({ apiKey, email, name }) {
   const payload = {
-    email_address: email,
-    status_if_new: 'subscribed',
+    email,
+    updateEnabled: true,
   };
+
   if (name) {
-    payload.merge_fields = { FNAME: name };
+    // Brevo ignora atributos inexistentes y guarda el que corresponda al idioma de la cuenta
+    payload.attributes = { FIRSTNAME: name, NOMBRE: name };
   }
 
-  const res = await fetch(memberUrl, {
-    method: 'PUT',
+  const rawListId = process.env.BREVO_LIST_ID;
+  if (rawListId) {
+    const parsedId = Number(String(rawListId).trim());
+    if (Number.isInteger(parsedId) && parsedId > 0) {
+      payload.listIds = [parsedId];
+    }
+  }
+
+  const res = await fetch('https://api.brevo.com/v3/contacts', {
+    method: 'POST',
     headers: {
-      Authorization: auth,
+      'api-key': apiKey,
       'Content-Type': 'application/json',
+      Accept: 'application/json',
     },
     body: JSON.stringify(payload),
   });
 
   if (!res.ok) {
     const body = await res.text();
-    throw new Error(`Mailchimp error (${res.status}): ${body}`);
+    throw new Error(`Brevo contacts error (${res.status}): ${body}`);
   }
-
-  // Etiqueta opcional de origen (no bloquea el registro si falla)
-  const tagName = source === 'figuras-perfectas' ? 'figuras-perfectas' : 'web-paraleia';
-  try {
-    await fetch(`${memberUrl}/tags`, {
-      method: 'POST',
-      headers: {
-        Authorization: auth,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        tags: [{ name: tagName, status: 'active' }],
-      }),
-    });
-  } catch (_) {}
 
   return { ok: true };
 }
 
-async function sendWelcomeViaBrevo({ email, name }) {
-  const apiKey = process.env.BREVO_API_KEY;
-  if (!apiKey) return { skipped: true };
-
+async function sendWelcomeViaBrevo({ apiKey, email, name }) {
   const senderEmail = process.env.SENDER_EMAIL || DEFAULT_SENDER_EMAIL;
   const senderName = process.env.SENDER_NAME || DEFAULT_SENDER_NAME;
   const replyToEmail = process.env.REPLY_TO_EMAIL || senderEmail;
@@ -402,7 +382,7 @@ async function sendWelcomeViaBrevo({ email, name }) {
 
   if (!res.ok) {
     const body = await res.text();
-    throw new Error(`Brevo error (${res.status}): ${body}`);
+    throw new Error(`Brevo email error (${res.status}): ${body}`);
   }
 
   return { ok: true };
@@ -474,11 +454,10 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ ok: false, error: 'invalid_email' });
   }
 
-  const hasMailchimp = Boolean(process.env.MAILCHIMP_API_KEY && process.env.MAILCHIMP_LIST_ID);
-  const hasBrevo = Boolean(process.env.BREVO_API_KEY);
+  const apiKey = process.env.BREVO_API_KEY;
 
-  // Si todavía no cargaste las API keys en Vercel, no perdemos el registro: cae a Web3Forms
-  if (!hasMailchimp && !hasBrevo) {
+  // Si todavía no está cargada BREVO_API_KEY en Vercel, resguardamos el registro vía Web3Forms
+  if (!apiKey) {
     try {
       await forwardToWeb3Forms({ email, name, source });
       return res.status(200).json({ ok: true, mode: 'fallback_web3forms' });
@@ -488,35 +467,32 @@ module.exports = async function handler(req, res) {
     }
   }
 
-  const results = { mailchimp: false, welcomeEmail: false };
-  const errors = [];
+  const results = { contactSaved: false, welcomeEmail: false };
 
   await Promise.all([
-    addToMailchimp({ email, name, source })
-      .then((r) => {
-        if (r.ok) results.mailchimp = true;
+    saveContactInBrevo({ apiKey, email, name })
+      .then(() => {
+        results.contactSaved = true;
       })
       .catch((err) => {
         console.error(err);
-        errors.push('mailchimp');
       }),
-    sendWelcomeViaBrevo({ email, name })
-      .then((r) => {
-        if (r.ok) results.welcomeEmail = true;
+    sendWelcomeViaBrevo({ apiKey, email, name })
+      .then(() => {
+        results.welcomeEmail = true;
       })
       .catch((err) => {
         console.error(err);
-        errors.push('brevo');
       }),
   ]);
 
-  if (!results.mailchimp && !results.welcomeEmail) {
-    return res.status(502).json({ ok: false, error: 'upstream_failed' });
+  if (!results.contactSaved && !results.welcomeEmail) {
+    return res.status(502).json({ ok: false, error: 'brevo_failed' });
   }
 
   return res.status(200).json({
     ok: true,
-    mailchimp: results.mailchimp,
+    contactSaved: results.contactSaved,
     welcomeEmail: results.welcomeEmail,
   });
 };
